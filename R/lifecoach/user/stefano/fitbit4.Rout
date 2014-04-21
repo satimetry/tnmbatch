@@ -1,0 +1,85 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> # Send notification
+> 
+> rootdir <- "/Users/stefanopicozzi/websites/nudge"
+> user <- "stefano"
+> ppi <- 300
+> userid <- "7"
+> programid <- "1"
+> 
+> library(rjson)
+> 
+> wd <- paste(rootdir, "/R/fitbit/user/", user, sep="")
+> setwd(wd)
+> 
+> # Stefano user key = u8JjTgEDJxz2zkkHaK5VM57iDZJsz6
+> 
+> load("userOptionsDF.dat")
+> smsDF <- cbind(userOptionsDF, smstxt = userOptionsDF$rulename)
+> smsDF <- data.frame(lapply(smsDF, as.character), stringsAsFactors = FALSE)
+> stepDateTime <- as.POSIXct(smsDF$ruledate, format = "%a %b %d %H:%M:%S EST %Y")
+> #stepDateTime <- as.POSIXct(smsDF$ruledate, format = "%Y-%m-%d")
+> smsDF <-cbind(smsDF, stepDateTime = stepDateTime)
+> 
+> today <- Sys.Date()
+> print(today)
+[1] "2014-01-08"
+> for (i in 1:nrow(smsDF)) {
++    dateTime <- smsDF[i, "stepDateTime"]
++    diff <- as.numeric(difftime(today, dateTime, tz = "EST", units = c("days")))
++    if ( diff > 4 ) {
++       next
++    }
++    
++    print(smsDF[i, "smstxt" ])  
++    msg <- paste(smsDF[i, "rulemsg" ], ". To opt-out from this nudge visit: ", "http://www.thenudgemachine.com", sep = "") 
++    
++    curl_cmd = paste(
++       "curl -s",
++       " -F \"token=acqa2Xgn6Fj7NsctUaxqPm8ngURksP\" ",
++       " -F \"user=u8JjTgEDJxz2zkkHaK5VM57iDZJsz6\" ",
++       " -F \"message=", msg, "\" ",
++       " https://api.pushover.net/1/messages.json", 
++       sep = "")
++    
++    result <- tryCatch({
++       system(curl_cmd)
++    }, warning = function(w) {
++       print("Warning")
++       stop()
++    }, error = function(e) {
++       print("Error")
++       stop()
++    }, finally = {
++    })
++ }
+[1] "ruleAverageStepCount"
+{"status":1,"request":"873e70fc5deff8f2850678939cf07cd3"}[1] "ruleHighStepCount"
+{"status":1,"request":"27dcf0900a7007dc252dd3a0c26c4cb7"}[1] "ruleOutputLowSteps"
+{"status":1,"request":"0e9bbbdb498b8c810889c9a438663cd5"}[1] "ruleOutputLowSteps"
+{"status":1,"request":"4c3d693b9cef4dd654e427181a5d2adc"}[1] "ruleZeroStepCount"
+{"status":1,"request":"fbf2992707738bda411b655f26daafa7"}> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.655   0.067  10.491 

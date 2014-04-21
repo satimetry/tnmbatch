@@ -1,0 +1,93 @@
+# Pull down observations and insert into database
+
+Sys.setenv(NOAWT = "true")
+library(httr)
+library(rjson)
+library('RCurl')
+
+# Get user details for userid
+user <- getUser(rooturl, userid)
+username <- user['username']
+pushoveruser <- user['pushoveruser']
+fitbitkey <- user['fitbitkey']                             
+fitbitsecret <- user['fitbitsecret']
+fitbitappname <- user['fitbitappname']      
+
+if ( ! is.na(fitbitkey) ) {
+
+   token_url = "http://api.fitbit.com/oauth/request_token"
+   access_url = "http://api.fitbit.com/oauth/access_token"
+   auth_url = "http://www.fitbit.com/oauth/authorize"
+
+   fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
+   fitbit = oauth_endpoint(token_url, auth_url, access_url)
+   #token = oauth1.0_token(fitbit,fbr)
+   #sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
+
+   #save(token, file="fitbit-token.RData")
+   #save(sig, file="fitbit-sig.RData")
+
+   load(file = paste("../user/", username, "/fitbit-token.RData", sep = ""), .GlobalEnv)
+   load(file = paste("../user/", username, "/fitbit-sig.RData", sep = ""), .GlobalEnv)
+
+   getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/2014-03-30.json"
+   weightJSON <- tryCatch({
+      GET(getURL, sig)
+   }, warning = function(w) {
+      print("Warning weight")
+      stop()
+   }, error = function(e) {
+      print("Error weight")
+      stop()
+   }, finally = {
+   })
+   
+   getURL <- "http://api.fitbit.com/1/user/-/activities/steps/date/"
+   #startdate <- Sys.Date() - 7
+   startdate <- "2014-04-01"
+   startdatestr <- as.POSIXct(startdate, format = "%a %b %d")
+   getURL <- paste(getURL, startdate, "/today.json", sep = "")
+
+   # get all step data from my first day of use to the current date:
+   stepsJSON <- tryCatch({
+      GET(getURL, sig)
+   }, warning = function(w) {
+      print("Warning steps")
+      stop()
+   }, error = function(e) {
+      print("Error steps")
+      stop()
+   }, finally = {
+   })
+
+   stepsDF <- NULL
+   for (i in 1:length(content(stepsJSON)$`activities-steps`)) {
+      x = c( content(stepsJSON)$`activities-steps`[i][[1]][['dateTime']], content(stepsJSON)$`activities-steps`[i][[1]][['value']] ) 
+      stepsDF <- cbind(stepsDF, x)
+   }
+   stepsDF <- t(stepsDF)
+   colnames(stepsDF) = c("obsdate", "obsvalue")
+   stepsDF = as.data.frame(stepsDF, row.names = 1)
+
+   inputDF <- cbind( username = c(username), stepsDF)
+   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
+
+   # Remove the userobs for this programid and userid and obsname
+   delUserobs(rooturl, programid, userid)
+
+   for (i in 1:nrow(inputDF)) { 
+
+      userobs <- c(programid=programid,
+                userid,
+                obsname="\"activity\"",
+                obsdate=paste("\"", inputDF[i, "obsdate"], "\"", sep=""),
+                obsvalue=inputDF[i, "obsvalue"],
+                obsdesc="\"System generated from fitbit.com stepcount download\""                
+               )
+   
+      postUserobs(rooturl, userobs)
+   
+   }
+   # userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
+
+}
