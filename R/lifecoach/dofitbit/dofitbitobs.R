@@ -15,21 +15,13 @@ fitbitappname <- user['fitbitappname']
 
 if ( ! is.na(fitbitkey) ) {
 
-   token_url = "http://api.fitbit.com/oauth/request_token"
-   access_url = "http://api.fitbit.com/oauth/access_token"
-   auth_url = "http://www.fitbit.com/oauth/authorize"
-
+   token_url <- "http://api.fitbit.com/oauth/request_token"
+   access_url <- "http://api.fitbit.com/oauth/access_token"
+   auth_url <- "http://www.fitbit.com/oauth/authorize"
    fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
-   fitbit = oauth_endpoint(token_url, auth_url, access_url)
-   #token = oauth1.0_token(fitbit,fbr)
-   #sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
-
-   #save(token, file="fitbit-token.RData")
-   #save(sig, file="fitbit-sig.RData")
-
-   load(file = paste("../user/", username, "/fitbit-token.RData", sep = ""), .GlobalEnv)
-   load(file = paste("../user/", username, "/fitbit-sig.RData", sep = ""), .GlobalEnv)
-
+   token <- readRDS(file = paste("../user/", username, "/fitbit-token.RDS", sep = ""))
+   sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
+   
    getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/2014-03-30.json"
    weightJSON <- tryCatch({
       GET(getURL, sig)

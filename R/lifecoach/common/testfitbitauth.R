@@ -4,32 +4,16 @@ library(httr)
 library(rjson)
 library('RCurl')
 
-username <- "stefano"
-pushoveruser <- "u8JjTgEDJxz2zkkHaK5VM57iDZJsz6"
-fitbitkey <- "9b8a4dfbb4684ba5b5fb3b07122e99a7"                          
-fitbitsecret <- "27ad03d202d8439eb693d1b8430ceca8"
-fitbitappname <- "stefano-fitbit"      
-
-token_url = "http://api.fitbit.com/oauth/request_token"
-access_url = "http://api.fitbit.com/oauth/access_token"
-auth_url = "http://www.fitbit.com/oauth/authorize"
-
-load(file = paste("fitbit-token.RData", sep = ""), .GlobalEnv)
-load(file = paste("fitbit-sig.RData", sep = ""), .GlobalEnv)
+fitbitkey <- "a7dd1c18a2a64dbcbd11e10482c8d5ef"                          
+fitbitsecret <- "ff877fa1f54741ae93a549bdb2d7e900"
+fitbitappname <- "TheNudgeMachine"      
+token_url <- "http://api.fitbit.com/oauth/request_token"
+access_url <- "http://api.fitbit.com/oauth/access_token"
+auth_url <- "http://www.fitbit.com/oauth/authorize"
+fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
+token <- readRDS(file = paste("fitbit-token.RDS", sep = ""))
 sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
 
-getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/2014-03-30.json"
-weightJSON <- tryCatch({
-  GET(getURL, sig)
-}, warning = function(w) {
-  print("Warning weight")
-  stop()
-}, error = function(e) {
-  print("Error weight")
-  stop()
-}, finally = {
-})
-   
 getURL <- "http://api.fitbit.com/1/user/-/activities/steps/date/"
 #startdate <- Sys.Date() - 7
 startdate <- "2014-04-01"
@@ -49,3 +33,14 @@ stepsJSON <- tryCatch({
 })
 
 
+getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/2014-03-30.json"
+weightJSON <- tryCatch({
+   GET(getURL, sig)
+}, warning = function(w) {
+   print("Warning weight")
+   stop()
+}, error = function(e) {
+   print("Error weight")
+   stop()
+}, finally = {
+})
