@@ -8,6 +8,15 @@
 echo "Show domain status ..."
 rhc domain show -p Dopamine@1
 
+echo "Check nudge database application status ..."
+client=`rhc app show --state nudgedb -p Dopamine@1 | grep started | wc -l`
+if [ $client == 0 ]; then
+  echo "Application is starting"
+  rhc app start nudgedb -p Dopamine@1
+else
+  echo "Nudge Database Application is started"
+fi
+
 echo "Check nudge client application status ..."
 client=`rhc app show --state nudge -p Dopamine@1 | grep started | wc -l`
 if [ $client == 0 ]; then
