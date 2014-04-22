@@ -26,10 +26,7 @@ else
   echo "Nudge Server Application is started"
 fi
 
-cd ~/websites/nudge
-git pull
-
-cd ~/websites/nudge/R/lifecoach
+cd ~/tnm/tnmbatch/R/lifecoach
 
 echo "Do GAS ..."
 ./dogas/dogas.R
@@ -38,6 +35,6 @@ echo "Do fitbit ..."
 ./dofitbit/dofitbit.R
 
 cd ~/websites/nudge
-git add . --all
+git add images
 git commit -am "dolifecoach crontab batch script"
 git push
