@@ -1,0 +1,719 @@
+Show domain status ...
+Domain spicozzi (owned by spicozzi@redhat.com)
+----------------------------------------------
+  Created:            Feb 13, 2013  4:25 AM
+  ID:                 511a7afbf2cb83b780008706
+  Allowed Gear Sizes: small, medium
+
+  bpms @ http://bpms-spicozzi.rhcloud.com/ (uuid: 53533b3e5004469566000054)
+  -------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Apr 20  1:13 PM
+    Gears:      1 (defaults to medium)
+    Git URL:    ssh://53533b3e5004469566000054@bpms-spicozzi.rhcloud.com/~/git/bpms.git/
+    SSH:        53533b3e5004469566000054@bpms-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jboss-bpms-6.0.1 (Red Hat JBoss BPM Suite 6)
+    --------------------------------------------
+      From:    https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml
+      Website: http://www.jboss.org
+      Gears:   1 medium
+
+  ema @ http://ema-spicozzi.rhcloud.com/ (uuid: 511a7afbf2cb83b780008739)
+  -----------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Feb 02, 2013  5:56 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://752af38c520047febc3c087686587ea5@ema-spicozzi.rhcloud.com/~/git/ema.git/
+    SSH:        752af38c520047febc3c087686587ea5@ema-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    python-2.6 (Python 2.6)
+    -----------------------
+      Gears: Located with mysql-5.1
+
+    mysql-5.1 (MySQL 5.1)
+    ---------------------
+      Gears:          Located with python-2.6
+      Connection URL: mysql://127.3.245.129:3306/
+      Database Name:  ema
+      Password:       KEyDk5UdtGDg
+      Username:       adminIZyFNTZ
+
+  jenkins @ http://jenkins-spicozzi.rhcloud.com/ (uuid: 51eeff445973ca02af00002e)
+  -------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Jul 24, 2013  8:10 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://51eeff445973ca02af00002e@jenkins-spicozzi.rhcloud.com/~/git/jenkins.git/
+    SSH:        51eeff445973ca02af00002e@jenkins-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jenkins-1 (Jenkins Server)
+    --------------------------
+      Gears: 1 small
+
+  myapp @ http://myapp-spicozzi.rhcloud.com/ (uuid: 5254b4175973cab6e5000240)
+  ---------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Oct 09, 2013 12:40 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://5254b4175973cab6e5000240@myapp-spicozzi.rhcloud.com/~/git/myapp.git/
+    SSH:        5254b4175973cab6e5000240@myapp-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    php-5.3 (PHP 5.3)
+    -----------------
+      Gears: 1 small
+
+  myjbossapp @ http://myjbossapp-spicozzi.rhcloud.com/ (uuid: 51e60c4550044604cf00008a)
+  -------------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Jul 17, 2013  1:15 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://51e60c4550044604cf00008a@myjbossapp-spicozzi.rhcloud.com/~/git/myjbossapp.git/
+    SSH:        51e60c4550044604cf00008a@myjbossapp-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jbossas-7 (JBoss Application Server 7)
+    --------------------------------------
+      Gears: 1 small
+
+  myphpapp @ http://myphpapp-spicozzi.rhcloud.com/ (uuid: 522d74c9500446e3600000d8)
+  ---------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Sep 09, 2013  5:12 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://522d74c9500446e3600000d8@myphpapp-spicozzi.rhcloud.com/~/git/myphpapp.git/
+    SSH:        522d74c9500446e3600000d8@myphpapp-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    php-5.3 (PHP 5.3)
+    -----------------
+      Gears: Located with jenkins-client-1
+
+    jenkins-client-1 (Jenkins Client)
+    ---------------------------------
+      Gears:   Located with php-5.3
+      Job URL: https://jenkins-spicozzi.rhcloud.com/job/myphpapp-build/
+
+  nudge @ http://nudge-spicozzi.rhcloud.com/ (uuid: 53391eda500446b5f9000295)
+  ---------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Mar 31  6:52 PM
+    Gears:      1 (defaults to medium)
+    Git URL:    ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/
+    SSH:        53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+    Aliases:    www.satimetry.com
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with php-5.3
+
+    php-5.3 (PHP 5.3)
+    -----------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+
+  nudgedb @ http://nudgedb-spicozzi.rhcloud.com/ (uuid: 535239475004463b2b000240)
+  -------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Apr 19  6:52 PM
+    Gears:      2 (defaults to medium)
+    Git URL:    ssh://535239475004463b2b000240@nudgedb-spicozzi.rhcloud.com/~/git/nudgedb.git/
+    SSH:        535239475004463b2b000240@nudgedb-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with ruby-1.9
+
+    ruby-1.9 (Ruby 1.9)
+    -------------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          1 medium
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  nudgedb
+      Password:       IXpNxqRhElea
+      Username:       admins4SFfJZ
+
+  nudgeserver @ http://nudgeserver-spicozzi.rhcloud.com/ (uuid: 533673665973ca659a000cbf)
+  ---------------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Mar 29  6:16 PM
+    Gears:      2 (defaults to medium)
+    Git URL:    ssh://533673665973ca659a000cbf@nudgeserver-spicozzi.rhcloud.com/~/git/nudgeserver.git/
+    SSH:        533673665973ca659a000cbf@nudgeserver-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with jbosseap-6
+
+    jbosseap-6 (JBoss Enterprise Application Platform 6)
+    ----------------------------------------------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+    This gear costs an additional $0.06 per gear after the first 3 gears.
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          1 medium
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  nudgeserver
+      Password:       RgySJArumD8C
+      Username:       adminIs3wpEv
+
+  tnm @ http://tnm-spicozzi.rhcloud.com/ (uuid: 530e40855973ca7ee3000012)
+  -----------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Feb 27  6:29 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://530e40855973ca7ee3000012@tnm-spicozzi.rhcloud.com/~/git/tnm.git/
+    SSH:        530e40855973ca7ee3000012@tnm-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jbosseap-6 (JBoss Enterprise Application Platform 6)
+    ----------------------------------------------------
+      Gears: Located with mysql-5.5
+    This gear costs an additional $0.06 per gear after the first 3 gears.
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          Located with jbosseap-6
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  tnm
+      Password:       pSSC3CL7L67U
+      Username:       adminYQqzM9J
+
+  tweetdj @ http://tweetdj-spicozzi.rhcloud.com/ (uuid: 511a7afbf2cb83b78000872d)
+  -------------------------------------------------------------------------------
+    Domain:          spicozzi
+    Created:         Jan 20, 2013  9:02 AM
+    Gears:           1 (defaults to small)
+    Git URL:         ssh://f2470da2ddea45cb9aba99a24a1e2c99@tweetdj-spicozzi.rhcloud.com/~/git/tweetdj.git/
+    Initial Git URL: git://github.com/openshift/django-example.git
+    SSH:             f2470da2ddea45cb9aba99a24a1e2c99@tweetdj-spicozzi.rhcloud.com
+    Deployment:      auto (on git push)
+
+    python-2.6 (Python 2.6)
+    -----------------------
+      Gears: 1 small
+
+You have 11 applications in your domain.
+Check nudge client application status ...
+Nudge Client Application is started
+Check nudge server application status ...
+Nudge Server Application is started
+Do GAS ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->APPLYNUDGES: 7-gas11"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-22 14:21:21\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-25 08:17:44\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-19 22:01:37\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:07\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:17\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Reminder to record goal gas11 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\",\"rulename\":\"ruleDailySurveyReminder\",\"ruledata\":\"http://www.satimetry.com/goal.php?ruletype=gaslow\"}, {\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Nudge says that for goal gas11 you attained your best expected outcome 1 times in the past 60 days\",\"rulename\":\"ruleBestExpectedCount\",\"ruledata\":\"http://www.satimetry.com/msg.php\"}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleBestExpectedCount
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :80, \"rulename\" :\"ruleBestExpectedCount\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Nudge says that for goal gas11 you attained your best expected outcome 1 times in the past 60 days\" }"
+[1] ruleDailySurveyReminder
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :1, \"rulename\" :\"ruleDailySurveyReminder\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Reminder to record goal gas11 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\" }"
+[1] "--->PLOTS: 7-gas11"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) > 0) {
++     polldesc <- obsname
++     dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++         username, sep = "")), show .... [TRUNCATED] 
+null device 
+          1 
+[1] "--->APPLYNUDGES: 7-gas12"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-03-22 14:51:36\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-03-23 11:03:34\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-03-25 08:10:33\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-04-20 18:46:38\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-04-20 18:46:50\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-04-20 18:46:58\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas12 , \"obsdate\": \"2014-04-20 18:46:58\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Reminder to record goal gas12 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\",\"rulename\":\"ruleDailySurveyReminder\",\"ruledata\":\"http://www.satimetry.com/goal.php?ruletype=gaslow\"}, {\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Nudge says that for goal gas12 you attained your best expected outcome 1 times in the past 60 days\",\"rulename\":\"ruleBestExpectedCount\",\"ruledata\":\"http://www.satimetry.com/msg.php\"}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleBestExpectedCount
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :80, \"rulename\" :\"ruleBestExpectedCount\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Nudge says that for goal gas12 you attained your best expected outcome 1 times in the past 60 days\" }"
+[1] ruleDailySurveyReminder
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :1, \"rulename\" :\"ruleDailySurveyReminder\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Reminder to record goal gas12 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\" }"
+[1] "--->PLOTS: 7-gas12"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) > 0) {
++     polldesc <- obsname
++     dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++         username, sep = "")), show .... [TRUNCATED] 
+null device 
+          1 
+[1] "--->APPLYNUDGES: 7-gas21"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-03-22 14:41:57\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-03-25 08:03:53\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-03-25 08:04:49\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-04-20 18:47:08\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-04-20 18:47:15\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-04-20 18:47:22\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-04-20 18:47:28\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas21 , \"obsdate\": \"2014-04-20 18:47:28\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Nudge says that for goal gas21 you attained your best expected outcome 1 times in the past 60 days\",\"rulename\":\"ruleBestExpectedCount\",\"ruledata\":\"http://www.satimetry.com/msg.php\"}, {\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Reminder to record goal gas21 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\",\"rulename\":\"ruleDailySurveyReminder\",\"ruledata\":\"http://www.satimetry.com/goal.php?ruletype=gaslow\"}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleBestExpectedCount
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :80, \"rulename\" :\"ruleBestExpectedCount\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Nudge says that for goal gas21 you attained your best expected outcome 1 times in the past 60 days\" }"
+[1] ruleDailySurveyReminder
+Levels: ruleBestExpectedCount ruleDailySurveyReminder
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :1, \"rulename\" :\"ruleDailySurveyReminder\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Reminder to record goal gas21 attainment at http://www.satimetry.com/goal.php?ruletype=gaslow\" }"
+[1] "--->PLOTS: 7-gas21"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) > 0) {
++     polldesc <- obsname
++     dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++         username, sep = "")), show .... [TRUNCATED] 
+null device 
+          1 
+[1] "--->PUSHNOTIFICATION: 7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"f3dc8069edf1888c876fdb100023b68e"}{"status":1,"request":"a7429b1815751468a7cc1879d2159ecb"}{"status":1,"request":"616f62fd07eeadadd47588152194a2db"}{"status":1,"request":"16a73af7bb202557bc472e1bb4884591"}{"status":1,"request":"a1b002771788db7f08efabbc418e70ee"}{"status":1,"request":"a4ccce01344dfe9787c628647a429f26"}Do fitbit ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->INSERTOBS --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> fitbitkey <- user["fitbitkey"]
+
+> fitbitsecret <- user["fitbitsecret"]
+
+> fitbitappname <- user["fitbitappname"]
+
+> if (!is.na(fitbitkey)) {
++     token_url <- "http://api.fitbit.com/oauth/request_token"
++     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8464, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8457, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8059, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8183, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8011, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6098, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15495, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14730, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12823, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5087, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10911, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13810, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :17583, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10281, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7216, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8553, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :16320, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :18859, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :23098, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6058, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15461, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6498, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-22\", \"obstype\" : \"userobs\" }"
+[1] "--->APPLYNUDGES --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-01 11:00:00\" , \"obsvalue\": 8464 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-02 11:00:00\" , \"obsvalue\": 8457 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-03 11:00:00\" , \"obsvalue\": 8059 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-04 11:00:00\" , \"obsvalue\": 8183 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-05 11:00:00\" , \"obsvalue\": 8011 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-06 10:00:00\" , \"obsvalue\": 6098 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-07 10:00:00\" , \"obsvalue\": 15495 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-08 10:00:00\" , \"obsvalue\": 14730 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-09 10:00:00\" , \"obsvalue\": 12823 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-10 10:00:00\" , \"obsvalue\": 5087 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-11 10:00:00\" , \"obsvalue\": 10911 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-12 10:00:00\" , \"obsvalue\": 13810 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-13 10:00:00\" , \"obsvalue\": 17583 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-14 10:00:00\" , \"obsvalue\": 10281 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-15 10:00:00\" , \"obsvalue\": 7216 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-16 10:00:00\" , \"obsvalue\": 8553 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-17 10:00:00\" , \"obsvalue\": 16320 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-18 10:00:00\" , \"obsvalue\": 18859 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-19 10:00:00\" , \"obsvalue\": 23098 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-20 10:00:00\" , \"obsvalue\": 6058 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-21 10:00:00\" , \"obsvalue\": 15461 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-22 10:00:00\" , \"obsvalue\": 6498 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-22 10:00:00\" , \"obsvalue\": 6498 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Nudge says that you averaged 13549.57 steps per day over the last 7 days\",\"rulename\":\"ruleAverageStepCount\",\"ruledata\":13549.57142857143}, {\"id\":\"7\",\"ruledate\":\"2014-04-22\",\"rulemsg\":\"Nudge says that you exceeded 10,000 steps 11 times in the past 30 days\",\"rulename\":\"ruleHighStepCount\",\"ruledata\":11}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleAverageStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :7, \"rulename\" :\"ruleAverageStepCount\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Nudge says that you averaged 13549.57 steps per day over the last 7 days\" }"
+[1] ruleHighStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :5, \"rulename\" :\"ruleHighStepCount\", \"ruledate\" :\"2014-04-22\", \"msgtxt\" :\"Nudge says that you exceeded 10,000 steps 11 times in the past 30 days\" }"
+[1] "--->PUSHNOTIFICATION :7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"7a81b2b6b7b6e56c976759c9101a36a8"}{"status":1,"request":"fe887b9d2dddfd667e65d6ef3a195548"}[1] "--->PLOTS :7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/activity.png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> brew = brewer.pal(3, "Set1")
+
+> cols = rep(brew[1], length(obsvalues))
+
+> cols[obsvalues > 10000] = brew[3]
+
+> bp = barplot(obsvalues, ylim = c(0, max(obsvalues) * 
++     1.2), col = cols, axes = FALSE, axisnames = FALSE)
+
+> axis(1, at = bp, labels = c(substr(userobsDF[, "obsdate"], 
++     6, 10)), tick = FALSE, las = 2, line = -0.5, cex.axis = 0.4)
+
+> axis(2, cex.axis = 0.8)
+
+> abline(h = 10000, lty = 2)
+
+> dev.off()
+null device 
+          1 
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Everything up-to-date
