@@ -43,6 +43,9 @@ echo "Do GAS ..."
 echo "Do fitbit ..."
 ./dofitbit/dofitbit.R
 
+echo "Do fitbit ..."
+./dowithings/dowithings.R
+
 cd ~/websites/nudge
 git add images
 git commit -am "dolifecoach crontab batch script"
