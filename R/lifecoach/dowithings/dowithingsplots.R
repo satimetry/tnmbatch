@@ -35,8 +35,10 @@ axis(1, at = bp,
      las = 2,
      line = -0.5,
      cex.axis=0.4)
-axis(2, cex.axis=0.8)
-abline(h = 10000, lty = 2)
+axis(2, at = seq(0, 40, 1),
+     cex.axis=0.4)
+abline(h = 29, lty = 2)
+abline(h = 30, lty = 1)
 
 dev.off()
 
