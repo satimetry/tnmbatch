@@ -252,10 +252,10 @@ postUserobs <- function(rooturl, userobs) {
    return(result)
 }
 
-delUserobs <- function(rooturl, programid, userid) {
+delUserobs <- function(rooturl, programid, userid, obsname) {
    
    result <- tryCatch({  
-      getURL(paste(rooturl, "/userobs/del?programid=", programid, "&userid=", userid, "&obsname=", "activity", sep=""))
+      getURL(paste(rooturl, "/userobs/del?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
    }, warning = function(w) {
       print("Warning")
    }, error = function(e) {

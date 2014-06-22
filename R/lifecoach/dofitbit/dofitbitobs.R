@@ -65,7 +65,7 @@ if ( ! is.na(fitbitkey) ) {
    inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
 
    # Remove the userobs for this programid and userid and obsname
-   delUserobs(rooturl, programid, userid)
+   delUserobs(rooturl, programid, userid, "activity")
 
    for (i in 1:nrow(inputDF)) { 
 
