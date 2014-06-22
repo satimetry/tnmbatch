@@ -36,7 +36,7 @@ if ( ! is.na(fitbitkey) ) {
    
    getURL <- "http://api.fitbit.com/1/user/-/activities/steps/date/"
    #startdate <- Sys.Date() - 7
-   startdate <- "2014-04-01"
+   startdate <- "2014-05-01"
    startdatestr <- as.POSIXct(startdate, format = "%a %b %d")
    getURL <- paste(getURL, startdate, "/today.json", sep = "")
 
