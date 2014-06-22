@@ -1,0 +1,592 @@
+Show domain status ...
+Domain spicozzi (owned by spicozzi@redhat.com)
+----------------------------------------------
+  Created:            Feb 13, 2013  4:25 AM
+  ID:                 511a7afbf2cb83b780008706
+  Allowed Gear Sizes: small, medium
+
+  ema @ http://ema-spicozzi.rhcloud.com/ (uuid: 511a7afbf2cb83b780008739)
+  -----------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Feb 02, 2013  5:56 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://752af38c520047febc3c087686587ea5@ema-spicozzi.rhcloud.com/~/git/ema.git/
+    SSH:        752af38c520047febc3c087686587ea5@ema-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    python-2.6 (Python 2.6)
+    -----------------------
+      Gears: Located with mysql-5.1
+
+    mysql-5.1 (MySQL 5.1)
+    ---------------------
+      Gears:          Located with python-2.6
+      Connection URL: mysql://127.3.245.129:3306/
+      Database Name:  ema
+      Password:       KEyDk5UdtGDg
+      Username:       adminIZyFNTZ
+
+  jenkins @ http://jenkins-spicozzi.rhcloud.com/ (uuid: 51eeff445973ca02af00002e)
+  -------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Jul 24, 2013  8:10 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://51eeff445973ca02af00002e@jenkins-spicozzi.rhcloud.com/~/git/jenkins.git/
+    SSH:        51eeff445973ca02af00002e@jenkins-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jenkins-1 (Jenkins Server)
+    --------------------------
+      Gears: 1 small
+
+  myjbossapp @ http://myjbossapp-spicozzi.rhcloud.com/ (uuid: 51e60c4550044604cf00008a)
+  -------------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Jul 17, 2013  1:15 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://51e60c4550044604cf00008a@myjbossapp-spicozzi.rhcloud.com/~/git/myjbossapp.git/
+    SSH:        51e60c4550044604cf00008a@myjbossapp-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jbossas-7 (JBoss Application Server 7)
+    --------------------------------------
+      Gears: 1 small
+
+  myphpapp @ http://myphpapp-spicozzi.rhcloud.com/ (uuid: 522d74c9500446e3600000d8)
+  ---------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Sep 09, 2013  5:12 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://522d74c9500446e3600000d8@myphpapp-spicozzi.rhcloud.com/~/git/myphpapp.git/
+    SSH:        522d74c9500446e3600000d8@myphpapp-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    php-5.3 (PHP 5.3)
+    -----------------
+      Gears: Located with jenkins-client-1
+
+    jenkins-client-1 (Jenkins Client)
+    ---------------------------------
+      Gears:   Located with php-5.3
+      Job URL: https://jenkins-spicozzi.rhcloud.com/job/myphpapp-build/
+
+  mytwitter @ http://mytwitter-spicozzi.rhcloud.com/ (uuid: 53645bd35004460385000e31)
+  -----------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    May 03  1:00 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://53645bd35004460385000e31@mytwitter-spicozzi.rhcloud.com/~/git/mytwitter.git/
+    SSH:        53645bd35004460385000e31@mytwitter-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    fusesource-fuse-1.0.0 (JBoss Fuse 6.1.0 EA)
+    -------------------------------------------
+      From:  https://raw.github.com/jboss-fuse/fuse-openshift-cartridge/jboss-fuse-6.1.x-379/metadata/manifest.yml
+      Gears: 1 small
+
+  nudge @ http://nudge-spicozzi.rhcloud.com/ (uuid: 53391eda500446b5f9000295)
+  ---------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Mar 31  6:52 PM
+    Gears:      1 (defaults to medium)
+    Git URL:    ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/
+    SSH:        53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+    Aliases:    www.satimetry.com
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with php-5.3
+
+    php-5.3 (PHP 5.3)
+    -----------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+
+  nudgedb @ http://nudgedb-spicozzi.rhcloud.com/ (uuid: 535239475004463b2b000240)
+  -------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Apr 19  6:52 PM
+    Gears:      2 (defaults to medium)
+    Git URL:    ssh://535239475004463b2b000240@nudgedb-spicozzi.rhcloud.com/~/git/nudgedb.git/
+    SSH:        535239475004463b2b000240@nudgedb-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with ruby-1.9
+
+    ruby-1.9 (Ruby 1.9)
+    -------------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          1 medium
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  nudgedb
+      Password:       IXpNxqRhElea
+      Username:       admins4SFfJZ
+
+  nudgeserver @ http://nudgeserver-spicozzi.rhcloud.com/ (uuid: 533673665973ca659a000cbf)
+  ---------------------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Mar 29  6:16 PM
+    Gears:      2 (defaults to medium)
+    Git URL:    ssh://533673665973ca659a000cbf@nudgeserver-spicozzi.rhcloud.com/~/git/nudgeserver.git/
+    SSH:        533673665973ca659a000cbf@nudgeserver-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    haproxy-1.4 (Web Load Balancer)
+    -------------------------------
+      Gears: Located with jbosseap-6
+
+    jbosseap-6 (JBoss Enterprise Application Platform 6)
+    ----------------------------------------------------
+      Scaling: x1 (minimum: 1, maximum: available) on medium gears
+    This gear costs an additional $0.06 per gear after the first 3 gears.
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          1 medium
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  nudgeserver
+      Password:       RgySJArumD8C
+      Username:       adminIs3wpEv
+
+  tnm @ http://tnm-spicozzi.rhcloud.com/ (uuid: 530e40855973ca7ee3000012)
+  -----------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    Feb 27  6:29 AM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://530e40855973ca7ee3000012@tnm-spicozzi.rhcloud.com/~/git/tnm.git/
+    SSH:        530e40855973ca7ee3000012@tnm-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jbosseap-6 (JBoss Enterprise Application Platform 6)
+    ----------------------------------------------------
+      Gears: Located with mysql-5.5
+    This gear costs an additional $0.06 per gear after the first 3 gears.
+
+    mysql-5.5 (MySQL 5.5)
+    ---------------------
+      Gears:          Located with jbosseap-6
+      Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+      Database Name:  tnm
+      Password:       pSSC3CL7L67U
+      Username:       adminYQqzM9J
+
+  tweet @ http://tweet-spicozzi.rhcloud.com/ (uuid: 536362cce0b8cdb2ad0004a6)
+  ---------------------------------------------------------------------------
+    Domain:     spicozzi
+    Created:    May 02  7:18 PM
+    Gears:      1 (defaults to small)
+    Git URL:    ssh://536362cce0b8cdb2ad0004a6@tweet-spicozzi.rhcloud.com/~/git/tweet.git/
+    SSH:        536362cce0b8cdb2ad0004a6@tweet-spicozzi.rhcloud.com
+    Deployment: auto (on git push)
+
+    jbossas-7 (JBoss Application Server 7)
+    --------------------------------------
+      Gears: 1 small
+
+  tweetdj @ http://tweetdj-spicozzi.rhcloud.com/ (uuid: 511a7afbf2cb83b78000872d)
+  -------------------------------------------------------------------------------
+    Domain:          spicozzi
+    Created:         Jan 20, 2013  9:02 AM
+    Gears:           1 (defaults to small)
+    Git URL:         ssh://f2470da2ddea45cb9aba99a24a1e2c99@tweetdj-spicozzi.rhcloud.com/~/git/tweetdj.git/
+    Initial Git URL: git://github.com/openshift/django-example.git
+    SSH:             f2470da2ddea45cb9aba99a24a1e2c99@tweetdj-spicozzi.rhcloud.com
+    Deployment:      auto (on git push)
+
+    python-2.6 (Python 2.6)
+    -----------------------
+      Gears: 1 small
+
+You have 11 applications in your domain.
+Check nudge database application status ...
+Nudge Database Application is started
+Check nudge client application status ...
+Nudge Client Application is started
+Check nudge server application status ...
+Nudge Server Application is started
+Do GAS ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->APPLYNUDGES: 7-gas11"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-22 14:21:21\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-25 08:17:44\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-19 22:01:37\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:07\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:17\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+Error in t.default(outputDF) : argument is not a matrix
+Calls: source ... withVisible -> eval -> eval -> data.frame -> t -> t.default
+Execution halted
+Do fitbit ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->INSERTOBS --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> fitbitkey <- user["fitbitkey"]
+
+> fitbitsecret <- user["fitbitsecret"]
+
+> fitbitappname <- user["fitbitappname"]
+
+> if (!is.na(fitbitkey)) {
++     token_url <- "http://api.fitbit.com/oauth/request_token"
++     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8464, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8457, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8059, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8183, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8011, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6098, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15495, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14730, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12823, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5087, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10911, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13810, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :17583, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10281, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7216, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8553, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :16320, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :18859, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :23098, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6058, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15461, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6719, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-22\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7187, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-23\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14992, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-24\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9848, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-25\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :23002, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-26\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :17025, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-27\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11300, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7611, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-29\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9106, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-04-30\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7117, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11108, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :2605, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15440, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :1064, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8108, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9760, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :16677, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10125, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12587, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14737, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15638, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7575, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12388, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7026, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15418, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :20243, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7828, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11390, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7580, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8716, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-22\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5900, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-23\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14819, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-24\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14204, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-25\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :17073, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-26\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7286, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-27\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7954, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14172, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-29\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14665, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-30\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :20716, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-05-31\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15492, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6502, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12534, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :474, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :176, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :50, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :2407, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :264, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :30, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :16, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8647, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9983, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13434, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11725, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13590, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5742, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-22\", \"obstype\" : \"userobs\" }"
+[1] "--->APPLYNUDGES --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-01 11:00:00\" , \"obsvalue\": 8464 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-02 11:00:00\" , \"obsvalue\": 8457 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-03 11:00:00\" , \"obsvalue\": 8059 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-04 11:00:00\" , \"obsvalue\": 8183 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-05 11:00:00\" , \"obsvalue\": 8011 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-06 10:00:00\" , \"obsvalue\": 6098 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-07 10:00:00\" , \"obsvalue\": 15495 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-08 10:00:00\" , \"obsvalue\": 14730 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-09 10:00:00\" , \"obsvalue\": 12823 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-10 10:00:00\" , \"obsvalue\": 5087 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-11 10:00:00\" , \"obsvalue\": 10911 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-12 10:00:00\" , \"obsvalue\": 13810 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-13 10:00:00\" , \"obsvalue\": 17583 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-14 10:00:00\" , \"obsvalue\": 10281 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-15 10:00:00\" , \"obsvalue\": 7216 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-16 10:00:00\" , \"obsvalue\": 8553 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-17 10:00:00\" , \"obsvalue\": 16320 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-18 10:00:00\" , \"obsvalue\": 18859 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-19 10:00:00\" , \"obsvalue\": 23098 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-20 10:00:00\" , \"obsvalue\": 6058 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-21 10:00:00\" , \"obsvalue\": 15461 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-22 10:00:00\" , \"obsvalue\": 6719 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-23 10:00:00\" , \"obsvalue\": 7187 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-24 10:00:00\" , \"obsvalue\": 14992 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-25 10:00:00\" , \"obsvalue\": 9848 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-26 10:00:00\" , \"obsvalue\": 23002 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-27 10:00:00\" , \"obsvalue\": 17025 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-28 10:00:00\" , \"obsvalue\": 11300 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-29 10:00:00\" , \"obsvalue\": 7611 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-04-30 10:00:00\" , \"obsvalue\": 9106 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-01 10:00:00\" , \"obsvalue\": 7117 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-02 10:00:00\" , \"obsvalue\": 11108 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-03 10:00:00\" , \"obsvalue\": 2605 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-04 10:00:00\" , \"obsvalue\": 15440 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-05 10:00:00\" , \"obsvalue\": 1064 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-06 10:00:00\" , \"obsvalue\": 8108 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-07 10:00:00\" , \"obsvalue\": 9760 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-08 10:00:00\" , \"obsvalue\": 16677 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-09 10:00:00\" , \"obsvalue\": 10125 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-10 10:00:00\" , \"obsvalue\": 12587 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-11 10:00:00\" , \"obsvalue\": 14737 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-12 10:00:00\" , \"obsvalue\": 15638 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-13 10:00:00\" , \"obsvalue\": 7575 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-14 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-15 10:00:00\" , \"obsvalue\": 12388 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-16 10:00:00\" , \"obsvalue\": 7026 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-17 10:00:00\" , \"obsvalue\": 15418 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-18 10:00:00\" , \"obsvalue\": 20243 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-19 10:00:00\" , \"obsvalue\": 7828 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-20 10:00:00\" , \"obsvalue\": 11390 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-21 10:00:00\" , \"obsvalue\": 7580 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-22 10:00:00\" , \"obsvalue\": 8716 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-23 10:00:00\" , \"obsvalue\": 5900 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-24 10:00:00\" , \"obsvalue\": 14819 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-25 10:00:00\" , \"obsvalue\": 14204 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-26 10:00:00\" , \"obsvalue\": 17073 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-27 10:00:00\" , \"obsvalue\": 7286 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-28 10:00:00\" , \"obsvalue\": 7954 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-29 10:00:00\" , \"obsvalue\": 14172 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-30 10:00:00\" , \"obsvalue\": 14665 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-05-31 10:00:00\" , \"obsvalue\": 20716 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-01 10:00:00\" , \"obsvalue\": 15492 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-02 10:00:00\" , \"obsvalue\": 6502 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-03 10:00:00\" , \"obsvalue\": 12534 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-04 10:00:00\" , \"obsvalue\": 474 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-05 10:00:00\" , \"obsvalue\": 176 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-06 10:00:00\" , \"obsvalue\": 50 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-07 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-08 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-09 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-10 10:00:00\" , \"obsvalue\": 2407 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-11 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-12 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-13 10:00:00\" , \"obsvalue\": 264 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-14 10:00:00\" , \"obsvalue\": 30 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-15 10:00:00\" , \"obsvalue\": 16 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-16 10:00:00\" , \"obsvalue\": 8647 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-17 10:00:00\" , \"obsvalue\": 9983 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-18 10:00:00\" , \"obsvalue\": 13434 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-19 10:00:00\" , \"obsvalue\": 11725 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-20 10:00:00\" , \"obsvalue\": 13590 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-21 10:00:00\" , \"obsvalue\": 5742 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-22 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-22 10:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-06-21\",\"rulemsg\":\"Nudge says that you exceeded 10,000 steps 11 times in the past 30 days\",\"rulename\":\"ruleHighStepCount\",\"ruledata\":11}, {\"id\":\"7\",\"ruledate\":\"2014-06-21\",\"rulemsg\":\"Nudge says that you averaged 9019.57 steps per day over the last 7 days\",\"rulename\":\"ruleAverageStepCount\",\"ruledata\":9019.57142857143}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleAverageStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :7, \"rulename\" :\"ruleAverageStepCount\", \"ruledate\" :\"2014-06-21\", \"msgtxt\" :\"Nudge says that you averaged 9019.57 steps per day over the last 7 days\" }"
+[1] ruleHighStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :5, \"rulename\" :\"ruleHighStepCount\", \"ruledate\" :\"2014-06-21\", \"msgtxt\" :\"Nudge says that you exceeded 10,000 steps 11 times in the past 30 days\" }"
+[1] "--->PUSHNOTIFICATION :7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"c05f9917ea44c357ab6afb3e0c5f2e1f"}{"status":1,"request":"e01f3a590002e8da8d488ed49ae4cb13"}[1] "--->PLOTS :7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/activity.png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> brew = brewer.pal(3, "Set1")
+
+> cols = rep(brew[1], length(obsvalues))
+
+> cols[obsvalues > 10000] = brew[3]
+
+> bp = barplot(obsvalues, ylim = c(0, max(obsvalues) * 
++     1.2), col = cols, axes = FALSE, axisnames = FALSE)
+
+> axis(1, at = bp, labels = c(substr(userobsDF[, "obsdate"], 
++     6, 10)), tick = FALSE, las = 2, line = -0.5, cex.axis = 0.4)
+
+> axis(2, cex.axis = 0.8)
+
+> abline(h = 10000, lty = 2)
+
+> dev.off()
+null device 
+          1 
+[master 9453d7d] dolifecoach crontab batch script
+ Committer: Stefano Picozzi <StefanoPicozzi@TheNudgeMachine.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite images/lifecoach/user/stefano/activity.png (97%)
+remote: Not stopping cartridge php because hot deploy is enabled        
+remote: Syncing git content to other proxy gears        
+remote: Building git ref 'master', commit 9453d7d        
+remote: It appears you have a deplist.txt and .openshift/pear.txt file.        
+remote: Please consider running `git rm deplist.txt'.        
+remote: Checking .openshift/pear.txt for PEAR dependency...        
+remote: Preparing build for deployment        
+remote: Deployment id is 72af741e        
+remote: Activating deployment        
+remote: Not starting cartridge haproxy because hot deploy is enabled        
+remote: Not starting cartridge php because hot deploy is enabled        
+remote: -------------------------        
+remote: Git Post-Receive Result: success        
+remote: Activation status: success        
+remote: Deployment completed with status: success        
+To ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/
+   870a6c4..9453d7d  master -> master

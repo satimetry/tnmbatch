@@ -1,1 +1,1 @@
-15 08 * * * ~/websites/nudge/R/lifecoach/dolifecoach.sh > ~/websites/nudge/R/lifecoach/lifecoach.log 2>&1
+20 08 * * * ~/tnm/tnmbatch/R/lifecoach/dolifecoach.sh > ~/tnm/tnmbatch/R/lifecoach/lifecoach.log 2>&1
