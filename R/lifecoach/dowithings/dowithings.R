@@ -37,5 +37,9 @@ for (programuser in programusers) {
    
    print(paste("--->PLOTS :", userid, sep = ""))
    source("dowithingsplots.R", echo = TRUE )
+
+   obsname <<- "weight"
+   print(paste("--->PLOTS :", userid, sep = ""))
+   source("dowithingsplots.R", echo = TRUE )
    
 }
