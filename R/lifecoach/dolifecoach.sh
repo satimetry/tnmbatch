@@ -9,8 +9,9 @@ echo "Show domain status ..."
 rhc domain show -p Dopamine@1
 
 echo "Check nudge database application status ..."
-client=`rhc app show --state nudgedb -p Dopamine@1 | grep started | wc -l`
-if [ $client == 0 ]; then
+idle=`rhc app show --state nudgedb -p Dopamine@1 | grep idle | wc -l`
+stopped=`rhc app show --state nudgedb -p Dopamine@1 | grep stopped | wc -l`
+if [ $idle > 0 ] || [ $stopped > 0 ]; then
   echo "Application is starting"
   rhc app start nudgedb -p Dopamine@1
 else
@@ -18,8 +19,9 @@ else
 fi
 
 echo "Check nudge client application status ..."
-client=`rhc app show --state nudge -p Dopamine@1 | grep started | wc -l`
-if [ $client == 0 ]; then
+idle=`rhc app show --state nudge -p Dopamine@1 | grep idle | wc -l`
+stopped=`rhc app show --state nudge -p Dopamine@1 | grep stopped | wc -l`
+if [ $idle > 0 ] || [ $stopped > 0 ]; then
   echo "Application is starting"
   rhc app start nudge -p Dopamine@1
 else
@@ -27,8 +29,9 @@ else
 fi
 
 echo "Check nudge server application status ..."
-server=`rhc app show --state nudgeserver -p Dopamine@1 | grep started | wc -l`
-if [ $server == 0 ]; then
+idle=`rhc app show --state nudgeserver -p Dopamine@1 | grep idle | wc -l`
+stopped=`rhc app show --state nudgeserver -p Dopamine@1 | grep stopped | wc -l`
+if [ $idle > 0 ] || [ $stopped > 0 ]; then
   echo "Application is starting"
   rhc app start nudgeserver -p Dopamine@1
 else
