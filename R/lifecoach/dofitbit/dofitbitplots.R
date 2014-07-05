@@ -26,14 +26,20 @@ brew = brewer.pal(3,"Set1") # red, blue, green
 cols = rep(brew[1],length(obsvalues))
 cols[obsvalues > 10000] = brew[3]
 
-bp = barplot(obsvalues, ylim = c(0, max(obsvalues)*1.2), col=cols, axes = FALSE, axisnames = FALSE)
+bp = barplot(obsvalues, ylim = c(0, max(obsvalues)*1.2), col=cols, axes = FALSE, 
+   xlab = "Date",
+   ylab = "Steps")
+
 axis(1, at = bp, 
      labels = c(substr(userobsDF[, "obsdate"], 6,10)),   
      tick = FALSE,
      las = 2,
      line = -0.5,
-     cex.axis=0.4)
-axis(2, cex.axis=0.8)
+     cex.axis=0.6)
+
+axis(2, at = seq(0, max(obsvalues)*1.2, 1000),
+     las = 1,
+     cex.axis=0.6)
 abline(h = 10000, lty = 2)
 
 dev.off()

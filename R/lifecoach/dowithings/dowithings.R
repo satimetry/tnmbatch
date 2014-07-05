@@ -34,7 +34,8 @@ for (programuser in programusers) {
       
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    source("../common/donotifications.R", echo = TRUE )
-   
+
+   obsname <<- "bmi"
    print(paste("--->PLOTS :", userid, sep = ""))
    source("dowithingsplots.R", echo = TRUE )
 

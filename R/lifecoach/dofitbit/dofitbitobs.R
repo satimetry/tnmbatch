@@ -21,23 +21,9 @@ if ( ! is.na(fitbitkey) ) {
    fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
    token <- readRDS(file = paste("../user/", username, "/fitbit-token.RDS", sep = ""))
    sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
-   
-   getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/2014-03-30.json"
-   weightJSON <- tryCatch({
-      GET(getURL, sig)
-   }, warning = function(w) {
-      print("Warning weight")
-      stop()
-   }, error = function(e) {
-      print("Error weight")
-      stop()
-   }, finally = {
-   })
-   
+
+   startdate <- as.Date(Sys.Date()) - 31   
    getURL <- "http://api.fitbit.com/1/user/-/activities/steps/date/"
-   #startdate <- Sys.Date() - 7
-   startdate <- "2014-05-01"
-   startdatestr <- as.POSIXct(startdate, format = "%a %b %d")
    getURL <- paste(getURL, startdate, "/today.json", sep = "")
 
    # get all step data from my first day of use to the current date:

@@ -12,6 +12,7 @@ userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
 
 # extract step counts and convert to numeric:
 obsvalues = as.numeric( as.character(userobsDF[, "obsvalue"]) )
+obsdate <- as.POSIXct(userobsDF[, "obsdate"], format = "%Y-%m-%d %H:%M:%S")
 
 fileName = paste(imagesdir, "/lifecoach/user/", username, "/", obsname, ".png", sep = "")
 png(paste(fileName, sep=""),
@@ -21,46 +22,29 @@ png(paste(fileName, sep=""),
     pointsize = 10,
     units = "px")
 
+plot(obsdate, obsvalues,
+     type = "b",
+     axes = FALSE,
+     ylab = obsname,
+     ylim = c( floor(min(obsvalues)), ceiling(max(obsvalues)) ),
+     xlim = c( min(obsdate), max(obsdate) ),
+     xlab = "Date",
+     col = "deepskyblue1",
+     main = paste(obsname, " Plot", split = ""))
+
+axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),
+   las = 1,
+   cex.axis=0.6)
+
+axis(1, at = obsdate, 
+   labels = substr(obsdate, 6, 10), 
+   cex.axis = 0.8, las = 2)
+
 if (obsname == "bmi") {
-   # set up and plot the graph:
-   brew = brewer.pal(6,"Set1") # red, blue, green
-   cols = rep(brew[1],length(obsvalues))
-   cols[obsvalues >= 30] = brew[1]
-   cols[obsvalues < 30 && obsvalues > 29] = brew[6]
-   cols[obsvalues <= 29] = brew[3]
-
-   bp = barplot(obsvalues, ylim = c(0, max(obsvalues)*1.2), col=cols, axes = FALSE, axisnames = FALSE)
-   axis(1, at = bp, 
-     labels = c(substr(userobsDF[, "obsdate"], 6,10)),   
-     tick = FALSE,
-     las = 2,
-     line = -0.5,
-     cex.axis=0.4)
-   axis(2, at = seq(0, 40, 1),
-     cex.axis=0.4)
-   abline(h = 29, lty = 2)
-   abline(h = 30, lty = 1)
+   abline(h = 29, lty = 2)   
 }
-
-if (obsname == "weight") {
-   # set up and plot the graph:
-   brew = brewer.pal(6,"Set1") # red, blue, green
-   cols = rep(brew[1],length(obsvalues))
-   cols[obsvalues >= 84] = brew[1]
-   cols[obsvalues < 84 && obsvalues > 83] = brew[6]
-   cols[obsvalues <= 83] = brew[3]
-   
-   bp = barplot(obsvalues, ylim = c(0, max(obsvalues)*1.2), col=cols, axes = FALSE, axisnames = FALSE)
-   axis(1, at = bp, 
-        labels = c(substr(userobsDF[, "obsdate"], 6,10)),   
-        tick = FALSE,
-        las = 2,
-        line = -0.5,
-        cex.axis=0.4)
-   axis(2, at = seq(0, 90, 1),
-        cex.axis=0.4)
+if (obsname == "weight") {   
    abline(h = 83, lty = 2)
-   abline(h = 84, lty = 1)
 }
 
 dev.off()
