@@ -14,13 +14,13 @@ else
   echo "Jenkins Application is already started"
 fi
 
-echo "Check jenkins client`application status ..."
+echo "Check jenkins client application status ..."
 restart=`rhc app show --state nudgebldr Dopamine@1 | egrep "idle|stopped" | wc -l`
 if [ $restart != "0" ]; then
   echo "Jenkins Application is starting"
   rhc app start nudgebldr -p Dopamine@1
 else
-  echo "Jenkins Application is already started"
+  echo "Jenkins Client is already started"
 fi
 
 echo "Check nudge database application status ..."
