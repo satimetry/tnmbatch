@@ -1,15 +1,76 @@
 Check jenkins server application status ...
 Jenkins Application is already started
+Check jenkins client application status ...
+Jenkins Client is already started
 Check nudge database application status ...
-Nudge Database Application is already started
+Nudge Database Application is starting
+RESULT:
+nudgedb started
 Check nudge client application status ...
 Nudge Client Application is already started
 Check nudge server application status ...
 Nudge Server Application is already started
-Do GAS ...
+Do fitbit ...
 Loading required package: methods
 Loading required package: bitops
-[1] "--->APPLYNUDGES: 7-gas11"
+[1] "--->INSERTOBS --58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> fitbitkey <- user["fitbitkey"]
+
+> fitbitsecret <- user["fitbitsecret"]
+
+> fitbitappname <- user["fitbitappname"]
+
+> if (!is.na(fitbitkey)) {
++     token_url <- "http://api.fitbit.com/oauth/request_token"
++     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :14194, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :12918, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-29\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :11542, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-30\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :16961, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-31\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :9362, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :9397, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :21299, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :4379, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :11913, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :6303, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :11842, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :14496, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :13940, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :8665, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :12193, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :10065, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :2763, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :14014, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :5776, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :4896, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :13982, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :5862, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :14747, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :6923, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :15217, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :8568, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-22\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :6396, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-23\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :11427, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-24\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :8092, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-25\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :7453, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-26\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :7986, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-27\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"activity\", \"obsvalue\" :830, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-28\", \"obstype\" : \"userobs\" }"
+[1] "--->APPLYNUDGES --58"
 
 > Sys.setenv(NOAWT = "true")
 
@@ -26,17 +87,43 @@ Loading required package: bitops
 
 > postFact(rooturl, programid, groupid = userid, factname = obsname, 
 +     userobsDF)
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-22 14:21:21\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-03-25 08:17:44\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-19 22:01:37\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:07\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:17\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas11 , \"obsdate\": \"2014-04-20 18:46:28\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 14194 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-07-29 10:00:00\" , \"obsvalue\": 12918 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-07-30 10:00:00\" , \"obsvalue\": 11542 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-07-31 10:00:00\" , \"obsvalue\": 16961 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-01 10:00:00\" , \"obsvalue\": 9362 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 9397 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 21299 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 4379 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-05 10:00:00\" , \"obsvalue\": 11913 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-06 10:00:00\" , \"obsvalue\": 6303 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 11842 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 14496 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-09 10:00:00\" , \"obsvalue\": 13940 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-10 10:00:00\" , \"obsvalue\": 8665 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-11 10:00:00\" , \"obsvalue\": 12193 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-12 10:00:00\" , \"obsvalue\": 10065 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-13 10:00:00\" , \"obsvalue\": 2763 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-14 10:00:00\" , \"obsvalue\": 14014 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-15 10:00:00\" , \"obsvalue\": 5776 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-16 10:00:00\" , \"obsvalue\": 4896 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-17 10:00:00\" , \"obsvalue\": 13982 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-18 10:00:00\" , \"obsvalue\": 5862 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-19 10:00:00\" , \"obsvalue\": 14747 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-20 10:00:00\" , \"obsvalue\": 6923 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-21 10:00:00\" , \"obsvalue\": 15217 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-22 10:00:00\" , \"obsvalue\": 8568 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-23 10:00:00\" , \"obsvalue\": 6396 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-24 10:00:00\" , \"obsvalue\": 11427 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-25 10:00:00\" , \"obsvalue\": 8092 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-26 10:00:00\" , \"obsvalue\": 7453 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-27 10:00:00\" , \"obsvalue\": 7986 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": activity , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 
 > getNudge(rooturl, programid, groupid = userid, factname = obsname, 
 +     rulename = rulename)
-[1] "[]"
+[1] "[{\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you exceeded 10,000 steps 15 times in the past 30 days\",\"rulename\":\"ruleHighStepCount\",\"ruledata\":15}, {\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you averaged 8246.13 steps per day over the last 7 days\",\"rulename\":\"ruleAverageStepCount\",\"ruledata\":8246.125}]"
 
 > factouts <- getFactsystem(rooturl, programid, groupid = userid, 
 +     factname = obsname)
@@ -48,12 +135,84 @@ Loading required package: bitops
 +         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
 
 > outputDF = data.frame(t(outputDF))
-Error in t.default(outputDF) : argument is not a matrix
-Calls: source ... withVisible -> eval -> eval -> data.frame -> t -> t.default
-Execution halted
-Do fitbit ...
-Loading required package: methods
-Loading required package: bitops
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleAverageStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :7, \"rulename\" :\"ruleAverageStepCount\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you averaged 8246.13 steps per day over the last 7 days\" }"
+[1] ruleHighStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :5, \"rulename\" :\"ruleHighStepCount\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you exceeded 10,000 steps 15 times in the past 30 days\" }"
+[1] "--->PUSHNOTIFICATION :58"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"65a05a40bf4acd3feaf9a43671fe1462"}{"status":1,"request":"fa457494f492fc7b7b23a1f048778442"}[1] "--->PLOTS :58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/activity.png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> brew = brewer.pal(3, "Set1")
+
+> cols = rep(brew[1], length(obsvalues))
+
+> cols[obsvalues > 10000] = brew[3]
+
+> bp = barplot(obsvalues, ylim = c(0, max(obsvalues) * 
++     1.2), col = cols, axes = FALSE, xlab = "Date", ylab = "Steps")
+
+> axis(1, at = bp, labels = c(substr(userobsDF[, "obsdate"], 
++     6, 10)), tick = FALSE, las = 2, line = -0.5, cex.axis = 0.6)
+
+> axis(2, at = seq(0, max(obsvalues) * 1.2, 1000), las = 1, 
++     cex.axis = 0.6)
+
+> abline(h = 10000, lty = 2)
+
+> dev.off()
+null device 
+          1 
 [1] "--->INSERTOBS --7"
 
 > Sys.setenv(NOAWT = "true")
@@ -79,38 +238,38 @@ Loading required package: bitops
 > if (!is.na(fitbitkey)) {
 +     token_url <- "http://api.fitbit.com/oauth/request_token"
 +     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13434, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11725, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-19\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13590, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-20\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15853, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-21\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7937, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-22\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10663, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-23\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12288, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-24\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9033, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-25\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13968, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-26\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5650, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-27\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :3115, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-28\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12306, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-29\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12209, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-06-30\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8676, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-01\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10773, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-02\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10001, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-03\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13267, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-04\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6328, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-05\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :18261, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-06\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7952, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-07\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :17740, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-08\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :4676, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-09\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7335, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-10\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9400, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-11\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12589, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-12\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :0, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-13\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6597, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-14\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5220, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-15\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7392, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-16\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12221, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-17\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8183, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :1238, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14194, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12918, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-29\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11542, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-30\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :16961, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-07-31\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9362, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-01\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :9397, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :21299, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :4379, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11913, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-05\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6303, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-06\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11842, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14496, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13940, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-09\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8665, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-10\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :12193, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-11\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :10065, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-12\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :2763, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-13\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14014, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-14\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5776, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-15\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :4896, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-16\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :13982, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-17\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :5862, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-18\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :14747, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-19\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6923, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-20\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :15217, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-21\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8568, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-22\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :6396, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-23\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :11427, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-24\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :8092, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-25\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7453, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-26\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :7986, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-27\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"activity\", \"obsvalue\" :830, \"obsdesc\" :\"System generated from fitbit.com stepcount download\", \"obsdate\" :\"2014-08-28\", \"obstype\" : \"userobs\" }"
 [1] "--->APPLYNUDGES --7"
 
 > Sys.setenv(NOAWT = "true")
@@ -128,150 +287,200 @@ Loading required package: bitops
 
 > postFact(rooturl, programid, groupid = userid, factname = obsname, 
 +     userobsDF)
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-18 10:00:00\" , \"obsvalue\": 13434 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-19 10:00:00\" , \"obsvalue\": 11725 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-06-20 10:00:00\" , \"obsvalue\": 13590 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Error postFact"
-Recv failure: Network is downError in value[[3L]](cond) : 
-Calls: source ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-Execution halted
-Do fitbit ...
-Loading required package: methods
-Loading required package: bitops
-[1] "--->INSERTOBS --7"
-
-> Sys.setenv(NOAWT = "true")
-
-> library(httr)
-
-> library(rjson)
-
-> library("RCurl")
-
-> user <- getUser(rooturl, userid)
-
-> username <- user["username"]
-
-> pushoveruser <- user["pushoveruser"]
-
-> fitbitkey <- user["fitbitkey"]
-
-> fitbitsecret <- user["fitbitsecret"]
-
-> fitbitappname <- user["fitbitappname"]
-
-> if (!is.na(fitbitkey)) {
-+     token_url <- "http://api.fitbit.com/oauth/request_token"
-+     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.3, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-20\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-21\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.8, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-22\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-23\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-24\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.8, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-25\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.4, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-26\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.8, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-27\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-28\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-29\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-29\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.7, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-06-30\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-01\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.2, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-02\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-03\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.1, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-04\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-05\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-06\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.3, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-07\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.4, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-08\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-09\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.1, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-12\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.4, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-13\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.4, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-14\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :84.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-16\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-17\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-19\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.94, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.86, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-20\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.95, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-21\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-22\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.93, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-23\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29.04, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-24\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-25\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.86, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-26\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.66, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-27\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.69, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-28\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.75, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-29\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.59, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-29\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.64, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-06-30\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.92, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-01\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.79, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-02\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.7, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-03\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.76, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-04\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.74, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-05\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.74, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-06\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.85, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-07\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.88, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-08\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.71, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-09\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.76, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-12\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.89, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-13\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.87, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-14\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29.27, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-16\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.93, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-17\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.7, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-18\", \"obstype\" : \"userobs\" }"
-[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.75, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-19\", \"obstype\" : \"userobs\" }"
-[1] "--->APPLYNUDGES --7"
-
-> Sys.setenv(NOAWT = "true")
-
-> library(rjson)
-
-> userobsDF <- getUserobsDF(rooturl, programid, userid, 
-+     obsname)
-
-> userobss <- getUserobs(rooturl, programid, userid, 
-+     obsname)
-
-> delFact(rooturl, programid, groupid = userid, factname = obsname)
-[1] ""
-
-> postFact(rooturl, programid, groupid = userid, factname = obsname, 
-+     userobsDF)
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-18 10:00:00\" , \"obsvalue\": 28.94 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-20 10:00:00\" , \"obsvalue\": 28.86 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-21 10:00:00\" , \"obsvalue\": 28.95 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-22 10:00:00\" , \"obsvalue\": 29 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-23 10:00:00\" , \"obsvalue\": 28.93 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-24 10:00:00\" , \"obsvalue\": 29.04 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-25 10:00:00\" , \"obsvalue\": 29 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-26 10:00:00\" , \"obsvalue\": 28.86 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-27 10:00:00\" , \"obsvalue\": 28.66 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-28 10:00:00\" , \"obsvalue\": 28.69 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-29 10:00:00\" , \"obsvalue\": 28.75 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-29 10:00:00\" , \"obsvalue\": 28.59 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-06-30 10:00:00\" , \"obsvalue\": 28.64 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-01 10:00:00\" , \"obsvalue\": 28.92 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-02 10:00:00\" , \"obsvalue\": 28.79 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-03 10:00:00\" , \"obsvalue\": 28.7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-04 10:00:00\" , \"obsvalue\": 28.76 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-05 10:00:00\" , \"obsvalue\": 28.74 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-06 10:00:00\" , \"obsvalue\": 28.74 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-07 10:00:00\" , \"obsvalue\": 28.85 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-08 10:00:00\" , \"obsvalue\": 28.88 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-09 10:00:00\" , \"obsvalue\": 28.71 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-12 10:00:00\" , \"obsvalue\": 28.76 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-13 10:00:00\" , \"obsvalue\": 28.89 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-14 10:00:00\" , \"obsvalue\": 28.87 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-16 10:00:00\" , \"obsvalue\": 29.27 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-17 10:00:00\" , \"obsvalue\": 28.93 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-18 10:00:00\" , \"obsvalue\": 28.7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-19 10:00:00\" , \"obsvalue\": 28.75 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-19 10:00:00\" , \"obsvalue\": 28.75 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 14194 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-07-29 10:00:00\" , \"obsvalue\": 12918 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-07-30 10:00:00\" , \"obsvalue\": 11542 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-07-31 10:00:00\" , \"obsvalue\": 16961 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-01 10:00:00\" , \"obsvalue\": 9362 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 9397 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 21299 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 4379 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-05 10:00:00\" , \"obsvalue\": 11913 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-06 10:00:00\" , \"obsvalue\": 6303 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 11842 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 14496 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-09 10:00:00\" , \"obsvalue\": 13940 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-10 10:00:00\" , \"obsvalue\": 8665 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-11 10:00:00\" , \"obsvalue\": 12193 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-12 10:00:00\" , \"obsvalue\": 10065 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-13 10:00:00\" , \"obsvalue\": 2763 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-14 10:00:00\" , \"obsvalue\": 14014 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-15 10:00:00\" , \"obsvalue\": 5776 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-16 10:00:00\" , \"obsvalue\": 4896 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-17 10:00:00\" , \"obsvalue\": 13982 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-18 10:00:00\" , \"obsvalue\": 5862 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-19 10:00:00\" , \"obsvalue\": 14747 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-20 10:00:00\" , \"obsvalue\": 6923 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-21 10:00:00\" , \"obsvalue\": 15217 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-22 10:00:00\" , \"obsvalue\": 8568 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-23 10:00:00\" , \"obsvalue\": 6396 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-24 10:00:00\" , \"obsvalue\": 11427 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-25 10:00:00\" , \"obsvalue\": 8092 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-26 10:00:00\" , \"obsvalue\": 7453 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-27 10:00:00\" , \"obsvalue\": 7986 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": activity , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 
 > getNudge(rooturl, programid, groupid = userid, factname = obsname, 
 +     rulename = rulename)
-[1] "[{\"id\":\"7\",\"ruledate\":\"2014-07-18\",\"rulemsg\":\"Nudge says that your BMI averaged 28.83 over the past 30 days\",\"rulename\":\"ruleAverageBmi\",\"ruledata\":28.829642857142858}, {\"id\":\"7\",\"ruledate\":\"2014-07-18\",\"rulemsg\":\"Nudge says that your BMI maximum was 29.27 over the past 30 days\",\"rulename\":\"ruleHighBmi\",\"ruledata\":29.27}, {\"id\":\"7\",\"ruledate\":\"2014-07-18\",\"rulemsg\":\"Nudge says that your BMI minimum was 28.59 over the past 30 days\",\"rulename\":\"ruleLowBmi\",\"ruledata\":28.59}]"
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you exceeded 10,000 steps 15 times in the past 30 days\",\"rulename\":\"ruleHighStepCount\",\"ruledata\":15}, {\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you averaged 8246.13 steps per day over the last 7 days\",\"rulename\":\"ruleAverageStepCount\",\"ruledata\":8246.125}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleAverageStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :7, \"rulename\" :\"ruleAverageStepCount\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you averaged 8246.13 steps per day over the last 7 days\" }"
+[1] ruleHighStepCount
+Levels: ruleAverageStepCount ruleHighStepCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :5, \"rulename\" :\"ruleHighStepCount\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you exceeded 10,000 steps 15 times in the past 30 days\" }"
+[1] "--->PUSHNOTIFICATION :7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"2cb8c9e2445af67e68480cc1dc0eff28"}{"status":1,"request":"fa03596b7b4cac5649432f9b0b229d75"}[1] "--->PLOTS :7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/activity.png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> brew = brewer.pal(3, "Set1")
+
+> cols = rep(brew[1], length(obsvalues))
+
+> cols[obsvalues > 10000] = brew[3]
+
+> bp = barplot(obsvalues, ylim = c(0, max(obsvalues) * 
++     1.2), col = cols, axes = FALSE, xlab = "Date", ylab = "Steps")
+
+> axis(1, at = bp, labels = c(substr(userobsDF[, "obsdate"], 
++     6, 10)), tick = FALSE, las = 2, line = -0.5, cex.axis = 0.6)
+
+> axis(2, at = seq(0, max(obsvalues) * 1.2, 1000), las = 1, 
++     cex.axis = 0.6)
+
+> abline(h = 10000, lty = 2)
+
+> dev.off()
+null device 
+          1 
+Do withings ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->INSERTOBS --58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> fitbitkey <- user["fitbitkey"]
+
+> fitbitsecret <- user["fitbitsecret"]
+
+> fitbitappname <- user["fitbitappname"]
+
+> if (!is.na(fitbitkey)) {
++     token_url <- "http://api.fitbit.com/oauth/request_token"
++     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :83.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :83.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :84, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :83.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :82.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"weight\", \"obsvalue\" :82.1, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :29.04, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :28.94, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :29.08, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :28.92, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :28.59, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"bmi\", \"obsvalue\" :28.44, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "--->APPLYNUDGES --58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 29.04 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 28.94 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 29.08 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 28.92 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 28.59 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 28.44 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": bmi , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 28.44 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI minimum was 28.44 over the past 30 days\",\"rulename\":\"ruleLowBmi\",\"ruledata\":28.44}, {\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI maximum was 29.08 over the past 30 days\",\"rulename\":\"ruleHighBmi\",\"ruledata\":29.08}, {\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI averaged 28.79 over the past 30 days\",\"rulename\":\"ruleAverageBmi\",\"ruledata\":28.794}]"
 
 > factouts <- getFactsystem(rooturl, programid, groupid = userid, 
 +     factname = obsname)
@@ -303,13 +512,217 @@ Loading required package: bitops
 +         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
 [1] ruleAverageBmi
 Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :81, \"rulename\" :\"ruleAverageBmi\", \"ruledate\" :\"2014-07-18\", \"msgtxt\" :\"Nudge says that your BMI averaged 28.83 over the past 30 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :81, \"rulename\" :\"ruleAverageBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI averaged 28.79 over the past 30 days\" }"
 [1] ruleHighBmi
 Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :82, \"rulename\" :\"ruleHighBmi\", \"ruledate\" :\"2014-07-18\", \"msgtxt\" :\"Nudge says that your BMI maximum was 29.27 over the past 30 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :82, \"rulename\" :\"ruleHighBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI maximum was 29.08 over the past 30 days\" }"
 [1] ruleLowBmi
 Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :83, \"rulename\" :\"ruleLowBmi\", \"ruledate\" :\"2014-07-18\", \"msgtxt\" :\"Nudge says that your BMI minimum was 28.59 over the past 30 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :83, \"rulename\" :\"ruleLowBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI minimum was 28.44 over the past 30 days\" }"
+[1] "--->PUSHNOTIFICATION :58"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"f41cfbaede81fe479045c34da2c5f1ae"}{"status":1,"request":"834f47839b6f79e4c0b6ca56dcf9f066"}{"status":1,"request":"ebcb5350e7c3fc43d7d80926c25d6aae"}[1] "--->PLOTS :58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> obsdate <- as.POSIXct(userobsDF[, "obsdate"], format = "%Y-%m-%d %H:%M:%S")
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/", obsname, ".png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> plot(obsdate, obsvalues, type = "b", axes = FALSE, 
++     ylab = obsname, ylim = c(floor(min(obsvalues)), ceiling(max(obsvalues))), 
++     xlim = c( .... [TRUNCATED] 
+
+> axis(2, at = seq(floor(min(obsvalues)), ceiling(max(obsvalues)), 
++     0.25), las = 1, cex.axis = 0.6)
+
+> axis(1, at = obsdate, labels = substr(obsdate, 6, 
++     10), cex.axis = 0.8, las = 2)
+
+> if (obsname == "bmi") {
++     abline(h = 29, lty = 2)
++ }
+
+> if (obsname == "weight") {
++     abline(h = 83, lty = 2)
++ }
+
+> dev.off()
+null device 
+          1 
+[1] "--->PLOTS :58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(RColorBrewer)
+
+> user <- getUser(rooturl, userid)
+
+> username <<- user["username"]
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> obsvalues = as.numeric(as.character(userobsDF[, "obsvalue"]))
+
+> obsdate <- as.POSIXct(userobsDF[, "obsdate"], format = "%Y-%m-%d %H:%M:%S")
+
+> fileName = paste(imagesdir, "/lifecoach/user/", username, 
++     "/", obsname, ".png", sep = "")
+
+> png(paste(fileName, sep = ""), res = ppi, width = 5 * 
++     ppi, height = 4 * ppi, pointsize = 10, units = "px")
+
+> plot(obsdate, obsvalues, type = "b", axes = FALSE, 
++     ylab = obsname, ylim = c(floor(min(obsvalues)), ceiling(max(obsvalues))), 
++     xlim = c( .... [TRUNCATED] 
+
+> axis(2, at = seq(floor(min(obsvalues)), ceiling(max(obsvalues)), 
++     0.25), las = 1, cex.axis = 0.6)
+
+> axis(1, at = obsdate, labels = substr(obsdate, 6, 
++     10), cex.axis = 0.8, las = 2)
+
+> if (obsname == "bmi") {
++     abline(h = 29, lty = 2)
++ }
+
+> if (obsname == "weight") {
++     abline(h = 83, lty = 2)
++ }
+
+> dev.off()
+null device 
+          1 
+[1] "--->INSERTOBS --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> fitbitkey <- user["fitbitkey"]
+
+> fitbitsecret <- user["fitbitsecret"]
+
+> fitbitappname <- user["fitbitappname"]
+
+> if (!is.na(fitbitkey)) {
++     token_url <- "http://api.fitbit.com/oauth/request_token"
++     access_url <- "http://api.fitbit.com/oauth/access_toke ..." ... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.9, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :84, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :83.5, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.6, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"weight\", \"obsvalue\" :82.1, \"obsdesc\" :\"System generated from fitbit.com weight download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29.04, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-07-28\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.94, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-02\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :29.08, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-03\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.92, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-04\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.59, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-07\", \"obstype\" : \"userobs\" }"
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"bmi\", \"obsvalue\" :28.44, \"obsdesc\" :\"System generated from fitbit.com bmi download\", \"obsdate\" :\"2014-08-08\", \"obstype\" : \"userobs\" }"
+[1] "--->APPLYNUDGES --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 29.04 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 28.94 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 29.08 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 28.92 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 28.59 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 28.44 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 28.44 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI minimum was 28.44 over the past 30 days\",\"rulename\":\"ruleLowBmi\",\"ruledata\":28.44}, {\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI maximum was 29.08 over the past 30 days\",\"rulename\":\"ruleHighBmi\",\"ruledata\":29.08}, {\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that your BMI averaged 28.79 over the past 30 days\",\"rulename\":\"ruleAverageBmi\",\"ruledata\":28.794}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+[1] ruleAverageBmi
+Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :81, \"rulename\" :\"ruleAverageBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI averaged 28.79 over the past 30 days\" }"
+[1] ruleHighBmi
+Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :82, \"rulename\" :\"ruleHighBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI maximum was 29.08 over the past 30 days\" }"
+[1] ruleLowBmi
+Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :83, \"rulename\" :\"ruleLowBmi\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that your BMI minimum was 28.44 over the past 30 days\" }"
 [1] "--->PUSHNOTIFICATION :7"
 
 > user <- getUser(rooturl, userid)
@@ -323,7 +736,7 @@ Levels: ruleAverageBmi ruleHighBmi ruleLowBmi
 > for (msg in msgs) {
 +     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
 +         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
-{"status":1,"request":"c95042a93dd2c102e0f88199968bf115"}{"status":1,"request":"8e4d825ac6be2bcdea6446fca8378e8b"}{"status":1,"request":"afa951954dd2344ed70ee4220abd3351"}[1] "--->PLOTS :7"
+{"status":1,"request":"4709180f59a87337ed53758edffcde22"}{"status":1,"request":"8de67422551fea5d4774e945444f91e3"}{"status":1,"request":"f6ce13c67eba17709a16740bc2b2c597"}[1] "--->PLOTS :7"
 
 > Sys.setenv(NOAWT = "true")
 
@@ -411,26 +824,330 @@ null device
 > dev.off()
 null device 
           1 
-[master 36145b1] dolifecoach crontab batch script
- 2 files changed, 0 insertions(+), 0 deletions(-)
- rewrite images/lifecoach/user/stefano/bmi.png (78%)
- rewrite images/lifecoach/user/stefano/weight.png (97%)
+Do GAS observed ...
+Loading required package: methods
+Loading required package: bitops
+[1] "--->INSERTOBS --58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> gasboundary1 <- 4
+
+> gasboundary2 <- 5
+
+> gasboundary3 <- 6
+
+> gasboundary4 <- 7
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     inputobsname)
+
+> userobsDF[, "obsname"] <- obsname
+
+> userobsDF <- cbind(userobsDF, gasboundary1 = gasboundary1, 
++     gasboundary2 = gasboundary2, gasboundary3 = gasboundary3, 
++     gasboundary4 = ga .... [TRUNCATED] 
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 14194 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-07-29 10:00:00\" , \"obsvalue\": 12918 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-07-30 10:00:00\" , \"obsvalue\": 11542 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-07-31 10:00:00\" , \"obsvalue\": 16961 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-01 10:00:00\" , \"obsvalue\": 9362 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 9397 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 21299 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 4379 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-05 10:00:00\" , \"obsvalue\": 11913 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-06 10:00:00\" , \"obsvalue\": 6303 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 11842 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 14496 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-09 10:00:00\" , \"obsvalue\": 13940 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-10 10:00:00\" , \"obsvalue\": 8665 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-11 10:00:00\" , \"obsvalue\": 12193 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-12 10:00:00\" , \"obsvalue\": 10065 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-13 10:00:00\" , \"obsvalue\": 2763 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-14 10:00:00\" , \"obsvalue\": 14014 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-15 10:00:00\" , \"obsvalue\": 5776 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-16 10:00:00\" , \"obsvalue\": 4896 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-17 10:00:00\" , \"obsvalue\": 13982 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-18 10:00:00\" , \"obsvalue\": 5862 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-19 10:00:00\" , \"obsvalue\": 14747 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-20 10:00:00\" , \"obsvalue\": 6923 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-21 10:00:00\" , \"obsvalue\": 15217 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-22 10:00:00\" , \"obsvalue\": 8568 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-23 10:00:00\" , \"obsvalue\": 6396 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-24 10:00:00\" , \"obsvalue\": 11427 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-25 10:00:00\" , \"obsvalue\": 8092 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-26 10:00:00\" , \"obsvalue\": 7453 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-27 10:00:00\" , \"obsvalue\": 7986 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 58 , \"obsname\": gasobs , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"58\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you met your worst expected outcome in the past 7 days\",\"rulename\":\"ruleGASWorst\",\"ruledata\":-2}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> for (i in 1:nrow(outputDF)) {
++     userobs <- c(programid = programid, userid, obsname = paste("\"", 
++         obsname, "\"", sep = ""), obsdate = .... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :58, \"obsname\" :\"gasobs\", \"obsvalue\" :-2, \"obsdesc\" :\"System generated using rule service\", \"obsdate\" :\"2014-08-27\", \"obstype\" : \"userobs\" }"
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+    rulename 
+ruleGASWorst 
+Levels: ruleGASWorst
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :58, \"ruleid\" :84, \"rulename\" :\"ruleGASWorst\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you met your worst expected outcome in the past 7 days\" }"
+[1] "--->PUSHNOTIFICATION :58"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"8c056746b8653ff50d95dcb74737f1fa"}[1] "--->PLOTS :58"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) > 0) {
++     polldesc <- "Goal Attainment Scale Results"
++     dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++         us .... [TRUNCATED] 
+null device 
+          1 
+[1] "--->INSERTOBS --7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(httr)
+
+> library(rjson)
+
+> library("RCurl")
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> gasboundary1 <- 4
+
+> gasboundary2 <- 5
+
+> gasboundary3 <- 6
+
+> gasboundary4 <- 7
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     inputobsname)
+
+> userobsDF[, "obsname"] <- obsname
+
+> userobsDF <- cbind(userobsDF, gasboundary1 = gasboundary1, 
++     gasboundary2 = gasboundary2, gasboundary3 = gasboundary3, 
++     gasboundary4 = ga .... [TRUNCATED] 
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-07-28 10:00:00\" , \"obsvalue\": 14194 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-07-29 10:00:00\" , \"obsvalue\": 12918 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-07-30 10:00:00\" , \"obsvalue\": 11542 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-07-31 10:00:00\" , \"obsvalue\": 16961 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-01 10:00:00\" , \"obsvalue\": 9362 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-02 10:00:00\" , \"obsvalue\": 9397 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-03 10:00:00\" , \"obsvalue\": 21299 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-04 10:00:00\" , \"obsvalue\": 4379 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-05 10:00:00\" , \"obsvalue\": 11913 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-06 10:00:00\" , \"obsvalue\": 6303 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-07 10:00:00\" , \"obsvalue\": 11842 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-08 10:00:00\" , \"obsvalue\": 14496 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-09 10:00:00\" , \"obsvalue\": 13940 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-10 10:00:00\" , \"obsvalue\": 8665 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-11 10:00:00\" , \"obsvalue\": 12193 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-12 10:00:00\" , \"obsvalue\": 10065 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-13 10:00:00\" , \"obsvalue\": 2763 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-14 10:00:00\" , \"obsvalue\": 14014 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-15 10:00:00\" , \"obsvalue\": 5776 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-16 10:00:00\" , \"obsvalue\": 4896 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-17 10:00:00\" , \"obsvalue\": 13982 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-18 10:00:00\" , \"obsvalue\": 5862 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-19 10:00:00\" , \"obsvalue\": 14747 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-20 10:00:00\" , \"obsvalue\": 6923 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-21 10:00:00\" , \"obsvalue\": 15217 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-22 10:00:00\" , \"obsvalue\": 8568 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-23 10:00:00\" , \"obsvalue\": 6396 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-24 10:00:00\" , \"obsvalue\": 11427 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-25 10:00:00\" , \"obsvalue\": 8092 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-26 10:00:00\" , \"obsvalue\": 7453 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-27 10:00:00\" , \"obsvalue\": 7986 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gasobs , \"obsdate\": \"2014-08-28 10:00:00\" , \"obsvalue\": 830 , \"gasboundary1\": 4 , \"gasboundary2\": 5 , \"gasboundary3\": 6 , \"gasboundary4\": 7 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[{\"id\":\"7\",\"ruledate\":\"2014-08-27\",\"rulemsg\":\"Nudge says that you met your worst expected outcome in the past 7 days\",\"rulename\":\"ruleGASWorst\",\"ruledata\":-2}]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF = c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> outputDF = data.frame(t(outputDF))
+
+> for (i in 1:nrow(outputDF)) {
++     userobs <- c(programid = programid, userid, obsname = paste("\"", 
++         obsname, "\"", sep = ""), obsdate = .... [TRUNCATED] 
+[1] "Posting userobs-->{ \"programid\" :1, \"userid\" :7, \"obsname\" :\"gasobs\", \"obsvalue\" :-2, \"obsdesc\" :\"System generated using rule service\", \"obsdate\" :\"2014-08-27\", \"obstype\" : \"userobs\" }"
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (!is.null(nrow(smsDF))) {
++     for (i in 1:nrow(smsDF)) {
++         print(smsDF[i, "rulename"])
++         rule <- getRule(rooturl, smsDF[i, "rul ..." ... [TRUNCATED] 
+    rulename 
+ruleGASWorst 
+Levels: ruleGASWorst
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :84, \"rulename\" :\"ruleGASWorst\", \"ruledate\" :\"2014-08-27\", \"msgtxt\" :\"Nudge says that you met your worst expected outcome in the past 7 days\" }"
+[1] "--->PUSHNOTIFICATION :7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.satimetry.com/rulesettings.php", .... [TRUNCATED] 
+{"status":1,"request":"3823c89b5ef49543d19b15813b874f99"}[1] "--->PLOTS :7"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) > 0) {
++     polldesc <- "Goal Attainment Scale Results"
++     dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++         us .... [TRUNCATED] 
+null device 
+          1 
+[master 4fe7de6] dolifecoach crontab batch script
+ 10 files changed, 0 insertions(+), 0 deletions(-)
+ rewrite images/lifecoach/user/guest/activity.png (96%)
+ rewrite images/lifecoach/user/guest/bmi.png (73%)
+ rewrite images/lifecoach/user/guest/gasobsbp.png (96%)
+ rewrite images/lifecoach/user/guest/gasobsxy.png (97%)
+ rewrite images/lifecoach/user/guest/weight.png (98%)
+ rewrite images/lifecoach/user/stefano/activity.png (96%)
+ rewrite images/lifecoach/user/stefano/bmi.png (73%)
+ rewrite images/lifecoach/user/stefano/gasobsbp.png (74%)
+ rewrite images/lifecoach/user/stefano/gasobsxy.png (97%)
+ rewrite images/lifecoach/user/stefano/weight.png (98%)
 remote: Syncing git content to other proxy gears        
 remote: Executing Jenkins build.        
 remote: 
 remote: You can track your build at https://jenkins-spicozzi.rhcloud.com/job/nudge-build        
 remote: 
-remote: ERROR - Job not available: http://jenkins-spicozzi.rhcloud.com/job/nudge-build        
-remote: !!!!!!!!        
-remote: Deployment Halted!        
-remote: If the build failed before the deploy step, your previous        
-remote: build is still running.  Otherwise, your application may be        
-remote: partially deployed or inaccessible.        
-remote: Fix the build and try again.        
-remote: !!!!!!!!        
-remote: An error occurred executing 'gear postreceive' (exit code: 1)        
-remote: Error message: CLIENT_ERROR: Failed to execute: 'control post-receive' for /var/lib/openshift/53391eda500446b5f9000295/jenkins-client        
-remote: 
-remote: For more details about the problem, try running the command again with the '--trace' option.        
+remote: Waiting for build to schedule..........................................Done        
+remote: Waiting for job to complete............................................................................Done        
+remote: SUCCESS        
+remote: New build has been deployed.        
+remote: -------------------------        
+remote: Git Post-Receive Result: success        
+remote: Deployment completed with status: success        
 To ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/
-   ffc2724..36145b1  master -> master
+   ddc0cdd..4fe7de6  master -> master

@@ -139,13 +139,36 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
     obsdate <- userobsDF[i, "obsdate"]
     obsdate <- paste("\"", obsdate, "\"", sep="")
     obsvalue <- userobsDF[i, "obsvalue"]
+    gasboundary1 <- NULL
+    gasboundary2 <- NULL
+    gasboundary3 <- NULL
+    gasboundary4 <- NULL
+    
+    if ( "gasboundary1" %in% colnames(userobsDF) ) { gasboundary1 <- userobsDF[i, "gasboundary1"] }
+    if ( "gasboundary2" %in% colnames(userobsDF) ) { gasboundary2 <- userobsDF[i, "gasboundary2"] }
+    if ( "gasboundary3" %in% colnames(userobsDF) ) { gasboundary3 <- userobsDF[i, "gasboundary3"] }
+    if ( "gasboundary4" %in% colnames(userobsDF) ) { gasboundary4 <- userobsDF[i, "gasboundary4"] }
+    
     obsdesc <- "\"Generated using R sysbatch procedure\"";
     
-    factjson <- paste('{ \"username\":', username, 
+    if ( is.null( gasboundary1 ) ) {
+      factjson <- paste('{ \"username\":', username, 
                       ', \"obsname\":', obsname, 
                       ', \"obsdate\":', obsdate, 
                       ', \"obsvalue\":', obsvalue,
                       ', \"obsdesc\":', obsdesc, '}' )
+    } else {
+       factjson <- paste('{ \"username\":', username, 
+                         ', \"obsname\":', obsname, 
+                         ', \"obsdate\":', obsdate, 
+                         ', \"obsvalue\":', obsvalue,
+                         ', \"gasboundary1\":', gasboundary1,
+                         ', \"gasboundary2\":', gasboundary2,
+                         ', \"gasboundary3\":', gasboundary3,
+                         ', \"gasboundary4\":', gasboundary4,
+                         ', \"obsdesc\":', obsdesc, '}' )       
+       
+    }
     
     #  params <- paste("programid=", programid, "&groupid=", userid, "&factjson=", factjson, sep="")
     #  url <- paste("curl -X POST --data '", params, "' ", rooturl, "/fact", sep="")
@@ -201,6 +224,33 @@ getProgramuserDF <- function(rooturl, programid) {
    programuserDF <- t(programuserDF)
    programuserDF <- subset(programuserDF, programuserDF[,"roletype"] == "participant")  
    return(programuserDF)
+}
+
+getProgramruleuserDF <- function(rooturl, programid, userid) {
+   programruleuserJSON <- tryCatch({  
+      getURL(paste(rooturl, "/programruleuser", sep=""))
+   }, warning = function(w) {
+      print("Warning gerProgramruleuser")
+   }, error = function(e) {
+      print("Error getProgramruleuser")
+      message(e)
+      stop()
+   }, finally = {
+   })
+   programruleusers <- fromJSON(programruleuserJSON)
+   programruleuserDF = c()
+   for (programruleuser in programruleusers) {
+         programruleuserDF <- cbind( programruleuserDF, 
+            c( programid = programruleuser$programid,
+               userid = programruleuser$userid, 
+               ruleid = programruleuser$ruleid, 
+               rulelow = programruleuser$rulelow,
+               rulehigh = programruleuser$rulehigh ) )
+   }
+   programruleuserDF <- t(programruleuserDF)
+   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"programid"] == programid)  
+   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"userid"] == userid)  
+   return(programruleuserDF)
 }
 
 getUser <- function(rooturl, userid) {
@@ -300,6 +350,7 @@ getUserobsDF <- function(rooturl, programid, userid, obsname) {
       userobsDF <- cbind( userobsDF, c( id=userobs$userobsid, username=userobs$userid, obsname=userobs$obsname, obsdate=obsdate, obsvalue=userobs$obsvalue ) )
    }
    userobsDF <- t(userobsDF)
+   userobsDF <- userobsDF[order(userobsDF[, "obsdate"]),] 
    return(userobsDF)
 }
 
