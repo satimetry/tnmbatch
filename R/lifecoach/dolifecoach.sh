@@ -58,7 +58,7 @@ echo "Do GAS ..."
 echo "Do fitbit ..."
 ./dofitbit/dofitbit.R
 
-echo "Do fitbit ..."
+echo "Do withings ..."
 ./dowithings/dowithings.R
 
 cd ~/websites/nudge
