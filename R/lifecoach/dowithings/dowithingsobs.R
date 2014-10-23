@@ -15,14 +15,14 @@ fitbitappname <- user['fitbitappname']
 
 if ( ! is.na(fitbitkey) ) {
 
-   token_url <- "http://api.fitbit.com/oauth/request_token"
-   access_url <- "http://api.fitbit.com/oauth/access_token"
-   auth_url <- "http://www.fitbit.com/oauth/authorize"
+   token_url <- "https://api.fitbit.com/oauth/request_token"
+   access_url <- "https://api.fitbit.com/oauth/access_token"
+   auth_url <- "https://www.fitbit.com/oauth/authorize"
    fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
    token <- readRDS(file = paste("../user/", username, "/fitbit-token.RDS", sep = ""))
    sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
 
-   getURL <- "http://api.fitbit.com/1/user/-/body/log/weight/date/"
+   getURL <- "https://api.fitbit.com/1/user/-/body/log/weight/date/"
    startdate <- as.Date(Sys.Date()) - 31
    getURL <- paste(getURL, startdate, "/today.json", sep = "")
    
@@ -39,7 +39,10 @@ if ( ! is.na(fitbitkey) ) {
    
    weightDF <- NULL
    for (i in 1:length(content(weightJSON)$`weight`)) {
-      x = c( content(weightJSON)$`weight`[i][[1]][['date']], content(weightJSON)$`weight`[i][[1]][['weight']] ) 
+      timestamp <- paste( content(weightJSON)$`weight`[i][[1]][['date']], " 07:15:00", sep = "")
+      timestamp <- as.POSIXct(timestamp, format = "%Y-%m-%d %H:%M:%S", origin = "1970-01-01", tz = "Australia/Sydney")
+      timestamp <- as.numeric(timestamp) * 1000
+      x = c( timestamp, content(weightJSON)$`weight`[i][[1]][['weight']] ) 
       weightDF <- cbind(weightDF, x)
    }
    weightDF <- t(weightDF)
@@ -47,19 +50,19 @@ if ( ! is.na(fitbitkey) ) {
    weightDF = as.data.frame(weightDF, row.names = 1)
 
    inputDF <- cbind( username = c(username), weightDF)
-   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
+#   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
 
    # Remove the userobs for this programid and userid and obsname
    delUserobs(rooturl, programid, userid, "weight")
 
    for (i in 1:nrow(inputDF)) { 
 
-      userobs <- c(programid=programid,
+      userobs <- c(programid = programid,
                 userid,
-                obsname="\"weight\"",
-                obsdate=paste("\"", inputDF[i, "obsdate"], "\"", sep=""),
-                obsvalue=inputDF[i, "obsvalue"],
-                obsdesc="\"System generated from fitbit.com weight download\""                
+                obsname = "\"weight\"",
+                obsdate = inputDF[i, "obsdate"],
+                obsvalue = inputDF[i, "obsvalue"],
+                obsdesc = "\"System generated from fitbit.com weight download\""                
                )
    
       postUserobs(rooturl, userobs)
@@ -69,7 +72,10 @@ if ( ! is.na(fitbitkey) ) {
 
    bmiDF <- NULL
    for (i in 1:length(content(weightJSON)$`weight`)) {
-      x = c( content(weightJSON)$`weight`[i][[1]][['date']], content(weightJSON)$`weight`[i][[1]][['bmi']] ) 
+      timestamp <- paste( content(weightJSON)$`weight`[i][[1]][['date']], " 07:15:00", sep = "")
+      timestamp <- as.POSIXct(timestamp, format = "%Y-%m-%d %H:%M:%S", origin = "1970-01-01", tz = "Australia/Sydney")
+      timestamp <- as.numeric(timestamp) * 1000
+      x = c( timestamp, content(weightJSON)$`weight`[i][[1]][['bmi']] ) 
       bmiDF <- cbind(bmiDF, x)
    }
    bmiDF <- t(bmiDF)
@@ -77,19 +83,19 @@ if ( ! is.na(fitbitkey) ) {
    bmiDF = as.data.frame(bmiDF, row.names = 1)
    
    inputDF <- cbind( username = c(username), bmiDF)
-   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
+#   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
    
    # Remove the userobs for this programid and userid and obsname
    delUserobs(rooturl, programid, userid, "bmi")
    
    for (i in 1:nrow(inputDF)) { 
       
-      userobs <- c(programid=programid,
+      userobs <- c(programid = programid,
                    userid,
-                   obsname="\"bmi\"",
-                   obsdate=paste("\"", inputDF[i, "obsdate"], "\"", sep=""),
-                   obsvalue=inputDF[i, "obsvalue"],
-                   obsdesc="\"System generated from fitbit.com bmi download\""                
+                   obsname = "\"bmi\"",
+                   obsdate = inputDF[i, "obsdate"],
+                   obsvalue = inputDF[i, "obsvalue"],
+                   obsdesc = "\"System generated from fitbit.com bmi download\""                
       )
       
       postUserobs(rooturl, userobs)

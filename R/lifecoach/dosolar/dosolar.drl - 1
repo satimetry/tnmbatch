@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 import org.json.JSONObject;
 import java.util.Date; 
@@ -43,7 +44,7 @@ rule "ruleInsertObservation"
     $input : JSONObject() from entry-point DEFAULT 
   then
     inSDF = new SimpleDateFormat("yyyy-M-d H:m:s Z");
-    Date date = inSDF.parse( $input.get("obsdate").toString() + " +1100" );
+    Date date = inSDF.parse( $input.get("obsdate").toString() + " +1100" );    
     Observation observation = new Observation($input.get("username").toString(), date);
     observation.setObsvalue( Double.parseDouble($input.get("obsvalue").toString()) );
     insert(observation);
@@ -66,14 +67,14 @@ rule "ruleInsertParticipant"
     print(drools.getRule().getName() + "->" + $participant.getId() );
 end
 
-rule "ruleAverageBmi"
+rule "ruleEfficiencySolar"
    salience -1000
    no-loop true
    when
       $participant : Participant()
       $obsvalueAverage : Number( doubleValue > 0) from accumulate(
-         Observation( $obsvalue : obsvalue > 28 && < 30, $participant.id == id ) over window:time( 30d ),
-         average( $obsvalue ) )
+         Observation( $obsvalue : obsvalue, $participant.id == id ) over window:time( 7d ),
+         average( ($obsvalue/4000)*100 ) )
    then
       Date today = new Date(); 
       java.util.Date date = new Date();
@@ -84,59 +85,9 @@ rule "ruleAverageBmi"
       joutput.put("id", $participant.getId());
       joutput.put("rulename", drools.getRule().getName());
       joutput.put("ruledate", datef); 
-      joutput.put("rulemsg", "Nudge says that your BMI averaged " + String.format("%.2f", $obsvalueAverage) + " over the past 30 days");
+      joutput.put("rulemsg", "Nudge says that your Solar efficiency averaged " + String.format("%.2f", $obsvalueAverage) + " over the past 7 days");
       joutput.put("ruledata", $obsvalueAverage);
       Output $output = new Output(joutput.toString());
       insert($output);
       print(drools.getRule().getName() + "->" + $obsvalueAverage);
-end
-
-rule "ruleHighBmi"
-   salience -1000
-   no-loop true
-   when
-      $participant : Participant()
-      $obsvalueHigh : Number( doubleValue > 0) from accumulate(
-         Observation( $obsvalue : obsvalue, $participant.id == id ) over window:time( 30d ),
-         max( $obsvalue ) )
-   then
-      Date today = new Date(); 
-      java.util.Date date = new Date();
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      String datef = sdf.format( date );
-
-      JSONObject joutput = new JSONObject();
-      joutput.put("id", $participant.getId());
-      joutput.put("rulename", drools.getRule().getName());
-      joutput.put("ruledate", datef); 
-      joutput.put("rulemsg", "Nudge says that your BMI maximum was " + String.format("%.2f", $obsvalueHigh) + " over the past 30 days");
-      joutput.put("ruledata", $obsvalueHigh);
-      Output $output = new Output(joutput.toString());
-      insert($output);
-      print(drools.getRule().getName() + "->" + $obsvalueHigh);
-end
-
-rule "ruleLowBmi"
-   salience -1000
-   no-loop true
-   when
-      $participant : Participant()
-      $obsvalueLow : Number( doubleValue > 0) from accumulate(
-         Observation( $obsvalue : obsvalue, $participant.id == id ) over window:time( 30d ),
-         min( $obsvalue ) )
-   then
-      Date today = new Date(); 
-      java.util.Date date = new Date();
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      String datef = sdf.format( date );
-
-      JSONObject joutput = new JSONObject();
-      joutput.put("id", $participant.getId());
-      joutput.put("rulename", drools.getRule().getName());
-      joutput.put("ruledate", datef); 
-      joutput.put("rulemsg", "Nudge says that your BMI minimum was " + String.format("%.2f", $obsvalueLow) + " over the past 30 days");
-      joutput.put("ruledata", $obsvalueLow);
-      Output $output = new Output(joutput.toString());
-      insert($output);
-      print(drools.getRule().getName() + "->" + $obsvalueLow);
 end

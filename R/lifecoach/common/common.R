@@ -282,6 +282,32 @@ getUserobs <- function(rooturl, programid, userid, obsname) {
   return(fromJSON(userobsJSON))
 }
 
+getMaxobsdate <- function(rooturl, programid, userid, obsname) {
+  userobsJSON <- tryCatch({  
+    getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
+  }, warning = function(w) {
+    print("Warning getUserobs")
+  }, error = function(e) {
+    print("Error getUserobs")
+    message(e)
+    stop()
+  }, finally = {
+  })
+  userobss <- fromJSON(userobsJSON)
+  userobsDF <- c()
+  for (userobs in userobss) {
+    obsdate <- toString(as.POSIXlt( as.numeric(userobs$obsdate)/1000, origin="1970-01-01 00:00:00" ))
+    userobsDF <- rbind( userobsDF, c( id=userobs$userobsid, username=userobs$userid, obsname=userobs$obsname, obsdate=obsdate, obsvalue=userobs$obsvalue ) )
+  }
+
+  if (nrow(userobsDF) > 0) {
+    userobsDF <- userobsDF[ order(userobsDF[, "obsdate"], decreasing = TRUE), ]
+    return(userobsDF[1, "obsdate"])
+  } else {
+    return("1970-01-01 00:00:00")
+  }
+}
+
 getUserobsDF <- function(rooturl, programid, userid, obsname) {
    userobsJSON <- tryCatch({  
       getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))

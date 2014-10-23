@@ -5,8 +5,9 @@ library(rjson)
 
 # Get observations for this programid and userid
 userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
-userobss <- getUserobs(rooturl, programid, userid, obsname)
-
+if ( nrow(userobsDF) > 1000 ) { 
+  userobsDF <- subset( userobsDF, regexpr( Sys.Date(), userobsDF[, "obsdate"]) > 0)
+}
 delFact(rooturl, programid, groupid=userid, factname=obsname)
 postFact(rooturl, programid, groupid=userid, factname=obsname, userobsDF)
 getNudge(rooturl, programid, groupid=userid, factname=obsname, rulename=rulename)
@@ -20,33 +21,29 @@ for (factout in factouts) {
                                  rulemsg=fromJSON(factout$factjson)$rulemsg,
                                  ruledata=fromJSON(factout$factjson)$ruledata))
 }
-outputDF = data.frame(t(outputDF))
 
-# Get optinrules for this programid and userid
-optinruleviewDF <- getOptinruleviewDF(rooturl, programid, userid)
-outputDF <- outputDF[ order(outputDF[, "rulename"]), ]
-outputDF <- subset(outputDF, outputDF[, "rulename"] %in% optinruleviewDF )
+if (! is.null(nrow(outputDF))) {
+  outputDF = data.frame(t(outputDF))
 
-smsDF <- outputDF
-#smsDF <- data.frame(lapply(smsDF, as.character), stringsAsFactors = FALSE)
-#stepDateTime <- as.Date(smsDF[, "ruledate"], format = "%a %b %d")
-#stepDateTime <- as.POSIXct(smsDF[, "ruledate"], format = "%a %b %d %H:%M:%S EST %Y")
-#stepDateTime <- as.POSIXct(smsDF$ruledate, format = "%Y-%m-%d")
-#stepDateTime <- toString(as.POSIXlt( as.numeric(smsDF[", "ruledate"), origin="1970-01-01 00:00:00" ))
-#smsDF <-cbind(smsDF, c( stepDateTime = stepDateTime ) )
+  # Get optinrules for this programid and userid
+  optinruleviewDF <- getOptinruleviewDF(rooturl, programid, userid)
+  outputDF <- outputDF[ order(outputDF[, "rulename"]), ]
+  outputDF <- subset(outputDF, outputDF[, "rulename"] %in% optinruleviewDF )
 
-today <- Sys.Date()
+  smsDF <- outputDF
 
-if ( ! is.null(nrow(smsDF)) ) {
+  today <- Sys.Date()
+
+  if ( ! is.null(nrow(smsDF)) ) {
  
-  for (i in 1:nrow(smsDF)) {
-    print(smsDF[i, "rulename" ])  
+    for (i in 1:nrow(smsDF)) {
+      print(smsDF[i, "rulename" ])  
    
-    rule <- getRule(rooturl, smsDF[i, "rulename" ] )
+      rule <- getRule(rooturl, smsDF[i, "rulename" ] )
    
-    # ruledate <- as.POSIXct(smsDF[i, "ruledate" ], format = "%a %b %d")
+      # ruledate <- as.POSIXct(smsDF[i, "ruledate" ], format = "%a %b %d")
     
-    msg <- c(programid=programid,
+      msg <- c(programid=programid,
             userid,
             ruleid=rule[[1]]$ruleid,
             rulename=paste("\"", smsDF[i, "rulename" ], "\"", sep=""),
@@ -54,8 +51,8 @@ if ( ! is.null(nrow(smsDF)) ) {
             msgtxt=paste("\"", smsDF[i, "rulemsg" ], "\"", sep="")
             )
     
-    # Create msg for this programid and userid
-    postMsg(rooturl, msg)
+      # Create msg for this programid and userid
+      postMsg(rooturl, msg)
+    }
   }
-
 }
