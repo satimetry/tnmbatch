@@ -23,6 +23,11 @@ programusers <- getProgramuser(rooturl, programid)
 for (programuser in programusers) {
 
    userid <<- programuser["userid"]
+<<<<<<< HEAD
+=======
+
+#   if ( userid != 7 && userid != 58 ) { next }
+>>>>>>> df9bb0d4daae1ee3903a1c83d205a498cf6071a4
    if ( userid != 7 ) { next }
 
    print(paste("--->INSERTOBS --", userid, sep = ""))

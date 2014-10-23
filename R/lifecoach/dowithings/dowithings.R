@@ -22,7 +22,7 @@ for (programuser in programusers) {
 
    userid <<- programuser["userid"]
 
-   if ( userid != 7 ) { next }
+   if ( userid != 7 && userid != 58 ) { next }
 
    print(paste("--->INSERTOBS --", userid, sep = ""))
    source("dowithingsobs.R", echo = TRUE )

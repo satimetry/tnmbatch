@@ -22,20 +22,20 @@ for (programuser in programusers) {
 
    userid <<- programuser["userid"]
 
-   if ( userid != 7 ) { next }
-
+   if ( userid != 7 && userid != 58 ) { next }
+   
    print(paste("--->INSERTOBS --", userid, sep = ""))
    source("dofitbitobs.R", echo = TRUE )
-   
+
    obsname <<- "activity"
    rulename <<- "activity"
    print(paste("--->APPLYNUDGES --", userid, sep = ""))
    source("../common/donudges.R", echo = TRUE )
-      
+
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    source("../common/donotifications.R", echo = TRUE )
-   
+
    print(paste("--->PLOTS :", userid, sep = ""))
    source("dofitbitplots.R", echo = TRUE )
-   
+
 }

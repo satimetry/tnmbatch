@@ -52,14 +52,14 @@ fi
 
 cd ~/tnm/tnmbatch/R/lifecoach
 
-echo "Do GAS ..."
-./dogas/dogas.R
-
 echo "Do fitbit ..."
 ./dofitbit/dofitbit.R
 
 echo "Do withings ..."
 ./dowithings/dowithings.R
+
+echo "Do GAS observed ..."
+./dogasobs/dogasobs.R
 
 cd ~/websites/nudge
 git add images
