@@ -10,7 +10,7 @@ imagesdir <<- "~/websites/nudge/images"
 setwd(rootdir)
 ppi <<- 300
 
-source("../common/common.R")
+source("../../common/common.R")
 
 # Do programid=1 and activity observations
 programid <<- 1

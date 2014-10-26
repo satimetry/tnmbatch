@@ -134,7 +134,7 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
     #JSON <- paste("{ \"programid\" :", programid, ", \"groupid\" :", groupid, ", \"facttype\" : 0", ", \"factjson\" :\"", toString(toJSON(userobsDF[i,])), "\"  }", sep="")
     #curl.opts <- list(postfields = JSON, httpheader = c("Content-Type: application/json", "Accept: application/json"), useragent = "RCurl", ssl.verifypeer = FALSE)
 
-    username <- groupid
+    username <- userobsDF[i, "username"]
     obsname <- userobsDF[i, "obsname"]
     obsdate <- userobsDF[i, "obsdate"]
     obsdate <- paste("\"", obsdate, "\"", sep="")
@@ -175,7 +175,7 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
     
     result <- tryCatch({      
       # postForm( paste(rooturl, "/fact", sep=""), .opts = curl.opts )
-      postForm( paste(rooturl, "/fact", sep=""), programid=programid, groupid=userid, factname=factname, factjson=factjson, style="POST"  )
+      postForm( paste(rooturl, "/fact", sep=""), programid=programid, groupid=groupid, factname=factname, factjson=factjson, style="POST"  )
       # system(url)
       print(paste("Posting fact-->", factjson, sep=""))
     }, warning = function(w) {
@@ -192,7 +192,7 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
 
 getProgramuser <- function(rooturl, programid) {
   programuserJSON <- tryCatch({  
-    getURL(paste(rooturl, "/user?programid=", programid, sep=""))
+    getURL(paste(rooturl, "/programuser/user?programid=", programid, sep=""))
   }, warning = function(w) {
     print("Warning gerProgramuser")
   }, error = function(e) {
@@ -329,6 +329,7 @@ getUserobs <- function(rooturl, programid, userid, obsname) {
     stop()
   }, finally = {
   })
+  print(userobsJSON)
   return(fromJSON(userobsJSON))
 }
 
@@ -414,7 +415,8 @@ getMsg <- function(rooturl, programid, userid) {
     stop()
   }, finally = {
   })
-  return(fromJSON(msgJSON))
+  print(msgJSON)
+  return( fromJSON(msgJSON) )
 }
 
 getMsgDF <- function(rooturl, programid, userid) {

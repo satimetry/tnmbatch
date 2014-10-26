@@ -1,0 +1,152 @@
+import java.util.HashMap;
+import org.json.JSONObject;
+import java.util.Date; 
+import java.util.Calendar; 
+import java.text.SimpleDateFormat; 
+import com.satimetry.nudge.Output;
+import java.lang.Integer;
+
+global java.util.HashMap output;
+global SimpleDateFormat inSDF;
+global SimpleDateFormat outSDF;
+
+function void print(String txt) {
+   System.out.println(txt);
+}
+
+// Declare inside drl so we can manipulate objects naturally
+declare Participant
+  @role( fact )
+  id : String @key
+  gastype : String
+  dayofweek : String
+
+end
+
+declare PStats
+  @role( fact )
+  id : String @key
+  index : Integer
+end
+
+// Declare inside drl so we can manipulate objects naturally
+declare Observation
+  @role( event )
+  @timestamp ( obsdate )
+  id : String @key
+  obsdate : Date @key
+  obsvalue : Integer
+  obsdiff : Integer
+end
+
+// Declare inside drl so we can manipulate objects naturally
+declare Adherance
+  @role( event )
+  @timestamp ( obsdate )
+  id : String @key
+  obsdate : Date @key
+  obsvalue : Integer
+  obsdiff : Integer
+end
+
+rule "ruleInsertObservation"
+  salience 5000
+  when
+    $input : JSONObject() from entry-point DEFAULT 
+  then
+//    inSDF = new SimpleDateFormat("yyyy-M-d H:m:s Z");
+//    Date date = inSDF.parse( $input.get("obsdate").toString() + " +1100" );
+    inSDF = new SimpleDateFormat("yyyy-M-d H:m:s");
+    Date date = inSDF.parse( $input.get("obsdate").toString() + "" );
+
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    int hour = calendar.get(Calendar.HOUR) + 1;
+    int minute = calendar.get(Calendar.MINUTE);
+    int second = calendar.get(Calendar.SECOND);
+    Observation obs = new Observation($input.get("username").toString(), date);
+    obs.setObsvalue( Integer.parseInt($input.get("obsvalue").toString()) );
+    obs.setObsdiff( Math.abs ( (hour*60) + minute - (8*60) ) );
+    insert(obs);
+print(hour + " " + minute);
+    print(drools.getRule().getName() + "->" + obs.getId() + "-" + obs.getObsdate() + "-" + obs.getObsvalue() + "-" + obs.getObsdiff() );
+end
+
+rule "ruleInsertParticipant"
+  salience 4000
+  when
+    $input : JSONObject() from entry-point DEFAULT 
+    not Participant( id == $input.get("username").toString() )
+  then
+    Date today = new Date();
+    String dayofweek = new SimpleDateFormat("EE").format(today);
+    Participant $participant = new Participant( $input.get("username").toString() );
+    $participant.setGastype( $input.get("obsname").toString() );
+    $participant.setDayofweek(dayofweek);
+    insert( $participant );
+    print(drools.getRule().getName() + "->" + $participant.getId() + "-" + $participant.getGastype() );
+end
+
+rule "ruleInsertAdherance"
+  salience 3000
+  no-loop true
+  when
+    $participant : Participant()
+    $observation : Observation(obsvalue == 2 && obsdiff < 60 && id == $participant.id)
+  then
+    Adherance $adherance = new Adherance($participant.getId(), $observation.getObsdate());
+    $adherance.setObsvalue($observation.getObsvalue());
+    $adherance.setObsdiff($observation.getObsdiff());
+    insert($adherance);
+    print(drools.getRule().getName() + "->" + $adherance.getId() + "-" + $adherance.getObsdate() + "-" + $adherance.getObsvalue() + "-" + $adherance.getObsdiff());
+end
+
+rule "ruleMedicationParticipantFullAdherance"
+  salience 1000
+  no-loop true
+  when
+    $participant : Participant()
+    $obsCountTotal : Number( intValue > 0) from accumulate(
+      Adherance($obsCount : obsvalue, $participant.id == id) over window:time( 41d ),
+      count( $obsCount ) )
+  then
+    PStats $pstats = new PStats( $participant.getId() );
+    $pstats.setIndex( $obsCountTotal.intValue() );
+    insert( $pstats );
+    print(drools.getRule().getName() + "->" + $pstats.getId() + " - " + $obsCountTotal);
+end
+
+rule "ruleMedicationFullAdherance"
+  salience -100000
+  no-loop true
+  when
+    $participant : Participant()
+    $pstats : PStats( id == $participant.id )
+    $obsCountTotal : Number( intValue > 0) from accumulate(
+      Adherance($obsCount : obsvalue) over window:time( 41d ),
+      count( $obsCount ) )
+  then
+    Date today = new Date();
+
+    java.util.Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String datef = sdf.format( date );
+
+    Integer N = new Integer(5);
+    Double index = $obsCountTotal.doubleValue();
+    index = ( index/ (N.doubleValue()*14) )*100;
+
+    Double pindex = ( $pstats.getIndex().doubleValue()/14 )*100;
+
+    JSONObject joutput = new JSONObject();
+    joutput.put("id", $participant.getId());
+    joutput.put("rulename", drools.getRule().getName());
+    joutput.put("ruledate", datef);
+    joutput.put("rulemsg", "Your average full compliance was " + String.format("%.2f", pindex) + "% versus a group average of " + String.format("%.2f", index) + "% over the past 14 days.");
+    joutput.put("ruledata", "http://www.thenudgemachine.com/msg.php");
+    Output $output = new Output(joutput.toString());
+    insert($output);
+    print(drools.getRule().getName() + "->" + $obsCountTotal);
+end
+
+

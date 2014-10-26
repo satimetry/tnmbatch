@@ -5,7 +5,7 @@ Sys.setenv(NOAWT = "true")
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/tnm/tnmbatch/R/lifecoach/dofitbit"
+rootdir <<- "~/tnm/tnmbatch/R/lifecoach/dogasobs"
 imagesdir <<- "~/websites/nudge/images"
 setwd(rootdir)
 ppi <<- 300
@@ -22,21 +22,20 @@ for (programuser in programusers) {
 
    userid <<- programuser["userid"]
 
-#   if ( userid != 7 && userid != 58 ) { next }   
-   if ( userid != 7 ) { next }
+   if ( userid != 7 && userid != 58 ) { next }
+   
+   # Calculate GAS actuals using activity observations
+   inputobsname <<- "activity"
+   obsname <<- "gasobs"
+   rulename <<- "gasobs"
    
    print(paste("--->INSERTOBS --", userid, sep = ""))
-   source("dofitbitobs.R", echo = TRUE )
-
-   obsname <<- "activity"
-   rulename <<- "activity"
-   print(paste("--->APPLYNUDGES --", userid, sep = ""))
-   source("../common/donudges.R", echo = TRUE )
-
+   source("dogasobsins.R", echo = TRUE )
+   
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    source("../common/donotifications.R", echo = TRUE )
 
    print(paste("--->PLOTS :", userid, sep = ""))
-   source("dofitbitplots.R", echo = TRUE )
+   source("dogasobsplots.R", echo = TRUE )
 
 }
