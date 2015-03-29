@@ -285,9 +285,9 @@ getRule <- function(rooturl, rulename) {
 
 postUserobs <- function(rooturl, userobs) {
    
-   JSON <- paste("{ \"programid\" :", userobs["programid"], ", \"userid\" :", userobs["userid"], ", \"obsname\" :", userobs["obsname"], ", \"obsvalue\" :", userobs["obsvalue"], ", \"obsdesc\" :", userobs["obsdesc"], ", \"obsdate\" :", userobs["obsdate"], ", \"obstype\" : \"userobs\" }", sep="")
+   JSON <- paste("{ \"programid\" :", userobs["programid"], ", \"userid\" :", userobs["userid"], ", \"obsname\" :", userobs["obsname"], ", \"obsvalue\" :", userobs["obsvalue"], ", \"obsdesc\" :", userobs["obsdesc"], ", \"obsdate\" :", userobs["obsdate"], ", \"obstype\" : \"userobs\" }", sep="")   
    curl.opts <- list(postfields = JSON, httpheader = c("Content-Type: application/json", "Accept: application/json"), useragent = "RCurl", ssl.verifypeer = FALSE)
-   
+      
    result <- tryCatch({      
       postForm( paste(rooturl, "/userobs", sep=""), .opts = curl.opts )
       print(paste("Posting userobs-->", JSON, sep=""))

@@ -10,7 +10,7 @@ imagesdir <<- "~/websites/nudge/images"
 setwd(rootdir)
 ppi <<- 300
 
-source("../common/common.R")
+source("../../common/common.R")
 
 # Do programid=1 and weight observations
 programid <<- 1
@@ -26,22 +26,31 @@ for (programuser in programusers) {
    if ( userid != 7 ) { next }
    
    print(paste("--->INSERTOBS --", userid, sep = ""))
-   source("dowithingsobs.R", echo = TRUE )
+#   source("dowithingsobs.R", echo = TRUE )
    
    obsname <<- "bmi"
    rulename <<- "bmi"
    print(paste("--->APPLYNUDGES --", userid, sep = ""))
- #  source("../common/donudges.R", echo = TRUE )
-      
+   source("../../common/donudges.R", echo = TRUE )
+
+   obsname <<- "weight"
+   rulename <<- "weight"
+   print(paste("--->APPLYNUDGES --", userid, sep = ""))
+   source("../../common/donudges.R", echo = TRUE )
+
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
-#   source("../common/donotifications.R", echo = TRUE )
+   source("../../common/donotifications.R", echo = TRUE )
 
    obsname <<- "bmi"
    print(paste("--->PLOTS :", userid, sep = ""))
-#   source("dowithingsplots.R", echo = TRUE )
+   source("dowithingsplots.R", echo = TRUE )
 
    obsname <<- "weight"
    print(paste("--->PLOTS :", userid, sep = ""))
-#   source("dowithingsplots.R", echo = TRUE )
-   
+   source("dowithingsplots.R", echo = TRUE )
+
+   obsname <<- "fat"
+   print(paste("--->PLOTS :", userid, sep = ""))
+   source("dowithingsplots.R", echo = TRUE )
+
 }

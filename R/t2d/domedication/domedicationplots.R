@@ -9,7 +9,7 @@ library(ggplot2)
 library(rjson)
 library(plyr)
 library(scales)
-library(rgl)
+#library(rgl)
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"

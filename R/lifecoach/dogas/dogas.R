@@ -24,25 +24,26 @@ for (programuser in programusers) {
   
   if ( userid != 7 ) { next }
    
-  pollidlist <<- c(15, 16, 18)
-  # pollidlist <<- c(15)
+  # pollidlist <<- c(15, 16, 18, 17)
+  pollidlist <<- c(17)
   for (polliditem in pollidlist) {
     
     pollid <<- polliditem
     if ( pollid == 15 ) { gastype <<- "gas11" }
     if ( pollid == 16 ) { gastype <<- "gas12" }
     if ( pollid == 18 ) { gastype <<- "gas21" }
-    
+    if ( pollid == 17 ) { gastype <<- "gas31" }
+        
     obsname <<- gastype
     rulename <<- "gas"
     print(paste("--->APPLYNUDGES: ", userid, "-", obsname, sep = ""))
-    source("../common/donudges.R", echo = TRUE )
+    source("../../common/donudges.R", echo = TRUE )
     
     print(paste("--->PLOTS: ", userid, "-", obsname, sep = ""))
-    source("dogasplots.R", echo = TRUE )
+    #source("dogasplots.R", echo = TRUE )
   }
    
   print(paste("--->PUSHNOTIFICATION: ", userid, sep = ""))
-  source("../common/donotifications.R", echo = TRUE )
+  source("../../common/donotifications.R", echo = TRUE )
 
 }

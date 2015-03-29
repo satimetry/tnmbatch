@@ -24,6 +24,7 @@ if ( ! is.na(fitbitkey) ) {
 
    getURL <- "https://api.fitbit.com/1/user/-/body/log/weight/date/"
    startdate <- as.Date(Sys.Date()) - 31
+   # startdate <- "2015-02-01"
    getURL <- paste(getURL, startdate, "/today.json", sep = "")
    
    weightJSON <- tryCatch({
@@ -68,7 +69,6 @@ if ( ! is.na(fitbitkey) ) {
       postUserobs(rooturl, userobs)
    
    }
-   # userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
 
    bmiDF <- NULL
    for (i in 1:length(content(weightJSON)$`weight`)) {
@@ -83,7 +83,6 @@ if ( ! is.na(fitbitkey) ) {
    bmiDF = as.data.frame(bmiDF, row.names = 1)
    
    inputDF <- cbind( username = c(username), bmiDF)
-#   inputDF <- data.frame(lapply(inputDF, as.character), stringsAsFactors=FALSE)
    
    # Remove the userobs for this programid and userid and obsname
    delUserobs(rooturl, programid, userid, "bmi")
@@ -101,6 +100,61 @@ if ( ! is.na(fitbitkey) ) {
       postUserobs(rooturl, userobs)
       
    }
-   # userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
-   
+
+   inputDF <- NULL
+   isnothing <- function(x) {
+     any(is.null(x))  | any(is.na(x))  | any(is.nan(x)) 
+   }
+
+   for (i in seq(0,60)) {
+      getURL <- "https://api.fitbit.com/1/user/-/body/log/fat/date/"
+      startdate <- as.Date(Sys.Date()) - i
+      getURL <- paste(getURL, startdate, ".json", sep = "")
+
+      fatJSON <- tryCatch({
+        GET(getURL, sig)
+      }, warning = function(w) {
+        print("Warning fat")
+        stop()
+      }, error = function(e) {
+        print("Error fat")
+        stop()
+      }, finally = {
+      })
+
+      fatDF <- NULL
+      if ( length(content(fatJSON)$`fat`) > 0 ) {
+       for (i in 1:length(content(fatJSON)$`fat`)) {
+        timestamp <- paste( content(fatJSON)$`fat`[i][[1]][['date']], " 07:15:00", sep = "")
+        timestamp <- as.POSIXct(timestamp, format = "%Y-%m-%d %H:%M:%S", origin = "1970-01-01", tz = "Australia/Sydney")
+        timestamp <- as.numeric(timestamp) * 1000
+        #if ( grepl("logId", fatJSON) ) {
+          fat <- content(fatJSON)$`fat`[i][[1]][['fat']]
+          fatDF <- c( username, timestamp, content(fatJSON)$`fat`[i][[1]][['fat']] ) 
+          fatDF <- t(fatDF)
+          inputDF <- rbind(inputDF, fatDF)
+        #}
+       }
+      }
+   }
+
+   colnames(inputDF) <- c("username", "obsdate", "obsvalue")
+
+   # Remove the userobs for this programid and userid and obsname
+   delUserobs(rooturl, programid, userid, "fat")
+
+   for (i in 1:nrow(inputDF)) { 
+  
+     userobs <- c(programid = programid,
+                 userid,
+                 obsname = "\"fat\"",
+                 inputDF[i, "obsdate"],
+                 inputDF[i, "obsvalue"],
+                 obsdesc = "\"System generated from fitbit.com fat download\""                
+     )
+  
+     postUserobs(rooturl, userobs)
+  
+   }
+
 }

@@ -5,6 +5,8 @@
 # app: nudge
 # alias: www.satimetry.com
 
+rhc domain show -p Dopamine@1
+
 echo "Check jenkins server application status ..."
 restart=`rhc app show --state jenkins -p Dopamine@1 | egrep "idle|stopped" | wc -l`
 if [ $restart != "0" ]; then
@@ -50,18 +52,3 @@ else
   echo "Nudge Server Application is already started"
 fi
 
-cd ~/tnm/tnmbatch/R/lifecoach
-
-# echo "Do fitbit ..."
-# ./dofitbit/dofitbit.R
-
-echo "Do withings ..."
-./dowithings/dowithings.R
-
-echo "Do GAS ..."
-./dogas/dogas.R
-
-cd ~/websites/nudge
-git add images
-git commit -am "dolifecoach crontab batch script"
-git push
