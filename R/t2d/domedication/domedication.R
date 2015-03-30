@@ -22,7 +22,8 @@ for (programuser in programusers) {
   
    if (programuser$roletype != "participant") { next }
    userid <<- programuser["userid"]
-       
+   # if (userid != 60) {next}
+   
    obsname <<- "medicate"
    rulename <<- "medicate"
   

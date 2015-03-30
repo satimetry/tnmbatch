@@ -26,9 +26,9 @@ if (length(x) > 0) {
    
   # GAS Bar Plot
   png(filenamebp,
-    res = 72,
-    width = ppi,
-    height = ppi,
+    res = ppi,
+    width = 5*ppi,
+    height = 4*ppi,
     units = "px")
 
   ylim <- c(0, 100)
@@ -71,9 +71,9 @@ if (length(x) > 0) {
   x1 <- lm(obsvalue ~ obsdate)
    
   png(filenamexy,
-    res = 72,
-    width = 500,
-    height = 300,
+    res = ppi,
+    width = 5*ppi,
+    height = 4*ppi,
     units = "px")
    
   plot(obsdate, obsvalue,

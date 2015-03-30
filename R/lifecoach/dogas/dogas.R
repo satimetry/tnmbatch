@@ -37,13 +37,13 @@ for (programuser in programusers) {
     obsname <<- gastype
     rulename <<- "gas"
     print(paste("--->APPLYNUDGES: ", userid, "-", obsname, sep = ""))
-    source("../../common/donudges.R", echo = TRUE )
+    #source("../../common/donudges.R", echo = TRUE )
     
     print(paste("--->PLOTS: ", userid, "-", obsname, sep = ""))
-    #source("dogasplots.R", echo = TRUE )
+    source("dogasplots.R", echo = TRUE )
   }
    
   print(paste("--->PUSHNOTIFICATION: ", userid, sep = ""))
-  source("../../common/donotifications.R", echo = TRUE )
+  #source("../../common/donotifications.R", echo = TRUE )
 
 }

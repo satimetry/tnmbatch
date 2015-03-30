@@ -30,6 +30,8 @@ if (! is.null(nrow(outputDF))) {
   outputDF <- outputDF[ order(outputDF[, "rulename"]), ]
   outputDF <- subset(outputDF, outputDF[, "rulename"] %in% optinruleviewDF )
 
+ if (nrow(outputDF) > 0 ) {
+    
   smsDF <- outputDF
 
   today <- Sys.Date()
@@ -55,4 +57,7 @@ if (! is.null(nrow(outputDF))) {
       postMsg(rooturl, msg)
     }
   }
+  
+ }
+ 
 }
