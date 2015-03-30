@@ -33,17 +33,34 @@ for (programuser in programusers) {
     if ( pollid == 16 ) { gastype <<- "gas12" }
     if ( pollid == 18 ) { gastype <<- "gas21" }
     if ( pollid == 17 ) { gastype <<- "gas31" }
-        
-    obsname <<- gastype
-    rulename <<- "gas"
+     
     print(paste("--->APPLYNUDGES: ", userid, "-", obsname, sep = ""))
-    #source("../../common/donudges.R", echo = TRUE )
+    tryCatch({
+       obsname <<- gastype
+       rulename <<- "gas"
+       source("../../common/donudges.R", echo = TRUE )
+    }, error = function(err) {
+       print(geterrmessage())
+    }, finally = {   
+    })
     
     print(paste("--->PLOTS: ", userid, "-", obsname, sep = ""))
-    source("dogasplots.R", echo = TRUE )
+    tryCatch({
+       obsname <<- gastype
+       source("dogasplots.R", echo = TRUE )
+    }, error = function(err) {
+       print(geterrmessage())
+    }, finally = {   
+    })
+
   }
    
   print(paste("--->PUSHNOTIFICATION: ", userid, sep = ""))
-  #source("../../common/donotifications.R", echo = TRUE )
+  tryCatch({
+     source("../../common/donotifications.R", echo = TRUE )
+  }, error = function(err) {
+     print(geterrmessage())
+  }, finally = {   
+  })
 
 }

@@ -22,42 +22,36 @@ for (factout in factouts) {
                                  ruledata=fromJSON(factout$factjson)$ruledata))
 }
 
-if (! is.null(nrow(outputDF))) {
-  outputDF = data.frame(t(outputDF))
+if ( ! is.data.frame(outputDF ) { stop("No facts output") }
 
-  # Get optinrules for this programid and userid
-  optinruleviewDF <- getOptinruleviewDF(rooturl, programid, userid)
-  outputDF <- outputDF[ order(outputDF[, "rulename"]), ]
-  outputDF <- subset(outputDF, outputDF[, "rulename"] %in% optinruleviewDF )
+outputDF = data.frame(t(outputDF))
 
- if (nrow(outputDF) > 0 ) {
+# Get optinrules for this programid and userid
+optinruleviewDF <- getOptinruleviewDF(rooturl, programid, userid)
+outputDF <- outputDF[ order(outputDF[, "rulename"]), ]
+outputDF <- subset(outputDF, outputDF[, "rulename"] %in% optinruleviewDF )
+
+if ( nrow(outputDF) == 0 ) { stop("No opt-ins") }
     
-  smsDF <- outputDF
+smsDF <- outputDF
+today <- Sys.Date()
 
-  today <- Sys.Date()
-
-  if ( ! is.null(nrow(smsDF)) ) {
+if ( nrow(smsDF) == 0 ) { stop("No messages") }
  
-    for (i in 1:nrow(smsDF)) {
-      print(smsDF[i, "rulename" ])  
-   
-      rule <- getRule(rooturl, smsDF[i, "rulename" ] )
-   
-      # ruledate <- as.POSIXct(smsDF[i, "ruledate" ], format = "%a %b %d")
+for (i in 1:nrow(smsDF)) {
+   print(smsDF[i, "rulename" ])   
+   rule <- getRule(rooturl, smsDF[i, "rulename" ] )
+   # ruledate <- as.POSIXct(smsDF[i, "ruledate" ], format = "%a %b %d")
     
-      msg <- c(programid=programid,
+   msg <- c(programid=programid,
             userid,
             ruleid=rule[[1]]$ruleid,
             rulename=paste("\"", smsDF[i, "rulename" ], "\"", sep=""),
             ruledate=paste("\"", smsDF[i, "ruledate"], "\"", sep=""),
             msgtxt=paste("\"", smsDF[i, "rulemsg" ], "\"", sep="")
-            )
+           )
     
-      # Create msg for this programid and userid
-      postMsg(rooturl, msg)
-    }
-  }
-  
- }
- 
+   # Create msg for this programid and userid
+   postMsg(rooturl, msg)
 }
+  
