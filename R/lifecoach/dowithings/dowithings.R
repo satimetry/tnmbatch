@@ -32,7 +32,7 @@ for (programuser in programusers) {
       print(geterrmessage())
    }, finally = {   
    })
-
+   
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
       source("dowithingsobs-fat.R", echo = TRUE )

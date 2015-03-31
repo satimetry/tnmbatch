@@ -33,8 +33,8 @@ for (programuser in programusers) {
     if ( pollid == 16 ) { gastype <<- "gas12" }
     if ( pollid == 18 ) { gastype <<- "gas21" }
     if ( pollid == 17 ) { gastype <<- "gas31" }
-     
-    print(paste("--->APPLYNUDGES: ", userid, "-", obsname, sep = ""))
+
+    print(paste("--->APPLYNUDGES: ", userid, "-", gastype, sep = ""))
     tryCatch({
        obsname <<- gastype
        rulename <<- "gas"
@@ -44,7 +44,7 @@ for (programuser in programusers) {
     }, finally = {   
     })
     
-    print(paste("--->PLOTS: ", userid, "-", obsname, sep = ""))
+    print(paste("--->PLOTS: ", userid, "-", gastype, sep = ""))
     tryCatch({
        obsname <<- gastype
        source("dogasplots.R", echo = TRUE )
