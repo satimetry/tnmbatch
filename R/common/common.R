@@ -364,7 +364,7 @@ getUserobsDF <- function(rooturl, programid, userid, obsname) {
    userobsJSON <- tryCatch({  
       getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
    }, warning = function(w) {
-      print("Warning")
+      print("Warning getUserobsDF")
    }, error = function(e) {
       print("Error getUserobsDF")
       message(e)
@@ -376,9 +376,7 @@ getUserobsDF <- function(rooturl, programid, userid, obsname) {
    if ( is.null(userobsJSON) ) { return(userobsDF) }
    
    userobss <- fromJSON(userobsJSON)
-   if ( nrow(userobss) == 0 ) { return(userobsDF) }
-   
-   
+      
    for (userobs in userobss) {
       obsdate <- toString(as.POSIXlt( as.numeric(userobs$obsdate)/1000, origin="1970-01-01 00:00:00" ))
       userobsDF <- cbind( userobsDF, c( id=userobs$userobsid, username=userobs$userid, obsname=userobs$obsname, obsdate=obsdate, obsvalue=userobs$obsvalue ) )

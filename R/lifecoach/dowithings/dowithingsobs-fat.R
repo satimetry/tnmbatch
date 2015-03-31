@@ -66,7 +66,7 @@ for (i in seq(0,days)) {
    }
 }
 
-if ( ! is.data.frame(inputDF) ) { stop("No fat records returned") }
+if ( is.null(inputDF) ) { stop("No fat records returned") }
 
 colnames(inputDF) <- c("username", "obsdate", "obsvalue")   
 

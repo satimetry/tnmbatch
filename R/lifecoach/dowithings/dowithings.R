@@ -27,7 +27,7 @@ for (programuser in programusers) {
    
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
-      # source("dowithingsobs-weight.R", echo = TRUE )
+      source("dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -35,7 +35,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
-      # source("dowithingsobs-fat.R", echo = TRUE )
+      source("dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -46,7 +46,7 @@ for (programuser in programusers) {
       obsname <<- "bmi"
       rulename <<- "bmi"
       print(obsname)
-      # source("../../common/donudges.R", echo = TRUE )
+      source("../../common/donudges.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -57,7 +57,7 @@ for (programuser in programusers) {
       obsname <<- "weight"
       rulename <<- "weight"
       print(obsname)
-      # source("../../common/donudges.R", echo = TRUE )      
+      source("../../common/donudges.R", echo = TRUE )      
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -66,7 +66,7 @@ for (programuser in programusers) {
 
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    tryCatch({
-      # source("../../common/donotifications.R", echo = TRUE )
+      source("../../common/donotifications.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -86,6 +86,7 @@ for (programuser in programusers) {
    tryCatch({
       obsname <<- "weight"
       print(obsname)
+      source("dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -100,6 +101,5 @@ for (programuser in programusers) {
       print(geterrmessage())
    }, finally = {   
    })
-
 
 }
