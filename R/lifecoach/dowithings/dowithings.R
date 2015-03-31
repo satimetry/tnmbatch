@@ -46,7 +46,7 @@ for (programuser in programusers) {
       obsname <<- "bmi"
       rulename <<- "bmi"
       print(obsname)
-      source("../../common/donudges.R", echo = TRUE )
+      # source("../../common/donudges.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -57,7 +57,7 @@ for (programuser in programusers) {
       obsname <<- "weight"
       rulename <<- "weight"
       print(obsname)
-      source("../../common/donudges.R", echo = TRUE )      
+      # source("../../common/donudges.R", echo = TRUE )      
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -66,7 +66,7 @@ for (programuser in programusers) {
 
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    tryCatch({
-      source("../../common/donotifications.R", echo = TRUE )
+      # source("../../common/donotifications.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
