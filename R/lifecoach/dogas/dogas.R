@@ -11,7 +11,7 @@ setwd(rootdir)
 ppi <<- 300
 
 setwd("/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach")
-source("../../common/common.R")
+source("../common/common.R")
 
 # Do programid=1 and activity observations
 programid <<- 1
@@ -39,7 +39,7 @@ for (programuser in programusers) {
     tryCatch({
        obsname <<- gastype
        rulename <<- "gas"
-       source("../../common/donudges.R", echo = TRUE )
+       source("../common/donudges.R", echo = TRUE )
     }, error = function(err) {
        print(geterrmessage())
     }, finally = {   
@@ -58,7 +58,7 @@ for (programuser in programusers) {
    
   print(paste("--->PUSHNOTIFICATION: ", userid, sep = ""))
   tryCatch({
-     source("../../common/donotifications.R", echo = TRUE )
+     source("../common/donotifications.R", echo = TRUE )
   }, error = function(err) {
      print(geterrmessage())
   }, finally = {   
