@@ -48,7 +48,7 @@ for (programuser in programusers) {
     print(paste("--->PLOTS: ", userid, "-", gastype, sep = ""))
     tryCatch({
        obsname <<- gastype
-       source("dogasplots.R", echo = TRUE )
+       source("dogas/dogasplots.R", echo = TRUE )
     }, error = function(err) {
        print(geterrmessage())
     }, finally = {   

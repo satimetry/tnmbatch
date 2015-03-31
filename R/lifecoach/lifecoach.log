@@ -6,3 +6,44 @@ Jenkins Application is already started
 Check jenkins client application status ...
 Jenkins Client is already started
 Check nudge database application status ...
+Nudge Database Application is already started
+Check nudge client application status ...
+Nudge Client Application is already started
+Check nudge server application status ...
+Nudge Server Application is already started
+Do withings ...
+Error in setwd(rootdir) : cannot change working directory
+Execution halted
+Do GAS ...
+Error in setwd(rootdir) : cannot change working directory
+Execution halted
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
