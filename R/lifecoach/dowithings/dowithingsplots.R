@@ -35,19 +35,22 @@ plot(obsdate, obsvalues,
      col = "deepskyblue1",
      main = paste(obsname, " Plot", split = ""))
 
-axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),
+axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
    las = 1,
    cex.axis=0.6)
 
 axis(1, at = obsdate, 
    labels = substr(obsdate, 6, 10), 
-   cex.axis = 0.8, las = 2)
+   cex.axis = 0.6, las = 2)
 
 if (obsname == "bmi") {
-   abline(h = 29, lty = 2)   
+   axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),
+        las = 1,
+        cex.axis=0.6)
+   abline(h = 27.5, lty = 2)   
 }
 if (obsname == "weight") {   
-   abline(h = 83, lty = 2)
+   abline(h = 80, lty = 2)
 }
 
 dev.off()
