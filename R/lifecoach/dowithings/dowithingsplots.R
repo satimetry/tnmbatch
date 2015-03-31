@@ -7,8 +7,11 @@ library(RColorBrewer)
 user <- getUser(rooturl, userid)
 username <<- user['username']
 
+userobsDF <- NULL
 # Get observations for this programid and userid and obsname
 userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
+if ( is.null(userobsDF) ) { stop("userobsDF is NULL") }
+if ( nrow(userobsDF) == 0 ) { stop("userobsDF is empty") }
 
 # extract step counts and convert to numeric:
 obsvalues = as.numeric( as.character(userobsDF[, "obsvalue"]) )

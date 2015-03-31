@@ -8,12 +8,13 @@ userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
 if ( nrow(userobsDF) > 1000 ) { 
   userobsDF <- subset( userobsDF, regexpr( Sys.Date(), userobsDF[, "obsdate"]) > 0)
 }
+
 delFact(rooturl, programid, groupid=userid, factname=obsname)
 postFact(rooturl, programid, groupid=userid, factname=obsname, userobsDF)
 getNudge(rooturl, programid, groupid=userid, factname=obsname, rulename=rulename)
 factouts <- getFactsystem(rooturl, programid, groupid=userid, factname=obsname)
 
-outputDF = c()
+outputDF <- c()
 for (factout in factouts) {
   outputDF <- cbind(outputDF, c( id=fromJSON(factout$factjson)$id, 
                                  rulename=fromJSON(factout$factjson)$rulename,
@@ -22,7 +23,7 @@ for (factout in factouts) {
                                  ruledata=fromJSON(factout$factjson)$ruledata))
 }
 
-if ( ! is.data.frame(outputDF ) { stop("No facts output") }
+if ( is.null(outputDF) ) { stop("outputDF is NULL") }
 
 outputDF = data.frame(t(outputDF))
 

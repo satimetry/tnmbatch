@@ -27,7 +27,7 @@ for (programuser in programusers) {
    
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
-      source("dowithingsobs-weight.R", echo = TRUE )
+      # source("dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -35,7 +35,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
-      source("dowithingsobs-fat.R", echo = TRUE )
+      # source("dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -45,14 +45,24 @@ for (programuser in programusers) {
    tryCatch({
       obsname <<- "bmi"
       rulename <<- "bmi"
+      print(obsname)
       source("../../common/donudges.R", echo = TRUE )
+   }, error = function(err) {
+      print(geterrmessage())
+   }, finally = {   
+   })
+
+   print(paste("--->APPLYNUDGES --", userid, sep = ""))
+   tryCatch({
       obsname <<- "weight"
       rulename <<- "weight"
+      print(obsname)
       source("../../common/donudges.R", echo = TRUE )      
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
    })
+
 
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    tryCatch({
@@ -65,14 +75,31 @@ for (programuser in programusers) {
    print(paste("--->PLOTS :", userid, sep = ""))
    tryCatch({
       obsname <<- "bmi"
-      source("dowithingsplots.R", echo = TRUE )
-      obsname <<- "weight"
-      source("dowithingsplots.R", echo = TRUE )
-      obsname <<- "fat"
+      print(obsname)
       source("dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
    })
+
+   print(paste("--->PLOTS :", userid, sep = ""))
+   tryCatch({
+      obsname <<- "weight"
+      print(obsname)
+   }, error = function(err) {
+      print(geterrmessage())
+   }, finally = {   
+   })
+
+   print(paste("--->PLOTS :", userid, sep = ""))
+   tryCatch({
+      obsname <<- "fat"
+      print(obsname)
+      source("dowithingsplots.R", echo = TRUE )
+   }, error = function(err) {
+      print(geterrmessage())
+   }, finally = {   
+   })
+
 
 }
