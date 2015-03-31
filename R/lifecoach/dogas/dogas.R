@@ -10,6 +10,7 @@ imagesdir <<- "~/websites/nudge/images"
 setwd(rootdir)
 ppi <<- 300
 
+setwd("/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach")
 source("../../common/common.R")
 
 # Do programid=1 and activity observations

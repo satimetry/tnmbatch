@@ -13,7 +13,7 @@ send.mail(from = "StefanoPicozzi@gmail.com",
           subject = "Subject of the email",
           body = body,
           smtp = list(host.name = "smtp.gmail.com", port = 465, 
-                      user.name = "StefanoPicozzi", passwd = "Dopamine@1", ssl = TRUE),
+                      user.name = "StefanoPicozzi", passwd = "*******", ssl = TRUE),
           authenticate = TRUE,
           send = TRUE)
 
