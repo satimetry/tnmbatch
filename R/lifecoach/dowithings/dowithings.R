@@ -5,9 +5,8 @@ Sys.setenv(NOAWT = "true")
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/tnm/tnmbatch/R/lifecoach/dowithings"
-imagesdir <<- "~/websites/nudge/images"
-setwd(rootdir)
+rootdir <<- "/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dowithings"
+imagesdir <<- "/Users/stefanopicozzi/websites/nudge/images"
 ppi <<- 300
 
 setwd("/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach")
@@ -28,7 +27,7 @@ for (programuser in programusers) {
    
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
-      source("dowithingsobs-weight.R", echo = TRUE )
+      source("dowithings/dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -36,7 +35,7 @@ for (programuser in programusers) {
    
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
-      source("dowithingsobs-fat.R", echo = TRUE )
+      source("dowithings/dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   

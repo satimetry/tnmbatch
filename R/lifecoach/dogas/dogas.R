@@ -5,9 +5,8 @@ Sys.setenv(NOAWT = "true")
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/tnm/tnmbatch/R/lifecoach/dogas"
-imagesdir <<- "~/websites/nudge/images"
-setwd(rootdir)
+rootdir <<- "/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dogas"
+imagesdir <<- "/Users/stefanopicozzi/websites/nudge/images"
 ppi <<- 300
 
 setwd("/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach")

@@ -40,8 +40,8 @@ axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
    cex.axis=0.6)
 
 axis(1, at = obsdate, 
-   labels = substr(obsdate, 6, 10), 
-   cex.axis = 0.6, las = 2)
+   labels = substr(obsdate, 1, 10), 
+   cex.axis = 0.4, las = 2)
 
 if (obsname == "bmi") {
    axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),

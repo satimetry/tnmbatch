@@ -19,7 +19,7 @@ token_url <- "https://api.fitbit.com/oauth/request_token"
 access_url <- "https://api.fitbit.com/oauth/access_token"
 auth_url <- "https://www.fitbit.com/oauth/authorize"
 fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
-token <- readRDS(file = paste("../user/", username, "/fitbit-token.RDS", sep = ""))
+token <- readRDS(file = paste("user/", username, "/fitbit-token.RDS", sep = ""))
 sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
 
 lastdate <- getMaxobsdate(rooturl, programid, userid, "weight")

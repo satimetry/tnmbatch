@@ -1,5 +1,5 @@
 *****************************************************************************
-Wed Apr  1 08:10:00 AEDT 2015
+Wed Apr  1 09:31:00 AEDT 2015
 *****************************************************************************
 Check jenkins server application status ...
 Jenkins Application is already started
@@ -12,11 +12,180 @@ Nudge Client Application is already started
 Check nudge server application status ...
 Nudge Server Application is already started
 Do withings ...
-Error in setwd(rootdir) : cannot change working directory
+Loading required package: methods
+Loading required package: bitops
+[1] "Error getProgramuser"
+Failed to connect to nudgeserver-spicozzi.rhcloud.com port 443: Connection refusedError in value[[3L]](cond) : 
+Calls: getProgramuser ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
 Execution halted
 Do GAS ...
-Error in setwd(rootdir) : cannot change working directory
-Execution halted
+Loading required package: methods
+Loading required package: bitops
+[1] "--->APPLYNUDGES: 7-gas31"
+
+> Sys.setenv(NOAWT = "true")
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> if (nrow(userobsDF) > 1000) {
++     userobsDF <- subset(userobsDF, regexpr(Sys.Date(), userobsDF[, 
++         "obsdate"]) > 0)
++ }
+
+> delFact(rooturl, programid, groupid = userid, factname = obsname)
+[1] ""
+
+> postFact(rooturl, programid, groupid = userid, factname = obsname, 
++     userobsDF)
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-02-08 23:00:00\" , \"obsvalue\": 2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-02-15 23:00:00\" , \"obsvalue\": 1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-02-22 23:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-01 23:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-08 22:00:00\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-15 22:00:00\" , \"obsvalue\": -2 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-22 22:00:00\" , \"obsvalue\": -1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-28 17:17:40\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": gas31 , \"obsdate\": \"2015-03-28 17:17:40\" , \"obsvalue\": 0 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+
+> getNudge(rooturl, programid, groupid = userid, factname = obsname, 
++     rulename = rulename)
+[1] "[]"
+
+> factouts <- getFactsystem(rooturl, programid, groupid = userid, 
++     factname = obsname)
+
+> outputDF <- c()
+
+> for (factout in factouts) {
++     outputDF <- cbind(outputDF, c(id = fromJSON(factout$factjson)$id, 
++         rulename = fromJSON(factout$factjson) .... [TRUNCATED] 
+
+> if (is.null(outputDF)) {
++     stop("outputDF is NULL")
++ }
+[1] "outputDF is NULL"
+[1] "--->PLOTS: 7-gas31"
+
+> Sys.setenv(NOAWT = "true")
+
+> library("lattice")
+
+> library("MASS")
+
+> library(ggplot2)
+
+> library(rjson)
+
+> userobsDF <- getUserobsDF(rooturl, programid, userid, 
++     obsname)
+
+> if (is.null(userobsDF)) {
++     stop("No userobsDF records")
++ }
+
+> userobss <- getUserobs(rooturl, programid, userid, 
++     obsname)
+[1] "[{\"userobsid\":42512,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"0\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1427523460000,\"obstype\":\"poll\"},{\"userobsid\":42513,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"0\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1424606400000,\"obstype\":\"poll\"},{\"userobsid\":42514,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"1\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1424001600000,\"obstype\":\"poll\"},{\"userobsid\":42515,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"2\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1423396800000,\"obstype\":\"poll\"},{\"userobsid\":42516,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"0\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1425211200000,\"obstype\":\"poll\"},{\"userobsid\":42517,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"-2\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1426417200000,\"obstype\":\"poll\"},{\"userobsid\":42519,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"0\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1425812400000,\"obstype\":\"poll\"},{\"userobsid\":42520,\"programid\":1,\"userid\":7,\"obsname\":\"gas31\",\"obsvalue\":\"-1\",\"obsdesc\":\"Be more healthy By following the 5:2 Fast Diet\",\"obsdate\":1427022000000,\"obstype\":\"poll\"}]"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> x <- c()
+
+> for (i in 1:nrow(userobsDF)) {
++     x <- append(x, userobsDF[i, "obsvalue"])
++ }
+
+> if (length(x) == 0) {
++     stop("No GAS records")
++ }
+
+> polldesc <- obsname
+
+> dir.create(file.path(paste(imagesdir, "/lifecoach/user/", 
++     username, sep = "")), showWarnings = FALSE)
+
+> filenamebp = paste(imagesdir, "/lifecoach/user/", 
++     username, "/", obsname, "bp.png", sep = "")
+
+> filenamexy = paste(imagesdir, "/lifecoach/user/", 
++     username, "/", obsname, "xy.png", sep = "")
+
+> png(filenamebp, res = ppi, width = 5 * ppi, height = 4 * 
++     ppi, units = "px")
+
+> ylim <- c(0, 100)
+
+> xpct <- (table(x)/sum(table(x))) * 100
+
+> bp <- barplot(xpct, xaxt = "n", ylab = "Percentage", 
++     ylim = ylim, xlab = "Goal Attainment Scale Outcome", col = "deepskyblue1", 
++     main = .... [TRUNCATED] 
+
+> text(x = bp, y = xpct, label = table(x), pos = 3, 
++     cex = 0.8, col = "red")
+
+> xunique <- unique(unlist(x, use.names = FALSE))
+
+> if (length(xunique) == 5) {
++     axis(1, at = bp, labels = c("Worst \nExpected", "Less Than \nExpected", 
++         "Expected", "More Than \nExpect ..." ... [TRUNCATED] 
+
+> axis(2, at = seq(0, 100, by = 10))
+
+> dev.off()
+null device 
+          1 
+
+> obsdate <- as.POSIXct(userobsDF[, "obsdate"], format = "%Y-%m-%d %H:%M:%S")
+
+> obsvalue <- userobsDF[, "obsvalue"]
+
+> x1 <- lm(obsvalue ~ obsdate)
+
+> png(filenamexy, res = ppi, width = 5 * ppi, height = 4 * 
++     ppi, units = "px")
+
+> plot(obsdate, obsvalue, type = "b", axes = FALSE, 
++     ylab = "Response", ylim = c(-2, 2), xlim = c(min(obsdate), 
++         max(obsdate)), xlab = .... [TRUNCATED] 
+
+> axis(2, at = seq(-2, 2, by = 1), labels = c("Worst \nExpected", 
++     "Less Than \nExpected", "Expected", "More Than \nExpected", 
++     "Best \nEx ..." ... [TRUNCATED] 
+
+> axis(1, at = obsdate, labels = substr(obsdate, 6, 
++     10), cex.axis = 0.8, las = 2)
+
+> grid()
+
+> loc <- par("usr")
+
+> box()
+
+> dev.off()
+null device 
+          1 
+[1] "--->PUSHNOTIFICATION: 7"
+
+> user <- getUser(rooturl, userid)
+
+> username <- user["username"]
+
+> pushoveruser <- user["pushoveruser"]
+
+> msgs <- getMsg(rooturl, programid, userid)
+[1] "[]"
+
+> for (msg in msgs) {
++     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
++         "http://www.thenudgemachine.com/rulesettings ..." ... [TRUNCATED] 
+Warning message:
+package 'ggplot2' was built under R version 3.1.2 
 On branch master
 Your branch is up-to-date with 'origin/master'.
 
