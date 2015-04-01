@@ -1,1 +1,2 @@
-05 08 * * * /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dolifecoach.sh Dopamine@1 > /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/lifecoach.log 2>&1
+05 08 * * * stefanopicozzi /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dolifecoach.sh Dopamine@1 > /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/lifecoach.log 2>&1
+00 15 * * * stefanopicozzi /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dolifecoach.sh Dopamine@1 > /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/lifecoach.log 2>&1
