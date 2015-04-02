@@ -59,7 +59,7 @@ for (i in 1:length(content(weightJSON)$`weight`)) {
 weightDF <- t(weightDF)
 colnames(weightDF) = c("obsdate", "obsvalue")
 inputDF <- cbind( username = c(username), weightDF)
-if ( ! is.data.frame(inputDF) ) { stop("No weight records returned") }
+if ( is.null(inputDF) ) { stop("No weight records returned") }
 
 for (i in 1:nrow(inputDF)) { 
    userobs <- c(programid = programid,
@@ -84,7 +84,7 @@ for (i in 1:length(content(weightJSON)$`weight`)) {
 bmiDF <- t(bmiDF)
 colnames(bmiDF) = c("obsdate", "obsvalue")
 inputDF <- cbind( username = c(username), bmiDF)
-if ( ! is.data.frame(inputDF) ) { stop("No bmi records returned") }
+if ( is.null(inputDF) ) { stop("No bmi records returned") }
 
 for (i in 1:nrow(inputDF)) { 
    userobs <- c(programid = programid,
