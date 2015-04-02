@@ -140,3 +140,31 @@ rule "ruleLowWeight"
       insert($output);
       print(drools.getRule().getName() + "->" + $obsvalueLow);
 end
+
+rule "rulePercentWeight"
+   salience -1000
+   no-loop true
+   when
+      $participant : Participant()
+      $obsvalueLow : Number( doubleValue > 0) from accumulate(
+         Observation( $obsvalue : obsvalue, $participant.id == id ) over window:time( 7d ),
+         min( $obsvalue ) )
+   then
+      Date today = new Date(); 
+      java.util.Date date = new Date();
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      String datef = sdf.format( date );
+      Double $startweight = 83.5;
+      Double $percentdrop = 100.0*($startweight - $obsvalueLow.doubleValue())/$startweight;
+
+      JSONObject joutput = new JSONObject();
+      joutput.put("id", $participant.getId());
+      joutput.put("rulename", drools.getRule().getName());
+      joutput.put("ruledate", datef); 
+      joutput.put("rulemsg", "Nudge says that your WEIGHT change since start of the 5:2 diet is " + String.format("%.2f", $percentdrop) + "%");
+      joutput.put("ruledata", $obsvalueLow);
+      Output $output = new Output(joutput.toString());
+      insert($output);
+      print(drools.getRule().getName() + "->" + $obsvalueLow);
+end
+

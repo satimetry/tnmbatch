@@ -1,5 +1,5 @@
 *****************************************************************************
-Wed Apr  1 15:10:00 AEDT 2015
+Thu Apr  2 15:10:00 AEDT 2015
 *****************************************************************************
 Check jenkins server application status ...
 Jenkins Application is starting
@@ -164,11 +164,13 @@ Loading required package: bitops
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-03-29 07:15:00\" , \"obsvalue\": 27.75 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-03-30 07:15:00\" , \"obsvalue\": 27.73 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-03-31 07:15:00\" , \"obsvalue\": 27.47 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-03-31 07:15:00\" , \"obsvalue\": 27.47 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-04-01 07:15:00\" , \"obsvalue\": 27.54 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-04-02 07:15:00\" , \"obsvalue\": 27.71 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": bmi , \"obsdate\": \"2015-04-02 07:15:00\" , \"obsvalue\": 27.71 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 
 > getNudge(rooturl, programid, groupid = userid, factname = obsname, 
 +     rulename = rulename)
-[1] "[{\"id\":\"7\",\"ruledate\":\"2015-04-01\",\"rulemsg\":\"Nudge says that your BMI minimum was 27.18 over the past 30 days\",\"rulename\":\"ruleLowBmi\",\"ruledata\":27.18}, {\"id\":\"7\",\"ruledate\":\"2015-04-01\",\"rulemsg\":\"Nudge says that your BMI maximum was 27.84 over the past 30 days\",\"rulename\":\"ruleHighBmi\",\"ruledata\":27.84}]"
+[1] "[{\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says that your BMI minimum was 27.18 over the past 30 days\",\"rulename\":\"ruleLowBmi\",\"ruledata\":27.18}, {\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says that your BMI maximum was 27.84 over the past 30 days\",\"rulename\":\"ruleHighBmi\",\"ruledata\":27.84}]"
 
 > factouts <- getFactsystem(rooturl, programid, groupid = userid, 
 +     factname = obsname)
@@ -264,11 +266,13 @@ Loading required package: bitops
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-03-29 07:15:00\" , \"obsvalue\": 80.1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-03-30 07:15:00\" , \"obsvalue\": 80.1 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 [1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-03-31 07:15:00\" , \"obsvalue\": 79.3 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
-[1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-03-31 07:15:00\" , \"obsvalue\": 79.3 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-04-01 07:15:00\" , \"obsvalue\": 79.5 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-04-02 07:15:00\" , \"obsvalue\": 80 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
+[1] "Posting fact-->{ \"username\": 7 , \"obsname\": weight , \"obsdate\": \"2015-04-02 07:15:00\" , \"obsvalue\": 80 , \"obsdesc\": \"Generated using R sysbatch procedure\" }"
 
 > getNudge(rooturl, programid, groupid = userid, factname = obsname, 
 +     rulename = rulename)
-[1] "[{\"id\":\"7\",\"ruledate\":\"2015-04-01\",\"rulemsg\":\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\",\"rulename\":\"ruleLowWeight\",\"ruledata\":78.5}, {\"id\":\"7\",\"ruledate\":\"2015-04-01\",\"rulemsg\":\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\",\"rulename\":\"ruleHighWeight\",\"ruledata\":80.4}, {\"id\":\"7\",\"ruledate\":\"2015-04-01\",\"rulemsg\":\"Nudge says that your WEIGHT averaged 79.48 over the past 7 days\",\"rulename\":\"ruleAverageWeight\",\"ruledata\":79.48333333333333}]"
+[1] "[{\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says that your WEIGHT averaged 79.54 over the past 7 days\",\"rulename\":\"ruleAverageWeight\",\"ruledata\":79.54285714285716}, {\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\",\"rulename\":\"ruleHighWeight\",\"ruledata\":80.4}, {\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\",\"rulename\":\"ruleLowWeight\",\"ruledata\":78.5}]"
 
 > factouts <- getFactsystem(rooturl, programid, groupid = userid, 
 +     factname = obsname)
@@ -312,13 +316,13 @@ Loading required package: bitops
 +     msg <- c(programid = program .... [TRUNCATED] 
 [1] ruleAverageWeight
 Levels: ruleAverageWeight ruleHighWeight ruleLowWeight
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :104, \"rulename\" :\"ruleAverageWeight\", \"ruledate\" :\"2015-04-01\", \"msgtxt\" :\"Nudge says that your WEIGHT averaged 79.48 over the past 7 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :104, \"rulename\" :\"ruleAverageWeight\", \"ruledate\" :\"2015-04-02\", \"msgtxt\" :\"Nudge says that your WEIGHT averaged 79.54 over the past 7 days\" }"
 [1] ruleHighWeight
 Levels: ruleAverageWeight ruleHighWeight ruleLowWeight
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :105, \"rulename\" :\"ruleHighWeight\", \"ruledate\" :\"2015-04-01\", \"msgtxt\" :\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :105, \"rulename\" :\"ruleHighWeight\", \"ruledate\" :\"2015-04-02\", \"msgtxt\" :\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\" }"
 [1] ruleLowWeight
 Levels: ruleAverageWeight ruleHighWeight ruleLowWeight
-[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :106, \"rulename\" :\"ruleLowWeight\", \"ruledate\" :\"2015-04-01\", \"msgtxt\" :\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\" }"
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :106, \"rulename\" :\"ruleLowWeight\", \"ruledate\" :\"2015-04-02\", \"msgtxt\" :\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\" }"
 [1] "--->PUSHNOTIFICATION :7"
 
 > user <- getUser(rooturl, userid)
@@ -328,12 +332,12 @@ Levels: ruleAverageWeight ruleHighWeight ruleLowWeight
 > pushoveruser <- user["pushoveruser"]
 
 > msgs <- getMsg(rooturl, programid, userid)
-[1] "[{\"msgid\":1812,\"programid\":1,\"userid\":7,\"ruleid\":104,\"rulename\":\"ruleAverageWeight\",\"ruledate\":1427846400000,\"msgtxt\":\"Nudge says that your WEIGHT averaged 79.48 over the past 7 days\",\"issent\":0,\"isread\":0,\"urldesc\":null},{\"msgid\":1813,\"programid\":1,\"userid\":7,\"ruleid\":105,\"rulename\":\"ruleHighWeight\",\"ruledate\":1427846400000,\"msgtxt\":\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\",\"issent\":0,\"isread\":0,\"urldesc\":null},{\"msgid\":1814,\"programid\":1,\"userid\":7,\"ruleid\":106,\"rulename\":\"ruleLowWeight\",\"ruledate\":1427846400000,\"msgtxt\":\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\",\"issent\":0,\"isread\":0,\"urldesc\":null}]"
+[1] "[{\"msgid\":1824,\"programid\":1,\"userid\":7,\"ruleid\":104,\"rulename\":\"ruleAverageWeight\",\"ruledate\":1427932800000,\"msgtxt\":\"Nudge says that your WEIGHT averaged 79.54 over the past 7 days\",\"issent\":0,\"isread\":0,\"urldesc\":null},{\"msgid\":1825,\"programid\":1,\"userid\":7,\"ruleid\":105,\"rulename\":\"ruleHighWeight\",\"ruledate\":1427932800000,\"msgtxt\":\"Nudge says that your WEIGHT maximum was 80.40 over the past 30 days\",\"issent\":0,\"isread\":0,\"urldesc\":null},{\"msgid\":1826,\"programid\":1,\"userid\":7,\"ruleid\":106,\"rulename\":\"ruleLowWeight\",\"ruledate\":1427932800000,\"msgtxt\":\"Nudge says that your WEIGHT minimum was 78.50 over the past 30 days\",\"issent\":0,\"isread\":0,\"urldesc\":null}]"
 
 > for (msg in msgs) {
 +     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
 +         "http://www.thenudgemachine.com/rulesettings ..." ... [TRUNCATED] 
-{"status":1,"request":"12fe663832ed86b7dea94b6c9d5b0da2"}{"status":1,"request":"a78fd254c1b50c06d032f9f99deabc6d"}{"status":1,"request":"2c7b6a641d48e4676a5ddb91a1cddd32"}[1] "--->PLOTS :7"
+{"status":1,"request":"ac41907e2c0f7710b3ecfe79926fd5bf"}{"status":1,"request":"eef696aad44dce476de4d8101049c3d3"}{"status":1,"request":"f499589c7e02a2d9a2d7bc316c411b38"}[1] "--->PLOTS :7"
 [1] "bmi"
 
 > Sys.setenv(NOAWT = "true")
@@ -535,7 +539,7 @@ Loading required package: bitops
 
 > getNudge(rooturl, programid, groupid = userid, factname = obsname, 
 +     rulename = rulename)
-[1] "[]"
+[1] "[{\"id\":\"7\",\"ruledate\":\"2015-04-02\",\"rulemsg\":\"Nudge says for gas31 you met or exceed your goal2 times in past 30 days\",\"rulename\":\"ruleExpectedCount\",\"ruledata\":\"http://www.thenudgemachine.com/msg.php\"}]"
 
 > factouts <- getFactsystem(rooturl, programid, groupid = userid, 
 +     factname = obsname)
@@ -549,7 +553,38 @@ Loading required package: bitops
 > if (is.null(outputDF)) {
 +     stop("outputDF is NULL")
 + }
-[1] "outputDF is NULL"
+
+> outputDF = data.frame(t(outputDF))
+
+> optinruleviewDF <- getOptinruleviewDF(rooturl, programid, 
++     userid)
+
+> outputDF <- outputDF[order(outputDF[, "rulename"]), 
++     ]
+
+> outputDF <- subset(outputDF, outputDF[, "rulename"] %in% 
++     optinruleviewDF)
+
+> if (nrow(outputDF) == 0) {
++     stop("No opt-ins")
++ }
+
+> smsDF <- outputDF
+
+> today <- Sys.Date()
+
+> if (nrow(smsDF) == 0) {
++     stop("No messages")
++ }
+
+> for (i in 1:nrow(smsDF)) {
++     print(smsDF[i, "rulename"])
++     rule <- getRule(rooturl, smsDF[i, "rulename"])
++     msg <- c(programid = program .... [TRUNCATED] 
+         rulename 
+ruleExpectedCount 
+Levels: ruleExpectedCount
+[1] "Posting msg-->{ \"programid\" :1, \"userid\" :7, \"ruleid\" :79, \"rulename\" :\"ruleExpectedCount\", \"ruledate\" :\"2015-04-02\", \"msgtxt\" :\"Nudge says for gas31 you met or exceed your goal2 times in past 30 days\" }"
 [1] "--->PLOTS: 7-gas31"
 
 > Sys.setenv(NOAWT = "true")
@@ -662,13 +697,20 @@ null device
 > pushoveruser <- user["pushoveruser"]
 
 > msgs <- getMsg(rooturl, programid, userid)
-[1] "[]"
+[1] "[{\"msgid\":1827,\"programid\":1,\"userid\":7,\"ruleid\":79,\"rulename\":\"ruleExpectedCount\",\"ruledate\":1427932800000,\"msgtxt\":\"Nudge says for gas31 you met or exceed your goal2 times in past 30 days\",\"issent\":0,\"isread\":0,\"urldesc\":null}]"
 
 > for (msg in msgs) {
 +     msgtxt <- paste(msg["msgtxt"], ". To opt-out from nudges visit: ", 
 +         "http://www.thenudgemachine.com/rulesettings ..." ... [TRUNCATED] 
-On branch master
-Your branch is up-to-date with 'origin/master'.
-
-nothing to commit, working directory clean
-Everything up-to-date
+{"status":1,"request":"d9d202f2c3e81cb9e54047be1f0ca965"}[master 1234a54] dolifecoach crontab batch script
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ rewrite images/lifecoach/user/stefano/bmi.png (97%)
+ rewrite images/lifecoach/user/stefano/weight.png (97%)
+To ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'ssh://53391eda500446b5f9000295@nudge-spicozzi.rhcloud.com/~/git/nudge.git/'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.

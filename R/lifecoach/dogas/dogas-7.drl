@@ -123,7 +123,7 @@ rule "ruleExpectedCount"
     joutput.put("id", $participant.getId());
     joutput.put("rulename", drools.getRule().getName());
     joutput.put("ruledate", datef);
-    joutput.put("rulemsg", "Nudge says for " + $participant.getGastype() + " you met or exceed your goal" + $obsCountTotal + " times in past 30 days");
+    joutput.put("rulemsg", "Nudge says for " + $participant.getGastype() + " you met or exceed your goal " + $obsCountTotal + " times in past 30 days");
   	joutput.put("ruledata", "http://www.thenudgemachine.com/msg.php");
     Output $output = new Output(joutput.toString());
     insert($output);
@@ -148,6 +148,29 @@ rule "ruleWeeklySurveyReminder"
     joutput.put("ruledate", datef);
     joutput.put("rulemsg", 
       "Reminder to record " + $participant.getGastype() + " goal attainment at http://www.thenudgemachine.com/gasq.php?ruleid=61");
+    joutput.put("ruledata", "http://www.thenudgemachine.com/gasq.php?ruleid=61");
+    Output $output = new Output(joutput.toString());
+    insert($output);
+    print(drools.getRule().getName() + "->" + $participant.getId());
+end
+
+rule "ruleFastDayReminder"
+  salience -300
+  when
+    $participant : Participant( dayofweek == "Mon" || dayofweek == "Thu" )
+  then
+    Date today = new Date();
+
+    java.util.Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String datef = sdf.format( date );
+
+    JSONObject joutput = new JSONObject();
+    joutput.put("id", $participant.getId());
+    joutput.put("rulename", drools.getRule().getName());
+    joutput.put("ruledate", datef);
+    joutput.put("rulemsg", 
+      "Reminder that today is a fast day for the 5:2 diet");
     joutput.put("ruledata", "http://www.thenudgemachine.com/gasq.php?ruleid=61");
     Output $output = new Output(joutput.toString());
     insert($output);

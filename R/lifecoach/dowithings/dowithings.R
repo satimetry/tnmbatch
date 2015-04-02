@@ -63,7 +63,6 @@ for (programuser in programusers) {
    }, finally = {   
    })
 
-
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
    tryCatch({
       source("../common/donotifications.R", echo = TRUE )
