@@ -1,8 +1,8 @@
 # Pull down observations and insert into database
 
 Sys.setenv(NOAWT = "true")
-library(httr)
-library(rjson)
+library('httr')
+library('rjson')
 library('RCurl')
 
 # Get user details for userid
@@ -18,12 +18,19 @@ if ( is.na(fitbitkey) ) { stop("fitbitkey does not exist") }
 token_url <- "https://api.fitbit.com/oauth/request_token"
 access_url <- "https://api.fitbit.com/oauth/access_token"
 auth_url <- "https://www.fitbit.com/oauth/authorize"
-fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
-token <- readRDS(file = paste("user/", username, "/fitbit-token.RDS", sep = ""))
-print(token)
-sig <- sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
 
-print(rooturl)
+print(R.Version()$version.string)
+
+fbr = oauth_app(fitbitappname, fitbitkey, fitbitsecret)
+fitbit = oauth_endpoint(token_url, auth_url, access_url)
+print(fitbit)
+#token = oauth1.0_token(fitbit, fbr)
+#saveRDS(token, file = paste("user/", username, "/fitbit-token.RDS", sep = ""))
+token <- readRDS(file = paste("user/", username, "/fitbit-token.RDS", sep = ""))
+sig <- sign_oauth1.0(app=fbr, 
+                     token=token$oauth_token, 
+                     token_secret=token$oauth_token_secret)
+
 lastdate <- getMaxobsdate(rooturl, programid, userid, "weight")
 print(lastdate)
 if (lastdate == "1970-01-01 00:00:00") {
