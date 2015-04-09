@@ -67,8 +67,15 @@ echo "Do withings ..."
 echo "Do GAS ..."
 ./dogas/dogas.R
 
+cd /Users/stefanopicozzi/tnm/tnmbatch
+git pull
+git add .
+git commit -am "dolifecoach crontab batch script tnmbatch"
+git push
+
 cd /Users/stefanopicozzi/websites/nudge
+git pull
 git add images
-git commit -am "dolifecoach crontab batch script"
+git commit -am "dolifecoach crontab batch script website images"
 git push
 
