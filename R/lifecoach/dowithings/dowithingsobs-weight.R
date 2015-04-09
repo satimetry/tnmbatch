@@ -23,6 +23,7 @@ token <- readRDS(file = paste("user/", username, "/fitbit-token.RDS", sep = ""))
 sig = sign_oauth1.0(fbr, token=token$oauth_token, token_secret=token$oauth_token_secret)
 
 lastdate <- getMaxobsdate(rooturl, programid, userid, "weight")
+print(lastdate)
 if (lastdate == "1970-01-01 00:00:00") {
    startdate <- Sys.Date()-30
 } else {
