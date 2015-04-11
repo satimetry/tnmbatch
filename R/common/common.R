@@ -386,6 +386,32 @@ getUserobsDF <- function(rooturl, programid, userid, obsname) {
    return(userobsDF)
 }
 
+getUserdiaryDF <- function(rooturl, programid, userid) {
+  userdiaryJSON <- tryCatch({  
+    getURL(paste(rooturl, "/userdiary/user?programid=", programid, "&userid=", userid, sep=""))
+  }, warning = function(w) {
+    print("Warning getUserdiaryDF")
+  }, error = function(e) {
+    print("Error getUserdiaryDF")
+    message(e)
+    stop()
+  }, finally = {
+  })
+  
+  userdiaryDF <- NULL
+  if ( is.null(userdiaryJSON) ) { return(userdiaryDF) }
+  
+  userdiarys <- fromJSON(userdiaryJSON)
+  
+  for (userdiary in userdiarys) {
+    diarydate <- toString(as.POSIXlt( as.numeric(userdiary$diarydate)/1000, origin="1970-01-01 00:00:00" ))
+    userdiaryDF <- cbind( userdiaryDF, c( id=userdiary$userdiaryid, username=userdiary$userid, diarylabel=userdiary$diarylabel, diarydate=diarydate, diarytxt=userdiary$diarytxt ) )
+  }
+  userdiaryDF <- t(userdiaryDF)
+  userdiaryDF <- userdiaryDF[order(userdiaryDF[, "diarydate"]),] 
+  return(userdiaryDF)
+}
+
 getOptinruleviewDF <- function(rooturl, programid, userid) {
    optinruleviewJSON <- tryCatch({  
       getURL(paste(rooturl, "/optinruleview/user?programid=", programid, "&userid=", userid, sep=""))
