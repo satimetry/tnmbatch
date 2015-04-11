@@ -75,7 +75,7 @@ for (programuser in programusers) {
    tryCatch({
       obsname <<- "bmi"
       print(obsname)
-      #source("dowithings/dowithingsplots.R", echo = TRUE )
+      source("dowithings/dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
@@ -85,7 +85,7 @@ for (programuser in programusers) {
    tryCatch({
       obsname <<- "weight"
       print(obsname)
-      #source("dowithings/dowithingsplots.R", echo = TRUE )
+      source("dowithings/dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {   
