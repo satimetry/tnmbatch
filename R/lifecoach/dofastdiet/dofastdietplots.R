@@ -68,6 +68,9 @@ ggplot(userobsDF, aes(x=factor(obsdatelabel), y=obsvalue, group=username)) +
   ylab("Weight") +
   geom_hline(yintercept=80, linetype="dashed") +
   scale_y_continuous(breaks=seq(70, 90, by=0.25)) +
+  annotate("text", size=2, x="2015-04-03", y=81, label="Easter 4 day break")
+
+  source("annotate-stefano.R", echo=TRUE)
 
 #for(i in 1:nrow(userdiaryDF)) {
 #  diary <- userdiaryDF[i,]
