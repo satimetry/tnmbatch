@@ -47,7 +47,7 @@ for (programuser in programusers) {
    obsdatelabel <- substring(userobsDF[, "obsdate"], 1, 10)
    
    userdiaryDF <- getUserdiaryDF(rooturl, programid, userid)   
-   userdiaryDF <- cbind(userdiaryDF, diarydatelabel=substring(userdiaryDF[, "diarydate"], 1, 10))
+   userdiaryDF <- cbind(userdiaryDF, diarydatelabel=substring(userdiaryDF[, "diarydate"], 1, 10), obsvalue=0)
    userdiaryDF <- as.data.frame(userdiaryDF, stringsAsFactors=FALSE)   
 }
 
@@ -62,15 +62,24 @@ ggplot(userobsDF, aes(x=factor(obsdatelabel), y=obsvalue, group=username)) +
   geom_line(size=0.5) +
   geom_point(size=2, shape=1) +
   theme(axis.text.x=element_text(size=3, angle=45, hjust=1)) +
-  theme(axis.text.y=element_text(size=6)) +
+  theme(axis.text.y=element_text(size=4)) +
   theme(axis.title=element_text(size=10)) +
   xlab("Observation Date") +
   ylab("Weight") +
   geom_hline(yintercept=80, linetype="dashed") +
   scale_y_continuous(breaks=seq(70, 90, by=0.25)) +
-  annotate("text", size=2, x="2015-04-03", y=81, label="Easter 4 day break")
+  annotate("text", size=2, x="2015-04-03", y=83.25, label="Easter 4 day break") +
+  annotate("rect", xmin="2015-04-03", xmax="2015-04-07", ymin=77, ymax=83, alpha=0.1, fill="blue") +
+  annotate("text", size=2, x="2015-03-15", y=79, label="Conference 5 days") +
+  annotate("rect", xmin="2015-03-15", xmax="2015-03-19", ymin=77, ymax=83, alpha=0.1, fill="blue") +
+  annotate("text", size=2, x="2015-03-07", y=77, label="Vacation 1 week") +
+  annotate("rect", xmin="2015-03-07", xmax="2015-03-13", ymin=77, ymax=83, alpha=0.1, fill="blue") +
+  annotate("text", size=2, x="2015-02-01", y=77, label="Start Fast Diet") +
+  annotate("rect", xmin="2015-02-01", xmax="2015-02-02", ymin=77, ymax=83, alpha=0.1, fill="blue")
+  
+  
 
-  source("annotate-stefano.R", echo=TRUE)
+#  source("annotate-stefano.R", echo=TRUE)
 
 #for(i in 1:nrow(userdiaryDF)) {
 #  diary <- userdiaryDF[i,]
