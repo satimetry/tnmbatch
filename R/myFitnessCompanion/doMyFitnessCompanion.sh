@@ -61,7 +61,7 @@ cd ~/TheNudgeMachine/GitHub/tnmbatch/R/myFitnessCompanion
 echo "Do GAS ..."
 ./dogas/dogas.R
 
-cd ~/TheNudgeMachine/GitHub/tnmbatch/R/myFitnessCompanion/tnmbatch
+cd ~/TheNudgeMachine/GitHub/tnmbatch/R/myFitnessCompanion
 git pull
 git add .
 git commit -am "MyFitnessCompanion crontab batch script tnmbatch"
