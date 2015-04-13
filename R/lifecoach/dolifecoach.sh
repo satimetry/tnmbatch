@@ -51,12 +51,12 @@ echo "Check nudge server application status ..."
 restart=`rhc app show --state nudgeserver -p $PASSWORD | egrep "idle|stopped" | wc -l`
 if [ $restart != "0" ]; then
   echo "Application is starting"
-  rhc app start nudgeserver -p $PASSWORD
+  rhc app start nudgeserver -p1G $PASSWORD
 else
   echo "Nudge Server Application is already started"
 fi
 
-cd /Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach
+cd ~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach
 
 # echo "Do fitbit ..."
 # ./dofitbit/dofitbit.R
@@ -67,13 +67,13 @@ echo "Do withings ..."
 echo "Do GAS ..."
 ./dogas/dogas.R
 
-cd /Users/stefanopicozzi/tnm/tnmbatch
+cd ~/TheNudgeMachine/GitHub/tnmbatch/tnm/tnmbatch
 git pull
 git add .
 git commit -am "dolifecoach crontab batch script tnmbatch"
 git push
 
-cd /Users/stefanopicozzi/websites/nudge
+cd ~/TheNudgeMachine/OpenShift/nudge
 git pull
 git add images
 git commit -am "dolifecoach crontab batch script website images"
