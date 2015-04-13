@@ -67,7 +67,7 @@ echo "Do withings ..."
 echo "Do GAS ..."
 ./dogas/dogas.R
 
-cd ~/TheNudgeMachine/GitHub/tnmbatch/tnm/tnmbatch
+cd ~/TheNudgeMachine/GitHub/tnmbatch
 git pull
 git add .
 git commit -am "dolifecoach crontab batch script tnmbatch"

@@ -5,11 +5,11 @@ Sys.setenv(NOAWT = "true")
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach/dogas"
-imagesdir <<- "/Users/stefanopicozzi/websites/nudge/images"
+rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
+imagesdir <<- "~/TheNudgeMachine/OpenShift/nudge/images"
 ppi <<- 300
 
-setwd("/Users/stefanopicozzi/tnm/tnmbatch/R/lifecoach")
+setwd("~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 
 # Do programid=1 and activity observations
