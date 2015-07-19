@@ -7,7 +7,7 @@ Sys.setenv(NOAWT = "true")
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
 rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/myFitnessCompanion/dogas"
 imagesdir <<- "~/TheNudgeMachine/OpenShift/nudge/images"
-ppi <<- 300
+ppi <<- 600
 
 setwd("~/TheNudgeMachine/GitHub/tnmbatch/R/myFitnessCompanion")
 source("../common/common.R")
