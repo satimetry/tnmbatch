@@ -11,10 +11,10 @@ library("MASS")
 library(ggplot2)
 library(rjson)
 
-rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
-imagesdir <<- "~/TheNudgeMachine/OpenShift/nudge/images"
-ppi <<- 300
+rooturl <- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rootdir <- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
+imagesdir <- "~/TheNudgeMachine/OpenShift/nudge/images"
+ppi <- 300
 source("../common/common.R")
 
 # Get observations for this programid and userid

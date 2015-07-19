@@ -6,11 +6,10 @@ if ( !exists("userid") ) { userid <- 7 }
 if ( !exists("programid") ) { programid <- 1 }
 if ( !exists("obsname") ) { obsname <- "weight" }
 
-#rooturl <<- "http://localhost:8080/tnm/rest"
-rooturl <<- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dowithings"
-imagesdir <<- "~/TheNudgeMachine/OpenShift/nudge/images"
-ppi <<- 900
+rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rootdir <- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dowithings"
+imagesdir <- "~/TheNudgeMachine/OpenShift/nudge/images"
+ppi <- 300
 source("../common/common.R")
 
 library(RColorBrewer)
@@ -38,7 +37,10 @@ png(paste(fileName, sep=""),
     units = "px")
 
 plot(obsdate, obsvalues,
-     type = "b",
+     type = "o",
+     lty = 1,
+     cex = 0.5,
+     pch = 20,
      axes = FALSE,
      ylab = obsname,
      ylim = c( floor(min(obsvalues)), ceiling(max(obsvalues)) ),
