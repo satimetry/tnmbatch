@@ -12,7 +12,8 @@ source("../common/common.R")
 programid <- 9
 userid <- 97
 username <- "StefanoPicozzi@gmail.com"
-rooturl <<- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+#rooturl <<- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rooturl <<- "http://127.0.0.1:8080/tnm/rest"
 
 obsname <- "\"weight\""
 obsvalue <- 77

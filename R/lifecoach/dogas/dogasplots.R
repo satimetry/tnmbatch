@@ -1,10 +1,21 @@
 # Batch control script
 Sys.setenv(NOAWT = "true")
 
+# Default test case
+if ( !exists("userid") ) { userid <- 7 }
+if ( !exists("programid") ) { programid <- 1 }
+if ( !exists("obsname") ) { obsname <- "gas31" }
+
 library("lattice")
 library("MASS")
 library(ggplot2)
 library(rjson)
+
+rooturl <- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rootdir <- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
+imagesdir <- "~/TheNudgeMachine/OpenShift/nudge/images"
+ppi <- 300
+source("../common/common.R")
 
 # Get observations for this programid and userid
 userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
@@ -36,7 +47,7 @@ png(filenamebp,
 
 ylim <- c(0, 100)
 xpct <- ( table(x)/sum(table(x)) ) * 100
-   
+
 bp <- barplot(xpct,
     xaxt = "n",
     ylab = "Percentage",
@@ -44,8 +55,9 @@ bp <- barplot(xpct,
     xlab = "Goal Attainment Scale Outcome",
     col = "deepskyblue1",
     main = polldesc,
-    cex.lab = 0.9)
-    text(x = bp, y = xpct, label = table(x), pos = 3, cex = 0.8, col = "red")
+    axes = FALSE,
+    cex.lab = 0.8)
+    text(x = bp, y = xpct, label = table(x), pos = 3, cex = 0.5, col = "red")
 
 xunique <- unique(unlist(x, use.names = FALSE))
 if (length(xunique) == 5) {
@@ -54,16 +66,16 @@ if (length(xunique) == 5) {
    tick = FALSE,
    las = 2,
    line = -0.5,
-   cex.axis=0.6)
+   cex.axis=0.5)
 } else {
    axis(1, at = bp,
    labels = unique(x),
    tick = FALSE,
    las = 2,
    line = -0.5,
-   cex.axis=0.6)
+   cex.axis=0.5)
 }
-axis(2, at = seq(0, 100, by = 10))
+axis(2, at = seq(0, 100, by = 10), cex.axis = 0.5)
 
 dev.off()
 
@@ -86,6 +98,7 @@ plot(obsdate, obsvalue,
      ylim = c(-2, 2),
      xlim = c( min(obsdate), max(obsdate) ),
      xlab = "Date",
+     cex.lab = 0.8,
      col = "deepskyblue1",
      main = polldesc )
    
@@ -94,7 +107,7 @@ plot(obsdate, obsvalue,
 axis(2, at = seq(-2, 2, by = 1), 
    labels = c("Worst \nExpected", "Less Than \nExpected", "Expected", "More Than \nExpected", "Best \nExpected"),
    cex.axis = 0.5, las = 2)
-axis(1, at = obsdate, labels = substr(obsdate, 6, 10), cex.axis = 0.8, las = 2)
+axis(1, at = obsdate, labels = substr(obsdate, 6, 10), cex.axis = 0.5, las = 2, srt=45)
 #   text(loc[1], loc[4], "Daily PQM Score", pos = 3, xpd = T)
 
 grid()
