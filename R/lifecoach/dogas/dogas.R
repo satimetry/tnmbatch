@@ -5,9 +5,9 @@ Sys.setenv(NOAWT = "true")
 
 #rooturl <<- "http://localhost:8080/tnm/rest"
 rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
+rootdir <<- "~/GitHub/tnmbatch/R/lifecoach/dogas"
 
-setwd("~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach")
+setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 
 # Do programid=1 and activity observations
