@@ -76,7 +76,7 @@ git add .
 git commit -am "dolifecoach crontab batch script tnmbatch"
 git push
 
-cd ~/Dev/websites/nudge
+cd ~/websites/nudge
 git pull
 git add images
 git commit -am "dolifecoach crontab batch script website images"
