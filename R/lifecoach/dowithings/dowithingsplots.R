@@ -7,16 +7,18 @@ if ( !exists("programid") ) { programid <- 1 }
 if ( !exists("obsname") ) { obsname <- "weight" }
 
 rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dowithings"
-imagesdir <- "~/TheNudgeMachine/OpenShift/nudge/images"
+rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
+imagesdir <- "~/Dev/websites/nudge/images"
 ppi <- 300
+
+setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 
 library(RColorBrewer)
 
 # Get user details for userid
 user <- getUser(rooturl, userid)
-username <<- user['username']
+username <- user['username']
 
 userobsDF <- NULL
 # Get observations for this programid and userid and obsname

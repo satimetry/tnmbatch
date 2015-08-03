@@ -264,6 +264,7 @@ getUser <- function(rooturl, userid) {
       stop()
    }, finally = {
    })
+   
    user <- fromJSON(userJSON)
    return(user)
 }

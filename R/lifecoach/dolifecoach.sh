@@ -56,7 +56,7 @@ else
   echo "Nudge Server Application is already started"
 fi
 
-cd ~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach
+cd ~/GitHub/tnmbatch/R/lifecoach
 
 # echo "Do fitbit ..."
 # ./dofitbit/dofitbit.R
@@ -64,16 +64,19 @@ cd ~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach
 echo "Do withings ..."
 ./dowithings/dowithings.R
 
+echo "Do weightwatcher ..."
+./doweightwatcher/doweightwatcher.R
+
 echo "Do GAS ..."
 ./dogas/dogas.R
 
-cd ~/TheNudgeMachine/GitHub/tnmbatch
+cd ~/GitHub/tnmbatch
 git pull
 git add .
 git commit -am "dolifecoach crontab batch script tnmbatch"
 git push
 
-cd ~/TheNudgeMachine/OpenShift/nudge
+cd ~/OpenShift/nudge
 git pull
 git add images
 git commit -am "dolifecoach crontab batch script website images"
