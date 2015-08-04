@@ -12,9 +12,11 @@ library(ggplot2)
 library(rjson)
 
 rooturl <- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dogas"
-imagesdir <- "~/TheNudgeMachine/OpenShift/nudge/images"
+rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dogas"
+imagesdir <- "~/websites/nudge/images"
 ppi <- 300
+
+setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 
 # Get observations for this programid and userid

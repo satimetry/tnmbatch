@@ -62,10 +62,10 @@ cd ~/GitHub/tnmbatch/R/lifecoach
 # ./dofitbit/dofitbit.R
 
 echo "Do withings ..."
-./dowithings/dowithings.R
+#./dowithings/dowithings.R
 
 echo "Do weightwatcher ..."
-./doweightwatcher/doweightwatcher.R
+#./doweightwatcher/doweightwatcher.R
 
 echo "Do GAS ..."
 ./dogas/dogas.R
