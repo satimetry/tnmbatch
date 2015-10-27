@@ -1,4 +1,4 @@
-#Rscript
+#!/usr/local/bin/Rscript/Rscript
 
 # Batch control script
 Sys.setenv(NOAWT = "true")
