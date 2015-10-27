@@ -1,4 +1,4 @@
-#!/usr/bin/Rscript
+#!/usr/local/bin/Rscript
 
 # Batch control script
 Sys.setenv(NOAWT = "true")
@@ -23,13 +23,13 @@ for (programuser in programusers) {
 
 #   if ( userid != 7 && userid != 58 ) { next }
    if ( userid != 7 ) { next }
-   
+
    print(paste("--->WEIGHTWATCHER --", userid, sep = ""))
    tryCatch({
       source("doweightwatcher/weightwatcher.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
 }

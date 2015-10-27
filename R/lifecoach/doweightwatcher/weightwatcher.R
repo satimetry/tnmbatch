@@ -1,4 +1,3 @@
-#!/usr/local/bin/Rscript
 
 Sys.setenv(NOAWT = "true")
 library('httr')
