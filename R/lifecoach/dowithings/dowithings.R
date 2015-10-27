@@ -1,3 +1,4 @@
+#!Rscript
 
 # Batch control script
 Sys.setenv(NOAWT = "true")
