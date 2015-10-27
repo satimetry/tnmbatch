@@ -1,3 +1,5 @@
+#!/usr/local/bin/Rscript
+
 Sys.setenv(NOAWT = "true")
 library('httr')
 library('rjson')
@@ -21,9 +23,9 @@ source("../common/container.R")
 user <- getUser(rooturl, userid)
 username <- user['username']
 pushoveruser <- user['pushoveruser']
-fitbitkey <- user['fitbitkey']                             
+fitbitkey <- user['fitbitkey']
 fitbitsecret <- user['fitbitsecret']
-fitbitappname <- user['fitbitappname']      
+fitbitappname <- user['fitbitappname']
 
 weightDF <- getWeightObservations( username, fitbitkey, fitbitsecret, fitbitappname )
 
@@ -38,7 +40,7 @@ list <- postNudgeRequest( containerurl, request )
 length <- length(list)-2
 for ( i in 2:length ) {
   msgtxt <- as.character( list[[i]]$com.redhat.weightwatcher.Fact$facttxt )
-  msgtxt <- paste(msgtxt, ". To opt-out from nudges visit: ", "http://www.thenudgemachine.com/rulesettings.php", sep = "")       
-  sendPushover(pushoveruser, msgtxt)  
-  print( msgtxt )  
+  msgtxt <- paste(msgtxt, ". To opt-out from nudges visit: ", "http://www.thenudgemachine.com/rulesettings.php", sep = "")
+  sendPushover(pushoveruser, msgtxt)
+  print( msgtxt )
 }
