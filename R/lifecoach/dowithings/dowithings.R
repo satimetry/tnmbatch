@@ -1,4 +1,3 @@
-#!/usr/bin/Rscript
 
 # Batch control script
 Sys.setenv(NOAWT = "true")
@@ -22,13 +21,13 @@ for (programuser in programusers) {
 
 #   if ( userid != 7 && userid != 58 ) { next }
    if ( userid != 7 ) { next }
-   
+
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
       source("dowithings/dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
@@ -36,7 +35,7 @@ for (programuser in programusers) {
       source("dowithings/dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->APPLYNUDGES --", userid, sep = ""))
@@ -47,7 +46,7 @@ for (programuser in programusers) {
       source("../common/donudges.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->APPLYNUDGES --", userid, sep = ""))
@@ -55,10 +54,10 @@ for (programuser in programusers) {
       obsname <<- "weight"
       rulename <<- "weight"
       print(obsname)
-      source("../common/donudges.R", echo = TRUE )      
+      source("../common/donudges.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
@@ -66,7 +65,7 @@ for (programuser in programusers) {
       source("../common/donotifications.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->PLOTS :", userid, sep = ""))
@@ -76,7 +75,7 @@ for (programuser in programusers) {
       source("dowithings/dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->PLOTS :", userid, sep = ""))
@@ -86,7 +85,7 @@ for (programuser in programusers) {
       source("dowithings/dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
    print(paste("--->PLOTS :", userid, sep = ""))
@@ -96,7 +95,7 @@ for (programuser in programusers) {
       source("dowithings/dowithingsplots.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
-   }, finally = {   
+   }, finally = {
    })
 
 }
