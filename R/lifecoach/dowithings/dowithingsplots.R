@@ -26,6 +26,7 @@ userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
 if ( is.null(userobsDF) ) { stop("userobsDF is NULL") }
 if ( nrow(userobsDF) == 0 ) { stop("userobsDF is empty") }
 
+userobsDF <- tail(userobsDF, 50)
 # extract step counts and convert to numeric:
 obsvalues = as.numeric( as.character(userobsDF[, "obsvalue"]) )
 obsdate <- as.POSIXct(userobsDF[, "obsdate"], format = "%Y-%m-%d %H:%M:%S")
@@ -58,7 +59,7 @@ axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
 
 axis(1, at = obsdate, 
    labels = substr(obsdate, 1, 10), 
-   cex.axis = 0.2, las = 2)
+   cex.axis = 0.5, las = 2)
 
 if (obsname == "bmi") {
    axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),
