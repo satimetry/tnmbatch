@@ -28,7 +28,7 @@ fitbitappname <- user['fitbitappname']
 
 weightDF <- getWeightObservations( username, fitbitkey, fitbitsecret, fitbitappname )
 
-containerurl <- paste( containerurl, "/kie-server/services/rest/server/containers/watch", sep = "" )
+containerurl <- paste( containerurl, "/kie-server/services/rest/server/containers/instances/watch", sep = "" )
 
 response <- putKIEContainer( containerurl )
 print (response)

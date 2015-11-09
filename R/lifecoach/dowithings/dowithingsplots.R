@@ -4,7 +4,7 @@ Sys.setenv(NOAWT = "true")
 # Default test case
 if ( !exists("userid") ) { userid <- 7 }
 if ( !exists("programid") ) { programid <- 1 }
-if ( !exists("obsname") ) { obsname <- "weight" }
+if ( !exists("obsname") ) { obsname <- "fat" }
 
 rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
 rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
@@ -69,6 +69,9 @@ if (obsname == "bmi") {
 }
 if (obsname == "weight") {   
    abline(h = 80, lty = 2)
+}
+if (obsname == "fat") {
+  abline(h = 25, lty = 2)
 }
 
 dev.off()
