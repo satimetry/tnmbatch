@@ -68,11 +68,11 @@ putKIEContainer <- function( url ) {
 }
 
 postNudgeRequest <- function( url, request ) {
-
+  
   header=c(Connection="close", 'Content-Type'="application/xml; charset=utf-8", 'Content-length'=nchar(request))
   
   response <- tryCatch({
-    POST(url, body=request, content_type_xml(), header=header, verbose(), authenticate("erics", "jbossbrms1!", type="basic"))
+    POST(url, body=request, content_type_xml(), header=header, add_headers('X-KIE-ContentType'="XSTREAM"), verbose(), authenticate("erics", "jbossbrms1!", type="basic"))
   }, warning = function(w) {
     print("Warning POST")
     stop()
@@ -90,6 +90,7 @@ postNudgeRequest <- function( url, request ) {
   response <- gsub("&amp;quot;", '"', response, fixed=TRUE)
   
   list <- xmlToList(xmlTreeParse(response))
+  
   return(list)
 }
 
@@ -115,7 +116,7 @@ buildNudgeRequest <- function( userid, username, DF ) {
   for ( i in 1:nrow(weightDF) ) {
     fact <- readChar( fileName, file.info(fileName)$size )
     factid <- factid+1
-    factjson <- paste('{ "userid" : ', userid, ', "obsdate" : "', DF[i, "obsdate"], ' EST",', ' "obsname" : "weight", "obsvalue" : ', DF[i, "obsvalue"], ' }', sep="")
+    factjson <- paste('{ "userid" : ', userid, ', "obsdate" : "', DF[i, "obsdate"], ' EST",', ' "obsname" : "weight", "obsvalue" : ', as.integer(DF[i, "obsvalue"]), ' }', sep="")
     fact <- gsub("$(factid)", factid, fact, fixed=TRUE)
     fact <- gsub("$(factname)", factname, fact, fixed=TRUE)
     fact <- gsub("$(factjson)", factjson, fact, fixed=TRUE)
@@ -128,6 +129,7 @@ buildNudgeRequest <- function( userid, username, DF ) {
   request <- gsub("$(factbody)", factbody, envelope, fixed=TRUE)
   write( request, "input.xml" )
   
+  print(request)
   return(request)
   
 }
