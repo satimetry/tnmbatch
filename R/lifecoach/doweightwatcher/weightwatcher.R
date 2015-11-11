@@ -30,9 +30,6 @@ weightDF <- getWeightObservations( username, fitbitkey, fitbitsecret, fitbitappn
 
 containerurl <- paste( containerurl, "/kie-server/services/rest/server/containers/instances/watch", sep = "" )
 
-#response <- putKIEContainer( containerurl )
-#print (response)
-
 request <- buildNudgeRequest( userid = userid, username, weightDF )
 list <- postNudgeRequest( containerurl, request )
 
@@ -42,11 +39,3 @@ for ( i in 2:(length(list$result)-2) ) {
   sendPushover(pushoveruser, msgtxt)
   print( msgtxt )
 }
-
-#length <- length(list)-2
-#for ( i in 2:length ) {
-#  msgtxt <- as.character( list[[i]]$com.redhat.weightwatcher.Fact$facttxt )
-#  msgtxt <- paste(msgtxt, ". To opt-out from nudges visit: ", "http://www.thenudgemachine.com/rulesettings.php", sep = "")
-#  sendPushover(pushoveruser, msgtxt)
-#  print( msgtxt )
-#}
