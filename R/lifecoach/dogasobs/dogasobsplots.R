@@ -6,11 +6,26 @@ library("MASS")
 library(ggplot2)
 library(rjson)
 
+# Default test case
+if ( !exists("userid") ) { userid <- 7 }
+if ( !exists("programid") ) { programid <- 1 }
+if ( !exists("obsname") ) { obsname <- "gas31" }
+
+rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
+imagesdir <- "~/websites/nudge/images"
+ppi <- 300
+
+setwd("~/GitHub/tnmbatch/R/lifecoach")
+source("../common/common.R")
+
 # Get observations for this programid and userid
 userobsDF <- getUserobsDF(rooturl, programid, userid, obsname)
 userobss <- getUserobs(rooturl, programid, userid, obsname)
 user <- getUser(rooturl, userid)
 username <- user['username']
+
+userobsDF <- tail(userobsDF, 52)
 
 x <- c()
 for (i in 1:nrow(userobsDF)) {
@@ -87,8 +102,8 @@ if (length(x) > 0) {
    
    axis(2, at = seq(-2, 2, by = 1), 
         labels = c("Worst \nExpected", "Less Than \nExpected", "Expected", "More Than \nExpected", "Best \nExpected"),
-        cex.axis = 0.6, las = 2, srt = 45)
-   axis(1, at = obsdate, labels = substr(obsdate, 6, 10), cex.axis = 0.8, las = 2)
+        cex.axis = 0.4, las = 2, srt = 45)
+   axis(1, at = obsdate, labels = substr(obsdate, 6, 10), cex.axis = 0.4, las = 2)
    
    grid()
    
