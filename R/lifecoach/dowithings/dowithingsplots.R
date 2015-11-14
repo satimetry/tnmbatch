@@ -4,7 +4,7 @@ Sys.setenv(NOAWT = "true")
 # Default test case
 if ( !exists("userid") ) { userid <- 7 }
 if ( !exists("programid") ) { programid <- 1 }
-if ( !exists("obsname") ) { obsname <- "fat" }
+if ( !exists("obsname") ) { obsname <- "bmi" }
 
 rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
 rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
@@ -55,24 +55,30 @@ plot(obsdate, obsvalues,
      cex.lab = 0.8,
      main = paste(obsname, " Plot", split = ""))
 
-axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
-   las = 1,
-   cex.axis=0.5)
-
 axis(1, at = obsdate, 
    labels = substr(obsdate, 1, 10), 
-   cex.axis = 0.3, las = 2)
+   cex.axis = 0.4, las = 2)
 
 if (obsname == "bmi") {
    axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.25),
         las = 1,
-        cex.axis=0.5)
-   abline(h = 27.5, lty = 2)   
+        cex.axis=0.4)
+   abline(h = 27.5, lty = 2)      
+   abline(h = 25.0, lty = 2)   
 }
+
 if (obsname == "weight") {   
-   abline(h = 80, lty = 2)
+  axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
+       las = 1,
+       cex.axis=0.4)
+  abline(h = 80, lty = 2)  
+  abline(h = 76, lty = 2)
 }
+
 if (obsname == "fat") {
+  axis(2, at = seq( floor(min(obsvalues)), ceiling(max(obsvalues)), 0.50),
+       las = 1,
+       cex.axis=0.4)
   abline(h = 25, lty = 2)
 }
 
