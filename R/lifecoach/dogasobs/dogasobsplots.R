@@ -58,7 +58,7 @@ if (length(x) > 0) {
                  col = "deepskyblue1",
                  main = polldesc,
                  cex.lab = 0.9)
-   text(x = bp, y = xpct, label = table(x), pos = 3, cex = 0.8, col = "red")
+   text(x = bp, y = xpct, label = table(x), pos = 3, cex = 0.6, col = "red")
    
    xunique <- unique(unlist(x, use.names = FALSE))
    if (length(xunique) == 5) {
@@ -74,7 +74,7 @@ if (length(x) > 0) {
            tick = FALSE,
            las = 2,
            line = -0.5,
-           cex.axis=0.8)
+           cex.axis=0.6)
    }
    axis(2, at = seq(0, 100, by = 10), srt = 45)
    
