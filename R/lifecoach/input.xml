@@ -196,6 +196,13 @@
 	<factjson>{ "userid" : 7, "obsdate" : "2015-11-23 07:15:00 EST", "obsname" : "weight", "obsvalue" : 79 }</factjson>
 	<facttxt>Incoming Observation JSON</facttxt>
 </com.redhat.weightwatcher.Fact>
+ <com.redhat.weightwatcher.Fact>
+	<factid>27</factid>
+	<facttype>1</facttype>
+	<factname>Observation</factname>
+	<factjson>{ "userid" : 7, "obsdate" : "2015-11-24 07:15:00 EST", "obsname" : "weight", "obsvalue" : 79 }</factjson>
+	<facttxt>Incoming Observation JSON</facttxt>
+</com.redhat.weightwatcher.Fact>
 
 
 	</insert-elements>
