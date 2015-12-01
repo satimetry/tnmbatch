@@ -70,6 +70,9 @@ echo "Do weightwatcher ..."
 echo "Do GAS ..."
 ./dogas/dogas.R
 
+echo "Do GAS ..."
+./doregression/doregression.R
+
 cd ~/GitHub/tnmbatch
 git pull
 git add .
@@ -81,4 +84,3 @@ git pull
 git add images
 git commit -am "dolifecoach crontab batch script website images"
 git push
-
