@@ -1,5 +1,10 @@
-# Pull down observations from database and do plots
+#!/usr/local/bin/Rscript
+
+# Batch control script
 Sys.setenv(NOAWT = "true")
+
+setwd("~/GitHub/tnmbatch/R/lifecoach")
+source("../common/common.R")
 
 library(RColorBrewer)
 

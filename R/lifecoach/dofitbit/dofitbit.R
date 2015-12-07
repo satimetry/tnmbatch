@@ -1,19 +1,10 @@
-#!/usr/bin/Rscript
+#!/usr/local/bin/Rscript
 
 # Batch control script
 Sys.setenv(NOAWT = "true")
 
-#rooturl <<- "http://localhost:8080/tnm/rest"
-rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/TheNudgeMachine/GitHub/tnmbatch/R/lifecoach/dofitbit"
-imagesdir <<- "~/TheNudgeMachine/OpenShift/nudge/images"
-setwd(rootdir)
-ppi <<- 300
-
-source("../../common/common.R")
-
-# Do programid=1 and activity observations
-programid <<- 1
+setwd("~/GitHub/tnmbatch/R/lifecoach")
+source("../common/common.R")
 
 # Get programusers enrolled for this programid
 programusers <- getProgramuser(rooturl, programid)
@@ -26,15 +17,15 @@ for (programuser in programusers) {
    if ( userid != 7 ) { next }
    
    print(paste("--->INSERTOBS --", userid, sep = ""))
-   source("dofitbitobs.R", echo = TRUE )
+   # source("dofitbitobs.R", echo = TRUE )
 
    obsname <<- "activity"
    rulename <<- "activity"
    print(paste("--->APPLYNUDGES --", userid, sep = ""))
-   source("../common/donudges.R", echo = TRUE )
+   # source("../common/donudges.R", echo = TRUE )
 
    print(paste("--->PUSHNOTIFICATION :", userid, sep = ""))
-   source("../common/donotifications.R", echo = TRUE )
+   # source("../common/donotifications.R", echo = TRUE )
 
    print(paste("--->PLOTS :", userid, sep = ""))
    source("dofitbitplots.R", echo = TRUE )

@@ -4,6 +4,18 @@ library(httr)
 library(rjson)
 library('RCurl')
 
+# Default test case
+if ( !exists("userid") ) { userid <<- 7 }
+if ( !exists("programid") ) { programid <<- 1 }
+if ( !exists("obsname") ) { obsname <<- "weight" }
+
+containerurl <<- "http://192.168.59.103:8080"
+rooturl <<- "http://localhost:8080/tnm/rest"
+#rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
+rootdir <<- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
+imagesdir <<- "~/websites/nudge/images"
+ppi <<- 300
+
 sendPushover <- function(pushoveruser, msgtxt) {
   
   curl_cmd = paste(

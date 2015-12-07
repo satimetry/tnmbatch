@@ -1,5 +1,7 @@
+#!/usr/local/bin/Rscript
+
 # Batch control script
-#Sys.setenv(NOAWT = "true")
+Sys.setenv(NOAWT = "true")
 
 library("lattice")
 library("MASS")
@@ -7,15 +9,6 @@ library(ggplot2)
 library(rjson)
 library("xts")
 
-# Default test case
-if ( !exists("userid") ) { userid <- 7 }
-if ( !exists("programid") ) { programid <- 1 }
-if ( !exists("obsname") ) { obsname <- "weight" }
-
-rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
-imagesdir <- "~/websites/nudge/images"
-ppi <- 300
 setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 

@@ -1,0 +1,29 @@
+
+Individual sparklines plots for fortnightly weight, activity, fat, bmi etc
+
+Set up activity goal to reflect step targets
+
+Set up dietary goal to reflect non-meat days
+
+Add rules for activity targets
+
+Add GAS plots for activity goal attainment
+
+Create pseudo users data by cloning then random delta to my observations
+
+Add group plot examples using facets
+
+How to create persistent volume for OpenShift Vagrant all-in-one
+
+All services running in OpenShift all-in-one including mysql
+
+Rename KIE/Decision Server references as Decision Service
+
+OpenShift tutorial blog
+1. Local DNS setup
+2. OpenShift Vagrant all-in-one setup
+3. docker pull example using rstudio application
+4. source-to-image example for testdrive application
+5. rsync example using workbench and weightwatcher
+6. mysql example with Persistent Volume
+7.

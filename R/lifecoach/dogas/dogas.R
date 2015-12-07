@@ -3,10 +3,6 @@
 # Batch control script
 Sys.setenv(NOAWT = "true")
 
-#rooturl <<- "http://localhost:8080/tnm/rest"
-rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/GitHub/tnmbatch/R/lifecoach/dogas"
-
 setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
 

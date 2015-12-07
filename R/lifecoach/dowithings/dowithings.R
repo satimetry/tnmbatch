@@ -3,15 +3,8 @@
 # Batch control script
 Sys.setenv(NOAWT = "true")
 
-#rooturl <<- "http://localhost:8080/tnm/rest"
-rooturl <<- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
-
 setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/common.R")
-
-# Do programid=1 and weight observations
-programid <<- 1
 
 # Get programusers enrolled for this programid
 programusers <- getProgramuser(rooturl, programid)
@@ -25,7 +18,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
-      source("dowithings/dowithingsobs-weight.R", echo = TRUE )
+      # source("dowithings/dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {
@@ -33,7 +26,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
-      source("dowithings/dowithingsobs-fat.R", echo = TRUE )
+      # source("dowithings/dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {

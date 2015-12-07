@@ -5,16 +5,6 @@ library('rjson')
 library('RCurl')
 library('XML')
 
-# Default test case
-if ( !exists("userid") ) { userid <- 7 }
-if ( !exists("programid") ) { programid <- 1 }
-if ( !exists("containerurl") ) {
-  #url <- "http://localhost:8080"
-  containerurl <- "http://192.168.59.103:8080"
-  #url <- "http://127.0.0.1:8080"
-  #url <- "http://54.153.151.37:8080"
-}
-
 setwd("~/GitHub/tnmbatch/R/lifecoach")
 source("../common/container.R")
 
@@ -26,7 +16,7 @@ fitbitkey <- user['fitbitkey']
 fitbitsecret <- user['fitbitsecret']
 fitbitappname <- user['fitbitappname']
 
-weightDF <- getWeightObservations( username, fitbitkey, fitbitsecret, fitbitappname )
+#weightDF <- getWeightObservations( username, fitbitkey, fitbitsecret, fitbitappname )
 
 containerurl <- paste( containerurl, "/kie-server/services/rest/server/containers/instances/watch", sep = "" )
 

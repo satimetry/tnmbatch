@@ -3,17 +3,8 @@
 # Batch control script
 Sys.setenv(NOAWT = "true")
 
-#rooturl <<- "http://localhost:8080/tnm/rest"
-rooturl <<- "http://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
-rootdir <<- "~/tnm/tnmbatch/R/lifecoach/dogasobs"
-imagesdir <<- "~/websites/nudge/images"
-setwd(rootdir)
-ppi <<- 300
-
-source("../../common/common.R")
-
-# Do programid=1 and activity observations
-programid <<- 1
+setwd("~/GitHub/tnmbatch/R/lifecoach")
+source("../common/common.R")
 
 # Get programusers enrolled for this programid
 programusers <- getProgramuser(rooturl, programid)
