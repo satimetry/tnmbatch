@@ -18,7 +18,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS WEIGHT --", userid, sep = ""))
    tryCatch({
-      # source("dowithings/dowithingsobs-weight.R", echo = TRUE )
+      source("dowithings/dowithingsobs-weight.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {
@@ -26,7 +26,7 @@ for (programuser in programusers) {
 
    print(paste("--->INSERTOBS FAT --", userid, sep = ""))
    tryCatch({
-      # source("dowithings/dowithingsobs-fat.R", echo = TRUE )
+      source("dowithings/dowithingsobs-fat.R", echo = TRUE )
    }, error = function(err) {
       print(geterrmessage())
    }, finally = {

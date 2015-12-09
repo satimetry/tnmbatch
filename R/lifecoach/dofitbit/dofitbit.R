@@ -17,7 +17,7 @@ for (programuser in programusers) {
    if ( userid != 7 ) { next }
    
    print(paste("--->INSERTOBS --", userid, sep = ""))
-   # source("dofitbitobs.R", echo = TRUE )
+   source("dofitbit/dofitbitobs.R", echo = TRUE )
 
    obsname <<- "activity"
    rulename <<- "activity"
@@ -28,6 +28,6 @@ for (programuser in programusers) {
    # source("../common/donotifications.R", echo = TRUE )
 
    print(paste("--->PLOTS :", userid, sep = ""))
-   source("dofitbitplots.R", echo = TRUE )
+   source("dofitbit/dofitbitplots.R", echo = TRUE )
 
 }
