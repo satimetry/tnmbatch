@@ -15,17 +15,17 @@ containerurl <<- "http://weightwatcher.cloudapps.example.com"
 rooturl <- "http://nudgeserver.cloudapps.example.com/tnm/rest"
 #rooturl <- "https://nudgeserver-spicozzi.rhcloud.com/tnm/rest"
 rootdir <<- "~/GitHub/tnmbatch/R/lifecoach/dowithings"
-imagesdir <<- "~/websites/nudge/images"
+imagesdir <<- "~/GitHub/nudgeclient/images"
 ppi <<- 300
 
 sendPushover <- function(pushoveruser, msgtxt) {
-  
+
   curl_cmd = paste(
     "curl -s",
     " -F \"token=acqa2Xgn6Fj7NsctUaxqPm8ngURksP\" ",
     " -F \"user=", pushoveruser, "\" ",
     " -F \"message=", msgtxt, "\" ",
-    " https://api.pushover.net/1/messages.json", 
+    " https://api.pushover.net/1/messages.json",
     sep = "")
 
   result <- tryCatch({
@@ -42,7 +42,7 @@ sendPushover <- function(pushoveruser, msgtxt) {
 }
 
 getRulefile <- function(rooturl, programid, groupid, rulename) {
-  rulefileJSON <- tryCatch({  
+  rulefileJSON <- tryCatch({
     getURL(paste(rooturl, "/rulefile?programid=", programid, "&groupid=", groupid, "&rulename=", rulename, sep=""))
   }, warning = function(w) {
     print("Warning")
@@ -57,7 +57,7 @@ getRulefile <- function(rooturl, programid, groupid, rulename) {
 }
 
 getNudge <- function(rooturl, programid, groupid, factname, rulename) {
-  result <- tryCatch({  
+  result <- tryCatch({
     facts <- getURL(paste(rooturl, "/nudge?", "programid=", programid, "&groupid=", userid, "&factname=", factname, "&rulename=", rulename, sep=""))
   }, warning = function(w) {
     print("Warning getNudge")
@@ -71,7 +71,7 @@ getNudge <- function(rooturl, programid, groupid, factname, rulename) {
 }
 
 getFactDF <- function(rooturl, programid, groupid, factname) {
-  factJSON <- tryCatch({  
+  factJSON <- tryCatch({
     getURL(paste(rooturl, "/fact/user?programid=", programid, "&groupid=", groupid, "&factname=", factname, sep=""))
   }, warning = function(w) {
     print("Warning getFactDF")
@@ -91,7 +91,7 @@ getFactDF <- function(rooturl, programid, groupid, factname) {
 }
 
 getFactsystem <- function(rooturl, programid, groupid, factname) {
-  factJSON <- tryCatch({  
+  factJSON <- tryCatch({
     getURL(paste(rooturl, "/fact/system?programid=", programid, "&groupid=", groupid, "&factname=", factname, sep=""))
   }, warning = function(w) {
     print("Warning getFactsystem")
@@ -105,7 +105,7 @@ getFactsystem <- function(rooturl, programid, groupid, factname) {
 }
 
 getFactsystemDF <- function(rooturl, programid, groupid, factname) {
-  factJSON <- tryCatch({  
+  factJSON <- tryCatch({
     getURL(paste(rooturl, "/fact/system?programid=", programid, "&groupid=", groupid, "&factname=", factname, sep=""))
   }, warning = function(w) {
     print("Warning getFactsystemDF")
@@ -117,7 +117,7 @@ getFactsystemDF <- function(rooturl, programid, groupid, factname) {
   })
   facts <- fromJSON(factJSON)
   return(as.data.frame(do.call(rbind, facts)))
-   
+
 #  facts <- fromJSON(factJSON)
 #  factDF = c()
 #  for (fact in facts) {
@@ -128,7 +128,7 @@ getFactsystemDF <- function(rooturl, programid, groupid, factname) {
 }
 
 delFact <- function(rooturl, programid, groupid, factname) {
-  result <- tryCatch({  
+  result <- tryCatch({
     getURL(paste(rooturl, "/fact/del?programid=",programid, "&groupid=", groupid, "&factname=", factname, sep=""))
   }, warning = function(w) {
     print("Warning delFact")
@@ -144,7 +144,7 @@ delFact <- function(rooturl, programid, groupid, factname) {
 
 postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
   for (i in 1:nrow(userobsDF)) {
-    
+
     #JSON <- paste("{ \"programid\" :", programid, ", \"groupid\" :", groupid, ", \"facttype\" : 0", ", \"factjson\" :\"", toString(toJSON(userobsDF[i,])), "\"  }", sep="")
     #curl.opts <- list(postfields = JSON, httpheader = c("Content-Type: application/json", "Accept: application/json"), useragent = "RCurl", ssl.verifypeer = FALSE)
 
@@ -157,37 +157,37 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
     gasboundary2 <- NULL
     gasboundary3 <- NULL
     gasboundary4 <- NULL
-    
+
     if ( "gasboundary1" %in% colnames(userobsDF) ) { gasboundary1 <- userobsDF[i, "gasboundary1"] }
     if ( "gasboundary2" %in% colnames(userobsDF) ) { gasboundary2 <- userobsDF[i, "gasboundary2"] }
     if ( "gasboundary3" %in% colnames(userobsDF) ) { gasboundary3 <- userobsDF[i, "gasboundary3"] }
     if ( "gasboundary4" %in% colnames(userobsDF) ) { gasboundary4 <- userobsDF[i, "gasboundary4"] }
-    
+
     obsdesc <- "\"Generated using R sysbatch procedure\"";
-    
+
     if ( is.null( gasboundary1 ) ) {
-      factjson <- paste('{ \"username\":', username, 
-                      ', \"obsname\":', obsname, 
-                      ', \"obsdate\":', obsdate, 
+      factjson <- paste('{ \"username\":', username,
+                      ', \"obsname\":', obsname,
+                      ', \"obsdate\":', obsdate,
                       ', \"obsvalue\":', obsvalue,
                       ', \"obsdesc\":', obsdesc, '}' )
     } else {
-       factjson <- paste('{ \"username\":', username, 
-                         ', \"obsname\":', obsname, 
-                         ', \"obsdate\":', obsdate, 
+       factjson <- paste('{ \"username\":', username,
+                         ', \"obsname\":', obsname,
+                         ', \"obsdate\":', obsdate,
                          ', \"obsvalue\":', obsvalue,
                          ', \"gasboundary1\":', gasboundary1,
                          ', \"gasboundary2\":', gasboundary2,
                          ', \"gasboundary3\":', gasboundary3,
                          ', \"gasboundary4\":', gasboundary4,
-                         ', \"obsdesc\":', obsdesc, '}' )       
-       
+                         ', \"obsdesc\":', obsdesc, '}' )
+
     }
-    
+
     #  params <- paste("programid=", programid, "&groupid=", userid, "&factjson=", factjson, sep="")
     #  url <- paste("curl -X POST --data '", params, "' ", rooturl, "/fact", sep="")
-    
-    result <- tryCatch({      
+
+    result <- tryCatch({
       # postForm( paste(rooturl, "/fact", sep=""), .opts = curl.opts )
       postForm( paste(rooturl, "/fact", sep=""), programid=programid, groupid=groupid, factname=factname, factjson=factjson, style="POST"  )
       # system(url)
@@ -205,7 +205,7 @@ postFact <- function(rootusr, programid, groupid, factname, userobsDF) {
 }
 
 getProgramuser <- function(rooturl, programid) {
-  programuserJSON <- tryCatch({  
+  programuserJSON <- tryCatch({
     getURL(paste(rooturl, "/programuser/user?programid=", programid, sep=""))
   }, warning = function(w) {
     print("Warning gerProgramuser")
@@ -220,7 +220,7 @@ getProgramuser <- function(rooturl, programid) {
 }
 
 getProgramuserDF <- function(rooturl, programid) {
-   programuserJSON <- tryCatch({  
+   programuserJSON <- tryCatch({
       getURL(paste(rooturl, "/programuser/user?programid=", programid, sep=""))
    }, warning = function(w) {
       print("Warning getProgramuserDF")
@@ -236,12 +236,12 @@ getProgramuserDF <- function(rooturl, programid) {
       programuserDF <- cbind( programuserDF, c( userid=programuser$userid, roletype=programuser$roletype ) )
    }
    programuserDF <- t(programuserDF)
-   programuserDF <- subset(programuserDF, programuserDF[,"roletype"] == "participant")  
+   programuserDF <- subset(programuserDF, programuserDF[,"roletype"] == "participant")
    return(programuserDF)
 }
 
 getProgramruleuserDF <- function(rooturl, programid, userid) {
-   programruleuserJSON <- tryCatch({  
+   programruleuserJSON <- tryCatch({
       getURL(paste(rooturl, "/programruleuser", sep=""))
    }, warning = function(w) {
       print("Warning gerProgramruleuser")
@@ -254,21 +254,21 @@ getProgramruleuserDF <- function(rooturl, programid, userid) {
    programruleusers <- fromJSON(programruleuserJSON)
    programruleuserDF = c()
    for (programruleuser in programruleusers) {
-         programruleuserDF <- cbind( programruleuserDF, 
+         programruleuserDF <- cbind( programruleuserDF,
             c( programid = programruleuser$programid,
-               userid = programruleuser$userid, 
-               ruleid = programruleuser$ruleid, 
+               userid = programruleuser$userid,
+               ruleid = programruleuser$ruleid,
                rulelow = programruleuser$rulelow,
                rulehigh = programruleuser$rulehigh ) )
    }
    programruleuserDF <- t(programruleuserDF)
-   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"programid"] == programid)  
-   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"userid"] == userid)  
+   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"programid"] == programid)
+   programruleuserDF <- subset(programruleuserDF, programruleuserDF[,"userid"] == userid)
    return(programruleuserDF)
 }
 
 getUser <- function(rooturl, userid) {
-   userJSON <- tryCatch({  
+   userJSON <- tryCatch({
       getURL(paste(rooturl, "/user/user?userid=", userid, sep=""))
    }, warning = function(w) {
       print("Warning getUser")
@@ -278,13 +278,13 @@ getUser <- function(rooturl, userid) {
       stop()
    }, finally = {
    })
-   
+
    user <- fromJSON(userJSON)
    return(user)
 }
 
 getRule <- function(rooturl, rulename) {
-  ruleJSON <- tryCatch({  
+  ruleJSON <- tryCatch({
     getURL(paste(rooturl, "/rule?rulename=", rulename, sep=""))
   }, warning = function(w) {
     print("Warning getRule")
@@ -299,12 +299,12 @@ getRule <- function(rooturl, rulename) {
 }
 
 postUserobs <- function(rooturl, userobs) {
-   
-   JSON <- paste("{ \"programid\" :", userobs["programid"], ", \"userid\" :", userobs["userid"], ", \"obsname\" :", userobs["obsname"], ", \"obsvalue\" :", userobs["obsvalue"], ", \"obsdesc\" :", userobs["obsdesc"], ", \"obsdate\" :", userobs["obsdate"], ", \"obstype\" : \"userobs\" }", sep="")   
+
+   JSON <- paste("{ \"programid\" :", userobs["programid"], ", \"userid\" :", userobs["userid"], ", \"obsname\" :", userobs["obsname"], ", \"obsvalue\" :", userobs["obsvalue"], ", \"obsdesc\" :", userobs["obsdesc"], ", \"obsdate\" :", userobs["obsdate"], ", \"obstype\" : \"userobs\" }", sep="")
    curl.opts <- list(postfields = JSON, httpheader = c("Content-Type: application/json", "Accept: application/json"), useragent = "RCurl", ssl.verifypeer = FALSE)
    print(JSON)
-   
-   result <- tryCatch({      
+
+   result <- tryCatch({
       postForm( paste(rooturl, "/userobs", sep=""), .opts = curl.opts )
       print(paste("Posting userobs-->", JSON, sep=""))
    }, warning = function(w) {
@@ -319,8 +319,8 @@ postUserobs <- function(rooturl, userobs) {
 }
 
 delUserobs <- function(rooturl, programid, userid, obsname) {
-   
-   result <- tryCatch({  
+
+   result <- tryCatch({
       getURL(paste(rooturl, "/userobs/del?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
    }, warning = function(w) {
       print("Warning")
@@ -330,12 +330,12 @@ delUserobs <- function(rooturl, programid, userid, obsname) {
       stop()
    }, finally = {
    })
-   
+
    return(result)
 }
 
 getUserobs <- function(rooturl, programid, userid, obsname) {
-  userobsJSON <- tryCatch({  
+  userobsJSON <- tryCatch({
     getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
   }, warning = function(w) {
     print("Warning getUserobs")
@@ -350,7 +350,7 @@ getUserobs <- function(rooturl, programid, userid, obsname) {
 }
 
 getMaxobsdate <- function(rooturl, programid, userid, obsname) {
-  userobsJSON <- tryCatch({  
+  userobsJSON <- tryCatch({
     getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
   }, warning = function(w) {
     print("Warning getUserobs")
@@ -377,7 +377,7 @@ getMaxobsdate <- function(rooturl, programid, userid, obsname) {
 }
 
 getUserobsDF <- function(rooturl, programid, userid, obsname) {
-   userobsJSON <- tryCatch({  
+   userobsJSON <- tryCatch({
       getURL(paste(rooturl, "/userobs/user?programid=", programid, "&userid=", userid, "&obsname=", obsname, sep=""))
    }, warning = function(w) {
       print("Warning getUserobsDF")
@@ -387,23 +387,23 @@ getUserobsDF <- function(rooturl, programid, userid, obsname) {
       stop()
    }, finally = {
    })
-   
+
    userobsDF <- NULL
    if ( is.null(userobsJSON) ) { return(userobsDF) }
-   
+
    userobss <- fromJSON(userobsJSON)
-      
+
    for (userobs in userobss) {
       obsdate <- toString(as.POSIXlt( as.numeric(userobs$obsdate)/1000, origin="1970-01-01 00:00:00" ))
       userobsDF <- cbind( userobsDF, c( id=userobs$userobsid, username=userobs$userid, obsname=userobs$obsname, obsdate=obsdate, obsvalue=userobs$obsvalue ) )
    }
    userobsDF <- t(userobsDF)
-   userobsDF <- userobsDF[order(userobsDF[, "obsdate"]),] 
+   userobsDF <- userobsDF[order(userobsDF[, "obsdate"]),]
    return(userobsDF)
 }
 
 getUserdiaryDF <- function(rooturl, programid, userid) {
-  userdiaryJSON <- tryCatch({  
+  userdiaryJSON <- tryCatch({
     getURL(paste(rooturl, "/userdiary/user?programid=", programid, "&userid=", userid, sep=""))
   }, warning = function(w) {
     print("Warning getUserdiaryDF")
@@ -413,23 +413,23 @@ getUserdiaryDF <- function(rooturl, programid, userid) {
     stop()
   }, finally = {
   })
-  
+
   userdiaryDF <- NULL
   if ( is.null(userdiaryJSON) ) { return(userdiaryDF) }
-  
+
   userdiarys <- fromJSON(userdiaryJSON)
-  
+
   for (userdiary in userdiarys) {
     diarydate <- toString(as.POSIXlt( as.numeric(userdiary$diarydate)/1000, origin="1970-01-01 00:00:00" ))
     userdiaryDF <- cbind( userdiaryDF, c( id=userdiary$userdiaryid, username=userdiary$userid, diarylabel=userdiary$diarylabel, diarydate=diarydate, diarytxt=userdiary$diarytxt ) )
   }
   userdiaryDF <- t(userdiaryDF)
-  userdiaryDF <- userdiaryDF[order(userdiaryDF[, "diarydate"]),] 
+  userdiaryDF <- userdiaryDF[order(userdiaryDF[, "diarydate"]),]
   return(userdiaryDF)
 }
 
 getOptinruleviewDF <- function(rooturl, programid, userid) {
-   optinruleviewJSON <- tryCatch({  
+   optinruleviewJSON <- tryCatch({
       getURL(paste(rooturl, "/optinruleview/user?programid=", programid, "&userid=", userid, sep=""))
    }, warning = function(w) {
       print("Warning")
@@ -452,7 +452,7 @@ getOptinruleviewDF <- function(rooturl, programid, userid) {
 
 
 getMsg <- function(rooturl, programid, userid) {
-  msgJSON <- tryCatch({  
+  msgJSON <- tryCatch({
     getURL(paste(rooturl, "/msg/isnotsent?programid=", programid, "&userid=", userid, sep=""))
   }, warning = function(w) {
     print("Warning getMsg")
@@ -467,7 +467,7 @@ getMsg <- function(rooturl, programid, userid) {
 }
 
 getMsgDF <- function(rooturl, programid, userid) {
-   msgJSON <- tryCatch({  
+   msgJSON <- tryCatch({
       getURL(paste(rooturl, "/msg/isnotsent?programid=", programid, "&userid=", userid, sep=""))
    }, warning = function(w) {
       print("Warning getMsgDF")
@@ -490,7 +490,7 @@ getMsgDF <- function(rooturl, programid, userid) {
 postMsg <- function(rootusr, msg) {
   JSON <- paste("{ \"programid\" :", msg["programid"], ", \"userid\" :", msg["userid"], ", \"ruleid\" :", msg["ruleid"], ", \"rulename\" :", msg["rulename"], ", \"ruledate\" :", msg["ruledate"], ", \"msgtxt\" :", msg["msgtxt"], " }", sep="")
   curl.opts <- list(postfields = JSON, httpheader = c("Content-Type: application/json", "Accept: application/json"), useragent = "RCurl", ssl.verifypeer = FALSE)
-  result <- tryCatch({      
+  result <- tryCatch({
     print(paste("Posting msg-->", JSON, sep=""))
     postForm( paste(rooturl, "/msg", sep=""), .opts = curl.opts )
   }, warning = function(w) {
@@ -500,12 +500,12 @@ postMsg <- function(rootusr, msg) {
     message(e)
     stop()
   }, finally = {
-  }) 
+  })
   return(result)
 }
 
 setMsgissent <- function(rooturl, msgid) {
-      msgJSON <- tryCatch({  
+      msgJSON <- tryCatch({
       getURL(paste(rooturl, "/msg/issent?msgid=", msgid, sep=""))
    }, warning = function(w) {
       print("Warning")
