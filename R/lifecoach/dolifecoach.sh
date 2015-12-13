@@ -35,7 +35,7 @@ git add images
 git commit -am "dolifecoach crontab batch script GitHub images"
 git push
 
-cp -r ~/GitHub/nudgeclient/images/lifecoach/user ~/websites/nudge/images/lifecoach/user
+cp -r ~/GitHub/nudgeclient/images/lifecoach/user ~/websites/nudge/images/lifecoach
 cd ~/websites/nudge
 git pull
 git add images
